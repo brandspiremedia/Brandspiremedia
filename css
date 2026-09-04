@@ -1,7 +1,7 @@
 /* =========================================================
    BRANDSPIRE MEDIA
-   PREMIUM BLACK / GOLD AGENCY WEBSITE
-   RESPONSIVE — NO HORIZONTAL SCROLL
+   PREMIUM BLACK + GOLD
+   RESPONSIVE / NO HORIZONTAL SCROLL
 ========================================================= */
 
 
@@ -25,20 +25,19 @@ html {
 body {
   width: 100%;
   max-width: 100%;
+  min-height: 100vh;
+
   margin: 0;
   padding: 0;
+
+  overflow-x: hidden;
 
   background: #080808;
   color: #f5f5f5;
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
 
   line-height: 1.6;
-
-  overflow-x: hidden;
 }
 
 img,
@@ -78,32 +77,31 @@ button {
 :root {
 
   --black: #080808;
-  --black-2: #0d0d0d;
+  --black-2: #0c0c0c;
   --black-3: #111111;
 
   --white: #f5f5f5;
-  --white-soft: #cfcfcf;
+  --white-soft: #d0d0d0;
   --muted: #969696;
 
   --gold: #d8a928;
   --gold-light: #f2c75c;
-  --gold-dark: #9f7615;
+  --gold-dark: #9e7415;
 
-  --border: rgba(255,255,255,.10);
-  --gold-border: rgba(216,169,40,.45);
+  --border: rgba(255, 255, 255, .10);
+  --gold-border: rgba(216, 169, 40, .50);
 
   --max: 1160px;
 
-  --radius: 14px;
-  --radius-small: 8px;
+  --radius: 12px;
 
   --shadow:
-    0 25px 70px rgba(0,0,0,.55);
+    0 25px 70px rgba(0, 0, 0, .65);
 }
 
 
 /* =========================================================
-   3. CONTAINER
+   3. GLOBAL CONTAINER
 ========================================================= */
 
 .container {
@@ -123,16 +121,11 @@ button {
   width: 100%;
 
   position: relative;
-  z-index: 100;
+  z-index: 1000;
 
-  background:
-    linear-gradient(
-      180deg,
-      rgba(8,8,8,.98),
-      rgba(8,8,8,.90)
-    );
+  background: rgba(8, 8, 8, .96);
 
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255, 255, 255, .07);
 }
 
 .nav {
@@ -146,30 +139,31 @@ button {
 }
 
 
-/* Logo */
+/* LOGO */
 
 .brand {
   display: flex;
   align-items: center;
 
-  min-width: 0;
   flex-shrink: 0;
+
+  min-width: 0;
 }
 
 .brand-logo {
-  width: 190px;
-  max-width: 190px;
+  width: 185px;
+  max-width: 185px;
   height: auto;
 }
 
 
-/* Navigation */
+/* NAV LINKS */
 
 .nav-links {
   display: flex;
   align-items: center;
 
-  gap: 30px;
+  gap: 28px;
 
   min-width: 0;
 }
@@ -182,7 +176,7 @@ button {
   font-size: 13px;
   font-weight: 600;
 
-  letter-spacing: .02em;
+  text-transform: uppercase;
 
   white-space: nowrap;
 
@@ -193,6 +187,9 @@ button {
 .nav-links a:hover {
   color: var(--gold-light);
 }
+
+
+/* NAV UNDERLINE */
 
 .nav-links a:not(.nav-cta)::after {
   content: "";
@@ -215,25 +212,26 @@ button {
 }
 
 
-/* Header CTA */
+/* NAV CTA */
 
 .nav-cta {
-  padding: 11px 19px;
+  padding: 11px 18px;
 
   border: 1px solid var(--gold);
 
-  color: var(--gold) !important;
-
   border-radius: 5px;
+
+  color: var(--gold) !important;
 }
 
 .nav-cta:hover {
   background: var(--gold);
+
   color: #080808 !important;
 }
 
 
-/* Mobile menu */
+/* MOBILE MENU */
 
 .menu-toggle {
   display: none;
@@ -241,13 +239,20 @@ button {
   width: 44px;
   height: 44px;
 
+  padding: 0;
+
   border: 1px solid var(--gold-border);
-  border-radius: 8px;
+
+  border-radius: 7px;
 
   background: transparent;
+
   color: var(--gold);
 
   font-size: 22px;
+
+  align-items: center;
+  justify-content: center;
 }
 
 
@@ -256,7 +261,7 @@ button {
 ========================================================= */
 
 .hero {
-  width: 100%;
+  width: min(var(--max), calc(100% - 40px));
   max-width: var(--max);
 
   min-height: 590px;
@@ -264,7 +269,7 @@ button {
   margin-left: auto;
   margin-right: auto;
 
-  padding-top: 75px;
+  padding-top: 70px;
   padding-bottom: 70px;
 
   display: grid;
@@ -275,39 +280,41 @@ button {
 
   align-items: center;
 
-  gap: 55px;
+  gap: 50px;
 
   position: relative;
+
+  overflow: hidden;
 }
 
 
-/* Golden glow */
+/* HERO GOLD GLOW */
 
 .hero::before {
   content: "";
 
   position: absolute;
 
-  width: 520px;
-  height: 520px;
+  width: 500px;
+  height: 500px;
 
   right: 5%;
-  top: 15%;
+  top: 10%;
 
   background:
     radial-gradient(
       circle,
-      rgba(216,169,40,.13),
-      transparent 65%
+      rgba(216, 169, 40, .12),
+      transparent 68%
     );
 
-  pointer-events: none;
+  filter: blur(20px);
 
-  filter: blur(15px);
+  pointer-events: none;
 }
 
 
-/* Hero text */
+/* HERO CONTENT */
 
 .hero-copy {
   position: relative;
@@ -317,14 +324,14 @@ button {
 }
 
 .eyebrow {
-  margin: 0 0 18px;
+  margin: 0 0 16px;
 
   color: var(--gold);
 
   font-size: 14px;
   font-weight: 700;
 
-  letter-spacing: .08em;
+  letter-spacing: .07em;
 
   text-transform: uppercase;
 }
@@ -334,7 +341,7 @@ button {
 
   max-width: 650px;
 
-  font-size: clamp(42px, 5vw, 70px);
+  font-size: clamp(44px, 5.5vw, 70px);
 
   line-height: .98;
 
@@ -350,7 +357,7 @@ button {
 }
 
 .hero-text {
-  max-width: 540px;
+  max-width: 535px;
 
   margin: 28px 0 0;
 
@@ -362,10 +369,11 @@ button {
 }
 
 
-/* Hero buttons */
+/* HERO BUTTONS */
 
 .hero-actions {
   display: flex;
+
   flex-wrap: wrap;
 
   gap: 14px;
@@ -390,6 +398,8 @@ button {
 
   letter-spacing: .03em;
 
+  text-transform: uppercase;
+
   transition:
     transform .25s ease,
     background .25s ease,
@@ -403,6 +413,7 @@ button {
 
 .button-gold {
   background: var(--gold);
+
   color: #080808;
 
   border: 1px solid var(--gold);
@@ -410,11 +421,13 @@ button {
 
 .button-gold:hover {
   background: var(--gold-light);
+
   border-color: var(--gold-light);
 }
 
 .button-outline {
   background: transparent;
+
   color: var(--gold);
 
   border: 1px solid var(--gold);
@@ -422,21 +435,23 @@ button {
 
 .button-outline:hover {
   background: var(--gold);
+
   color: #080808;
 }
 
 .handle {
-  margin: 22px 0 0;
+  margin: 20px 0 0;
 
   color: #777;
 
   font-size: 12px;
+
   letter-spacing: .08em;
 }
 
 
 /* =========================================================
-   6. HERO LOGO AREA
+   6. HERO LOGO
 ========================================================= */
 
 .hero-art {
@@ -456,22 +471,22 @@ button {
 }
 
 
-/* Decorative glow */
+/* LOGO GLOW */
 
 .hero-art::before {
   content: "";
 
   position: absolute;
 
-  width: 360px;
-  height: 360px;
+  width: 380px;
+  height: 380px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(216,169,40,.15),
+      rgba(216, 169, 40, .14),
       transparent 68%
     );
 
@@ -481,13 +496,15 @@ button {
 }
 
 
-/* Logo card */
+/* LOGO CARD */
 
 .hero-logo-card {
   width: 320px;
   max-width: 100%;
 
   height: 320px;
+
+  padding: 25px;
 
   display: flex;
 
@@ -498,27 +515,25 @@ button {
 
   overflow: hidden;
 
-  padding: 25px;
-
   border-radius: 18px;
 
-  border: 1px solid rgba(216,169,40,.30);
+  border: 1px solid rgba(216, 169, 40, .32);
 
   background:
     radial-gradient(
       circle at center,
-      #15130e 0%,
-      #0d0d0c 55%,
+      #17140d 0%,
+      #0e0e0d 55%,
       #090909 100%
     );
 
   box-shadow:
-    0 25px 70px rgba(0,0,0,.70),
-    inset 0 0 40px rgba(216,169,40,.04);
+    0 25px 70px rgba(0, 0, 0, .70),
+    inset 0 0 50px rgba(216, 169, 40, .04);
 }
 
 
-/* Gold circle behind logo */
+/* DECORATIVE CIRCLE */
 
 .hero-logo-card::before {
   content: "";
@@ -530,22 +545,23 @@ button {
 
   border-radius: 50%;
 
-  border: 1px solid rgba(216,169,40,.20);
+  border: 1px solid rgba(216, 169, 40, .18);
 
   box-shadow:
-    0 0 70px rgba(216,169,40,.10);
+    0 0 60px rgba(216, 169, 40, .08);
 
   pointer-events: none;
 }
 
 
-/* Actual logo */
+/* ACTUAL BRAND LOGO */
 
 .hero-logo {
-  position: relative;
-  z-index: 2;
-
   display: block !important;
+
+  position: relative;
+
+  z-index: 2;
 
   width: 220px !important;
   max-width: 220px !important;
@@ -565,6 +581,8 @@ button {
 ========================================================= */
 
 .section {
+  width: 100%;
+
   padding-top: 100px;
   padding-bottom: 100px;
 }
@@ -580,8 +598,9 @@ button {
       #0e0e0e
     );
 
-  border-top: 1px solid rgba(255,255,255,.06);
-  border-bottom: 1px solid rgba(255,255,255,.06);
+  border-top: 1px solid rgba(255, 255, 255, .06);
+
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
 }
 
 .section-alt > .container {
@@ -590,7 +609,46 @@ button {
 
 
 /* =========================================================
-   8. TWO COLUMN
+   8. HEADINGS
+========================================================= */
+
+h2 {
+  margin: 0;
+
+  font-size: clamp(34px, 4vw, 52px);
+
+  line-height: 1.05;
+
+  letter-spacing: -.035em;
+
+  text-transform: uppercase;
+}
+
+h2 span {
+  color: var(--gold);
+}
+
+.section-heading {
+  max-width: 750px;
+
+  margin-bottom: 50px;
+}
+
+.section-heading > p:last-child {
+  max-width: 620px;
+
+  margin-top: 18px;
+
+  color: var(--muted);
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+/* =========================================================
+   9. TWO COLUMN
 ========================================================= */
 
 .two-col {
@@ -611,43 +669,6 @@ button {
 
 
 /* =========================================================
-   9. HEADINGS
-========================================================= */
-
-h2 {
-  margin: 0;
-
-  font-size: clamp(32px, 4vw, 52px);
-
-  line-height: 1.05;
-
-  letter-spacing: -.035em;
-
-  text-transform: uppercase;
-}
-
-h2 span {
-  color: var(--gold);
-}
-
-.section-heading {
-  max-width: 720px;
-
-  margin-bottom: 50px;
-}
-
-.section-heading > p:last-child {
-  max-width: 600px;
-
-  margin-top: 18px;
-
-  color: var(--muted);
-
-  font-size: 15px;
-}
-
-
-/* =========================================================
    10. SERVICES
 ========================================================= */
 
@@ -663,9 +684,9 @@ h2 span {
 .service-card {
   min-width: 0;
 
-  padding: 30px 25px;
+  min-height: 225px;
 
-  min-height: 235px;
+  padding: 28px 24px;
 
   border: 1px solid var(--border);
 
@@ -692,7 +713,7 @@ h2 span {
   background:
     linear-gradient(
       145deg,
-      #15130e,
+      #15130d,
       #0b0b0b
     );
 }
@@ -700,22 +721,22 @@ h2 span {
 .service-card > span {
   display: inline-block;
 
-  margin-bottom: 25px;
+  margin-bottom: 22px;
 
   color: var(--gold);
 
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
 
   letter-spacing: .08em;
 }
 
 .service-card h3 {
-  margin: 0 0 13px;
+  margin: 0 0 12px;
 
-  font-size: 19px;
+  font-size: 18px;
 
-  line-height: 1.2;
+  line-height: 1.25;
 
   text-transform: uppercase;
 }
@@ -732,7 +753,7 @@ h2 span {
 
 
 /* =========================================================
-   11. WORK / PORTFOLIO
+   11. PORTFOLIO
 ========================================================= */
 
 .work-grid {
@@ -741,7 +762,7 @@ h2 span {
   grid-template-columns:
     repeat(3, minmax(0, 1fr));
 
-  gap: 18px;
+  gap: 22px 18px;
 }
 
 .work-card {
@@ -758,7 +779,7 @@ h2 span {
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(216,169,40,.20);
+  border: 1px solid rgba(216, 169, 40, .22);
 
   border-radius: 12px;
 
@@ -766,7 +787,7 @@ h2 span {
     radial-gradient(
       circle at center,
       #17130a,
-      #0d0d0d 65%
+      #0d0d0d 70%
     );
 
   color: var(--gold);
@@ -774,7 +795,7 @@ h2 span {
   font-size: 13px;
   font-weight: 700;
 
-  letter-spacing: .10em;
+  letter-spacing: .1em;
 
   transition:
     transform .3s ease,
@@ -788,7 +809,7 @@ h2 span {
 }
 
 .work-card h3 {
-  margin: 18px 0 5px;
+  margin: 17px 0 5px;
 
   font-size: 17px;
 
@@ -813,13 +834,13 @@ h2 span {
 
   padding: 100px 0;
 
-  border-top: 1px solid rgba(255,255,255,.06);
+  border-top: 1px solid rgba(255, 255, 255, .06);
 
   background:
     radial-gradient(
       circle at center,
-      rgba(216,169,40,.08),
-      transparent 55%
+      rgba(216, 169, 40, .08),
+      transparent 58%
     ),
     #090909;
 }
@@ -832,6 +853,10 @@ h2 span {
   max-width: 800px;
 
   margin: 0 auto 30px;
+}
+
+.cta .button {
+  margin: 5px;
 }
 
 
@@ -851,6 +876,10 @@ h2 span {
   align-items: center;
 }
 
+.contact > * {
+  min-width: 0;
+}
+
 .contact-box {
   min-width: 0;
 
@@ -866,11 +895,13 @@ h2 span {
 .contact-box a {
   display: block;
 
-  margin: 10px 0;
+  margin: 14px 0;
 
   color: var(--gold);
 
-  font-size: 16px;
+  font-size: 15px;
+
+  line-height: 1.5;
 
   word-break: break-word;
 
@@ -891,7 +922,7 @@ h2 span {
 
   padding: 45px 0 25px;
 
-  border-top: 1px solid rgba(255,255,255,.08);
+  border-top: 1px solid rgba(255, 255, 255, .08);
 
   background: #070707;
 }
@@ -923,28 +954,17 @@ h2 span {
 
 
 /* =========================================================
-   15. REVEAL ANIMATION
+   15. TABLET
 ========================================================= */
 
-.reveal {
-  opacity: 1;
-
-  transform: translateY(0);
-}
-
-
-/* =========================================================
-   16. TABLET
-========================================================= */
-
-@media (max-width: 1000px) {
+@media (max-width: 1050px) {
 
   .nav-links {
     gap: 18px;
   }
 
   .nav-links a {
-    font-size: 12px;
+    font-size: 11px;
   }
 
   .hero {
@@ -961,8 +981,8 @@ h2 span {
   }
 
   .hero-logo {
-    width: 205px !important;
-    max-width: 205px !important;
+    width: 200px !important;
+    max-width: 200px !important;
   }
 
   .service-grid {
@@ -978,7 +998,7 @@ h2 span {
 
 
 /* =========================================================
-   17. MOBILE NAVIGATION
+   16. MOBILE NAV
 ========================================================= */
 
 @media (max-width: 800px) {
@@ -994,9 +1014,6 @@ h2 span {
 
   .menu-toggle {
     display: flex;
-
-    align-items: center;
-    justify-content: center;
   }
 
   .nav-links {
@@ -1004,13 +1021,14 @@ h2 span {
 
     position: absolute;
 
-    left: 20px;
-    right: 20px;
+    left: 15px;
+    right: 15px;
     top: 72px;
 
-    padding: 20px;
+    padding: 18px;
 
     flex-direction: column;
+
     align-items: stretch;
 
     gap: 0;
@@ -1032,10 +1050,16 @@ h2 span {
     padding: 13px 8px;
 
     border-bottom: 1px solid rgba(255,255,255,.06);
+
+    font-size: 13px;
   }
 
   .nav-links a:last-child {
     border-bottom: none;
+  }
+
+  .nav-links a:not(.nav-cta)::after {
+    display: none;
   }
 
   .nav-cta {
@@ -1047,7 +1071,7 @@ h2 span {
 
 
 /* =========================================================
-   18. MOBILE HERO
+   17. MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
@@ -1065,19 +1089,24 @@ h2 span {
     width: min(100% - 30px, 600px);
   }
 
+
+  /* HERO */
+
   .hero {
     width: min(100% - 30px, 600px);
 
     min-height: auto;
 
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 55px;
+    padding-bottom: 65px;
 
     grid-template-columns: 1fr;
 
-    gap: 50px;
+    gap: 45px;
 
     text-align: center;
+
+    overflow: hidden;
   }
 
   .hero-copy {
@@ -1085,7 +1114,7 @@ h2 span {
   }
 
   .hero h1 {
-    font-size: clamp(40px, 11vw, 58px);
+    font-size: clamp(38px, 10vw, 58px);
 
     line-height: 1;
   }
@@ -1106,10 +1135,12 @@ h2 span {
   }
 
 
+  /* HERO LOGO */
+
   .hero-art {
     width: 100%;
 
-    min-height: 300px;
+    min-height: 290px;
   }
 
   .hero-logo-card {
@@ -1127,12 +1158,14 @@ h2 span {
   }
 
   .hero-logo {
-    width: 190px !important;
-    max-width: 190px !important;
+    width: 185px !important;
+    max-width: 185px !important;
 
-    max-height: 190px !important;
+    max-height: 185px !important;
   }
 
+
+  /* TWO COLUMN */
 
   .two-col {
     grid-template-columns: 1fr;
@@ -1141,12 +1174,16 @@ h2 span {
   }
 
 
+  /* CONTACT */
+
   .contact {
     grid-template-columns: 1fr;
 
     gap: 35px;
   }
 
+
+  /* FOOTER */
 
   .footer-inner {
     flex-direction: column;
@@ -1155,11 +1192,12 @@ h2 span {
 
     gap: 25px;
   }
+
 }
 
 
 /* =========================================================
-   19. SMALL MOBILE
+   18. SMALL MOBILE
 ========================================================= */
 
 @media (max-width: 520px) {
@@ -1172,30 +1210,24 @@ h2 span {
     width: calc(100% - 28px);
   }
 
-  .nav {
-    min-height: 68px;
-  }
+
+  /* HEADER */
 
   .brand-logo {
     width: 145px;
     max-width: 145px;
   }
 
-  .nav-links {
-    top: 68px;
 
-    left: 14px;
-    right: 14px;
-  }
-
+  /* HERO */
 
   .hero {
     width: calc(100% - 28px);
 
-    padding-top: 50px;
+    padding-top: 45px;
     padding-bottom: 55px;
 
-    gap: 40px;
+    gap: 38px;
   }
 
   .eyebrow {
@@ -1213,6 +1245,8 @@ h2 span {
   }
 
 
+  /* BUTTONS */
+
   .hero-actions {
     width: 100%;
 
@@ -1225,6 +1259,8 @@ h2 span {
     width: 100%;
   }
 
+
+  /* LOGO */
 
   .hero-logo-card {
     width: 230px !important;
@@ -1246,11 +1282,15 @@ h2 span {
   }
 
 
+  /* GRIDS */
+
   .service-grid,
   .work-grid {
     grid-template-columns: 1fr;
   }
 
+
+  /* CARDS */
 
   .service-card {
     min-height: auto;
@@ -1258,6 +1298,8 @@ h2 span {
     padding: 25px 20px;
   }
 
+
+  /* HEADINGS */
 
   .section-heading {
     margin-bottom: 35px;
@@ -1268,10 +1310,14 @@ h2 span {
   }
 
 
+  /* CTA */
+
   .cta-section {
     padding: 75px 0;
   }
 
+
+  /* CONTACT */
 
   .contact-box {
     padding: 22px;
@@ -1281,7 +1327,7 @@ h2 span {
 
 
 /* =========================================================
-   20. VERY SMALL DEVICES
+   19. VERY SMALL PHONES
 ========================================================= */
 
 @media (max-width: 360px) {
@@ -1308,6 +1354,8 @@ h2 span {
   .hero-logo {
     width: 145px !important;
     max-width: 145px !important;
+
+    max-height: 145px !important;
   }
 
 }
