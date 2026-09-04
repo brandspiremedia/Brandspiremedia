@@ -12,18 +12,32 @@
 
 *{
   box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
 html{
   scroll-behavior:smooth;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
 }
 
 body{
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
   margin:0;
   background:var(--bg);
   color:var(--text);
   font-family:"DM Sans",Arial,sans-serif;
   line-height:1.6;
+}
+
+img{
+  display:block;
+  max-width:100%;
+  height:auto;
 }
 
 a{
@@ -32,8 +46,10 @@ a{
 }
 
 .container{
-  width:min(var(--max),calc(100% - 40px));
-  margin:auto;
+  width:min(var(--max),calc(100% - 80px));
+  max-width:var(--max);
+  margin-left:auto;
+  margin-right:auto;
 }
 
 
@@ -44,6 +60,7 @@ a{
 .site-header{
   position:static !important;
   width:100%;
+  max-width:100%;
   height:76px;
   background:#080808;
   border-bottom:1px solid var(--line);
@@ -52,6 +69,8 @@ a{
 
 .nav{
   position:static !important;
+  width:min(var(--max),calc(100% - 80px));
+  max-width:var(--max);
   height:76px;
   min-height:76px;
   display:flex;
@@ -64,13 +83,14 @@ a{
   align-items:center;
   width:auto;
   height:60px;
+  flex-shrink:0;
 }
 
 .brand-logo{
   display:block !important;
   width:155px !important;
-  height:auto !important;
   max-width:155px !important;
+  height:auto !important;
   max-height:58px !important;
   object-fit:contain;
 }
@@ -112,13 +132,19 @@ a{
 ========================= */
 
 .hero{
+  width:min(var(--max),calc(100% - 80px));
+  max-width:var(--max);
   min-height:calc(100vh - 76px);
   display:grid;
-  grid-template-columns:1.1fr .9fr;
+  grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);
   align-items:center;
   gap:40px;
   padding-top:50px;
   padding-bottom:80px;
+}
+
+.hero-copy{
+  min-width:0;
 }
 
 .eyebrow{
@@ -202,13 +228,15 @@ h2 span{
 
 .hero-art{
   min-height:500px;
+  min-width:0;
   display:grid;
   place-items:center;
   position:relative;
 }
 
 .hero-logo-card{
-  width:min(360px,75%);
+  width:360px;
+  max-width:100%;
   aspect-ratio:1/1;
   display:flex;
   align-items:center;
@@ -227,6 +255,7 @@ h2 span{
   position:absolute;
   width:300px;
   height:300px;
+  max-width:100%;
   border-radius:50%;
   background:radial-gradient(
     circle,
@@ -252,6 +281,8 @@ h2 span{
 ========================= */
 
 .section{
+  width:100%;
+  max-width:100%;
   padding:110px 0;
 }
 
@@ -261,8 +292,12 @@ h2 span{
 
 .two-col{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   gap:90px;
+}
+
+.two-col > *{
+  min-width:0;
 }
 
 .two-col p{
@@ -286,11 +321,12 @@ h2 span{
 
 .service-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:16px;
 }
 
 .service-card{
+  min-width:0;
   padding:30px;
   border:1px solid var(--line);
   background:#0d0d0c;
@@ -326,17 +362,19 @@ h2 span{
 
 .work-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:18px;
 }
 
 .work-card{
+  min-width:0;
   background:#0b0b0a;
   border:1px solid var(--line);
   padding:15px;
 }
 
 .work-placeholder{
+  width:100%;
   aspect-ratio:4/3;
   display:grid;
   place-items:center;
@@ -374,6 +412,8 @@ h2 span{
 ========================= */
 
 .cta-section{
+  width:100%;
+  max-width:100%;
   padding:120px 0;
   text-align:center;
   background:
@@ -395,11 +435,16 @@ h2 span{
 
 .contact{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
   gap:80px;
 }
 
+.contact > *{
+  min-width:0;
+}
+
 .contact-box{
+  min-width:0;
   border-left:1px solid var(--gold);
   padding:20px 30px;
   display:flex;
@@ -411,6 +456,7 @@ h2 span{
 .contact-box a{
   font-size:18px;
   overflow-wrap:anywhere;
+  word-break:break-word;
 }
 
 .contact-box a:hover{
@@ -423,6 +469,8 @@ h2 span{
 ========================= */
 
 .footer{
+  width:100%;
+  max-width:100%;
   border-top:1px solid var(--line);
   padding:35px 0;
   color:#888;
@@ -469,6 +517,13 @@ h2 span{
 
 @media(max-width:800px){
 
+  .container,
+  .nav,
+  .hero{
+    width:calc(100% - 40px);
+    max-width:none;
+  }
+
   .site-header{
     position:static !important;
     height:76px;
@@ -496,6 +551,7 @@ h2 span{
     top:76px;
     left:0;
     right:0;
+    width:100%;
     background:#0b0b0a;
     border-bottom:1px solid var(--line);
     padding:20px;
@@ -514,6 +570,7 @@ h2 span{
   .hero{
     grid-template-columns:1fr;
     padding-top:65px;
+    padding-bottom:60px;
   }
 
   .hero-art{
@@ -523,6 +580,7 @@ h2 span{
 
   .hero-logo-card{
     width:290px;
+    max-width:90%;
     padding:25px;
     border-radius:20px;
   }
