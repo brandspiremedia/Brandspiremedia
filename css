@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
 :root{
   --bg:#080808;
   --panel:#11110f;
@@ -22,7 +24,6 @@ body{
   color:var(--text);
   font-family:"DM Sans",Arial,sans-serif;
   line-height:1.6;
-  overflow-x:hidden;
 }
 
 a{
@@ -36,42 +37,42 @@ a{
 }
 
 /* =========================
-   HEADER
+   HEADER - NOT STICKY
 ========================= */
 
 .site-header{
-  position:relative;
-  z-index:20;
-  background:rgba(8,8,8,.96);
+  position:static !important;
+  top:auto !important;
+  left:auto !important;
+  right:auto !important;
+  z-index:auto !important;
+  width:100%;
+  background:#080808;
   border-bottom:1px solid var(--line);
+  box-shadow:none;
 }
 
 .nav{
+  position:static !important;
   min-height:76px;
+  height:76px;
   display:flex;
   align-items:center;
   justify-content:space-between;
 }
 
-/* HEADER LOGO */
-
 .brand{
   display:flex;
   align-items:center;
-  width:155px;
-  height:58px;
-  overflow:hidden;
 }
 
 .brand-logo{
-  width:155px;
-  height:58px;
-  object-fit:contain;
-  object-position:left center;
   display:block;
+  width:155px;
+  height:auto;
+  max-height:58px;
+  object-fit:contain;
 }
-
-/* NAVIGATION */
 
 .nav-links{
   display:flex;
@@ -111,11 +112,11 @@ a{
 .hero{
   min-height:calc(100vh - 76px);
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:1.1fr .9fr;
   align-items:center;
-  gap:45px;
-  padding-top:55px;
-  padding-bottom:70px;
+  gap:40px;
+  padding-top:50px;
+  padding-bottom:80px;
 }
 
 .eyebrow{
@@ -127,14 +128,13 @@ a{
 
 .hero h1,
 h2{
-  font-family:Georgia,"Times New Roman",serif;
+  font-family:"Playfair Display",Georgia,serif;
   line-height:1.05;
   margin:18px 0;
 }
 
 .hero h1{
-  font-size:clamp(48px,6vw,76px);
-  max-width:650px;
+  font-size:clamp(48px,7vw,82px);
 }
 
 h2{
@@ -194,11 +194,11 @@ h2 span{
 }
 
 /* =========================
-   HERO LOGO
+   HERO BRAND CARD
 ========================= */
 
 .hero-art{
-  min-height:420px;
+  min-height:500px;
   display:grid;
   place-items:center;
   position:relative;
@@ -206,36 +206,49 @@ h2 span{
 
 .glow{
   position:absolute;
-  width:390px;
-  height:390px;
+  width:360px;
+  height:360px;
   border-radius:50%;
   background:radial-gradient(
     circle,
-    rgba(215,173,87,.18),
+    rgba(215,173,87,.22),
     transparent 68%
   );
-  filter:blur(15px);
+  filter:blur(10px);
 }
-
-/* REAL LOGO */
 
 .spire-card{
   position:relative;
-  width:390px;
-  max-width:78%;
-  aspect-ratio:1.25/1;
-  background-image:url("../assets/brandspire-logo.png");
-  background-size:contain;
-  background-repeat:no-repeat;
-  background-position:center;
+  width:min(390px,80%);
+  aspect-ratio:1/1;
+  background:
+    linear-gradient(145deg,#191815,#090909);
+  border:1px solid #3d3526;
+  box-shadow:0 30px 80px #000;
+  border-radius:18px;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  overflow:hidden;
 }
 
-/* Remove old fake logo */
+.spire{
+  font:700 120px/1 Georgia,serif;
+  color:transparent;
+  -webkit-text-stroke:1px var(--gold);
+  letter-spacing:-15px;
+  margin-right:15px;
+}
 
-.spire-card .spire,
-.spire-card p,
+.spire-card p{
+  letter-spacing:8px;
+  margin:25px 0 0;
+  font-weight:700;
+}
+
 .spire-card small{
-  display:none;
+  color:var(--gold);
+  letter-spacing:7px;
 }
 
 /* =========================
@@ -266,7 +279,7 @@ h2 span{
   margin-bottom:50px;
 }
 
-.section-heading>p:last-child{
+.section-heading > p:last-child{
   color:var(--muted);
 }
 
@@ -310,7 +323,7 @@ h2 span{
 }
 
 /* =========================
-   OUR WORK
+   WORK
 ========================= */
 
 .work-grid{
@@ -355,11 +368,12 @@ h2 span{
 .cta-section{
   padding:120px 0;
   text-align:center;
-  background:radial-gradient(
-    circle at center,
-    #211b10 0,
-    #080808 55%
-  );
+  background:
+    radial-gradient(
+      circle at center,
+      #211b10 0,
+      #080808 55%
+    );
 }
 
 .cta h2{
@@ -421,7 +435,7 @@ h2 span{
 }
 
 /* =========================
-   SCROLL ANIMATION
+   ANIMATION
 ========================= */
 
 .reveal{
@@ -438,23 +452,24 @@ h2 span{
 }
 
 /* =========================
-   TABLET / MOBILE
+   MOBILE
 ========================= */
 
 @media(max-width:800px){
 
-  .nav{
-    min-height:70px;
+  .site-header{
+    position:static !important;
   }
 
-  .brand{
-    width:135px;
-    height:52px;
+  .nav{
+    position:static !important;
+    height:76px;
+    min-height:76px;
   }
 
   .brand-logo{
     width:135px;
-    height:52px;
+    max-height:52px;
   }
 
   .menu-toggle{
@@ -464,7 +479,7 @@ h2 span{
   .nav-links{
     display:none;
     position:absolute;
-    top:70px;
+    top:76px;
     left:0;
     right:0;
     background:#0b0b0a;
@@ -484,29 +499,20 @@ h2 span{
 
   .hero{
     grid-template-columns:1fr;
-    gap:15px;
-    min-height:auto;
-    padding-top:45px;
-    padding-bottom:70px;
+    padding-top:65px;
   }
 
   .hero-art{
-    min-height:300px;
+    min-height:350px;
     order:-1;
   }
 
   .spire-card{
-    width:310px;
-    max-width:90%;
+    width:270px;
   }
 
-  .glow{
-    width:300px;
-    height:300px;
-  }
-
-  .hero h1{
-    font-size:52px;
+  .spire{
+    font-size:85px;
   }
 
   .two-col,
@@ -527,50 +533,8 @@ h2 span{
   .footer-inner{
     flex-direction:column;
   }
-}
-
-/* =========================
-   SMALL PHONES
-========================= */
-
-@media(max-width:480px){
-
-  .container{
-    width:calc(100% - 28px);
-  }
-
-  .brand{
-    width:120px;
-    height:48px;
-  }
-
-  .brand-logo{
-    width:120px;
-    height:48px;
-  }
 
   .hero h1{
-    font-size:43px;
-  }
-
-  .hero-text{
-    font-size:15px;
-  }
-
-  .hero-art{
-    min-height:230px;
-  }
-
-  .spire-card{
-    width:270px;
-    max-width:90%;
-  }
-
-  h2{
-    font-size:40px;
-  }
-
-  .service-card{
-    padding:24px;
+    font-size:52px;
   }
 }
