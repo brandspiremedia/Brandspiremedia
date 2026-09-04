@@ -1,12 +1,8 @@
 /* =========================================================
    BRANDSPIRE MEDIA
    PREMIUM BLACK + GOLD
-   RESPONSIVE / NO HORIZONTAL SCROLL
-========================================================= */
-
-
-/* =========================================================
-   1. RESET
+   RESPONSIVE
+   NO HORIZONTAL SCROLL
 ========================================================= */
 
 *,
@@ -15,34 +11,27 @@
   box-sizing: border-box;
 }
 
-html {
+html,
+body {
   width: 100%;
   max-width: 100%;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
+}
+
+html {
   scroll-behavior: smooth;
 }
 
 body {
-  width: 100%;
-  max-width: 100%;
-  min-height: 100vh;
-
-  margin: 0;
-  padding: 0;
-
-  overflow-x: hidden;
-
   background: #080808;
   color: #f5f5f5;
-
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
-
   line-height: 1.6;
 }
 
-img,
-video,
-iframe {
+img {
   display: block;
   max-width: 100%;
   height: auto;
@@ -53,79 +42,52 @@ a {
   text-decoration: none;
 }
 
-button,
-input,
-textarea,
-select {
-  font: inherit;
-}
-
 button {
+  font: inherit;
   cursor: pointer;
 }
 
-::selection {
-  background: #d8a928;
-  color: #080808;
-}
-
-
-/* =========================================================
-   2. VARIABLES
-========================================================= */
-
 :root {
-
   --black: #080808;
-  --black-2: #0c0c0c;
-  --black-3: #111111;
+  --black-2: #0d0d0d;
+  --black-3: #121212;
 
   --white: #f5f5f5;
-  --white-soft: #d0d0d0;
-  --muted: #969696;
+  --muted: #999;
 
   --gold: #d8a928;
-  --gold-light: #f2c75c;
-  --gold-dark: #9e7415;
+  --gold-light: #f3c95b;
 
-  --border: rgba(255, 255, 255, .10);
-  --gold-border: rgba(216, 169, 40, .50);
+  --border: rgba(255,255,255,.10);
+  --gold-border: rgba(216,169,40,.50);
 
   --max: 1160px;
-
-  --radius: 12px;
-
-  --shadow:
-    0 25px 70px rgba(0, 0, 0, .65);
 }
 
 
 /* =========================================================
-   3. GLOBAL CONTAINER
+   CONTAINER
 ========================================================= */
 
 .container {
   width: min(var(--max), calc(100% - 40px));
   max-width: var(--max);
-
   margin-left: auto;
   margin-right: auto;
 }
 
 
 /* =========================================================
-   4. HEADER
+   HEADER
 ========================================================= */
 
 .site-header {
   width: 100%;
-
   position: relative;
   z-index: 1000;
 
-  background: rgba(8, 8, 8, .96);
-
-  border-bottom: 1px solid rgba(255, 255, 255, .07);
+  background: #080808;
+  border-bottom: 1px solid rgba(255,255,255,.08);
 }
 
 .nav {
@@ -138,16 +100,8 @@ button {
   gap: 30px;
 }
 
-
-/* LOGO */
-
 .brand {
-  display: flex;
-  align-items: center;
-
   flex-shrink: 0;
-
-  min-width: 0;
 }
 
 .brand-logo {
@@ -156,40 +110,29 @@ button {
   height: auto;
 }
 
-
-/* NAV LINKS */
-
 .nav-links {
   display: flex;
   align-items: center;
-
   gap: 28px;
-
-  min-width: 0;
 }
 
 .nav-links a {
   position: relative;
 
-  color: #eeeeee;
+  color: #eee;
 
   font-size: 13px;
   font-weight: 600;
 
   text-transform: uppercase;
-
   white-space: nowrap;
 
-  transition:
-    color .25s ease;
+  transition: .25s ease;
 }
 
 .nav-links a:hover {
-  color: var(--gold-light);
+  color: var(--gold);
 }
-
-
-/* NAV UNDERLINE */
 
 .nav-links a:not(.nav-cta)::after {
   content: "";
@@ -197,7 +140,7 @@ button {
   position: absolute;
 
   left: 0;
-  bottom: -8px;
+  bottom: -7px;
 
   width: 0;
   height: 2px;
@@ -211,14 +154,10 @@ button {
   width: 100%;
 }
 
-
-/* NAV CTA */
-
 .nav-cta {
   padding: 11px 18px;
 
   border: 1px solid var(--gold);
-
   border-radius: 5px;
 
   color: var(--gold) !important;
@@ -226,12 +165,8 @@ button {
 
 .nav-cta:hover {
   background: var(--gold);
-
   color: #080808 !important;
 }
-
-
-/* MOBILE MENU */
 
 .menu-toggle {
   display: none;
@@ -239,35 +174,24 @@ button {
   width: 44px;
   height: 44px;
 
-  padding: 0;
-
-  border: 1px solid var(--gold-border);
-
+  border: 1px solid var(--gold);
   border-radius: 7px;
 
   background: transparent;
-
   color: var(--gold);
 
   font-size: 22px;
-
-  align-items: center;
-  justify-content: center;
 }
 
 
 /* =========================================================
-   5. HERO
+   HERO
 ========================================================= */
 
 .hero {
-  width: min(var(--max), calc(100% - 40px));
-  max-width: var(--max);
+  position: relative;
 
   min-height: 590px;
-
-  margin-left: auto;
-  margin-right: auto;
 
   padding-top: 70px;
   padding-bottom: 70px;
@@ -275,20 +199,15 @@ button {
   display: grid;
 
   grid-template-columns:
-    minmax(0, 1.05fr)
-    minmax(0, .95fr);
+    minmax(0, 1fr)
+    minmax(0, 1fr);
 
   align-items: center;
 
   gap: 50px;
 
-  position: relative;
-
   overflow: hidden;
 }
-
-
-/* HERO GOLD GLOW */
 
 .hero::before {
   content: "";
@@ -298,23 +217,20 @@ button {
   width: 500px;
   height: 500px;
 
-  right: 5%;
-  top: 10%;
+  right: 0;
+  top: 50%;
+
+  transform: translateY(-50%);
 
   background:
     radial-gradient(
       circle,
-      rgba(216, 169, 40, .12),
+      rgba(216,169,40,.13),
       transparent 68%
     );
 
-  filter: blur(20px);
-
   pointer-events: none;
 }
-
-
-/* HERO CONTENT */
 
 .hero-copy {
   position: relative;
@@ -331,8 +247,7 @@ button {
   font-size: 14px;
   font-weight: 700;
 
-  letter-spacing: .07em;
-
+  letter-spacing: .08em;
   text-transform: uppercase;
 }
 
@@ -340,6 +255,8 @@ button {
   margin: 0;
 
   max-width: 650px;
+
+  color: #f5f5f5;
 
   font-size: clamp(44px, 5.5vw, 70px);
 
@@ -357,23 +274,19 @@ button {
 }
 
 .hero-text {
-  max-width: 535px;
+  max-width: 540px;
 
   margin: 28px 0 0;
 
-  color: var(--white-soft);
+  color: #cfcfcf;
 
   font-size: 16px;
 
   line-height: 1.75;
 }
 
-
-/* HERO BUTTONS */
-
 .hero-actions {
   display: flex;
-
   flex-wrap: wrap;
 
   gap: 14px;
@@ -396,15 +309,9 @@ button {
   font-size: 13px;
   font-weight: 700;
 
-  letter-spacing: .03em;
-
   text-transform: uppercase;
 
-  transition:
-    transform .25s ease,
-    background .25s ease,
-    color .25s ease,
-    border-color .25s ease;
+  transition: .25s ease;
 }
 
 .button:hover {
@@ -413,7 +320,6 @@ button {
 
 .button-gold {
   background: var(--gold);
-
   color: #080808;
 
   border: 1px solid var(--gold);
@@ -421,13 +327,10 @@ button {
 
 .button-gold:hover {
   background: var(--gold-light);
-
-  border-color: var(--gold-light);
 }
 
 .button-outline {
   background: transparent;
-
   color: var(--gold);
 
   border: 1px solid var(--gold);
@@ -435,7 +338,6 @@ button {
 
 .button-outline:hover {
   background: var(--gold);
-
   color: #080808;
 }
 
@@ -445,33 +347,26 @@ button {
   color: #777;
 
   font-size: 12px;
-
   letter-spacing: .08em;
 }
 
 
 /* =========================================================
-   6. HERO LOGO
+   HERO LOGO
 ========================================================= */
 
 .hero-art {
   width: 100%;
   min-width: 0;
-
   min-height: 420px;
+
+  position: relative;
 
   display: flex;
 
   align-items: center;
   justify-content: center;
-
-  position: relative;
-
-  z-index: 2;
 }
-
-
-/* LOGO GLOW */
 
 .hero-art::before {
   content: "";
@@ -486,17 +381,12 @@ button {
   background:
     radial-gradient(
       circle,
-      rgba(216, 169, 40, .14),
+      rgba(216,169,40,.14),
       transparent 68%
     );
 
   filter: blur(20px);
-
-  pointer-events: none;
 }
-
-
-/* LOGO CARD */
 
 .hero-logo-card {
   width: 320px;
@@ -506,34 +396,28 @@ button {
 
   padding: 25px;
 
+  position: relative;
+
   display: flex;
 
   align-items: center;
   justify-content: center;
 
-  position: relative;
-
   overflow: hidden;
 
+  border: 1px solid rgba(216,169,40,.35);
   border-radius: 18px;
-
-  border: 1px solid rgba(216, 169, 40, .32);
 
   background:
     radial-gradient(
-      circle at center,
-      #17140d 0%,
-      #0e0e0d 55%,
-      #090909 100%
+      circle,
+      #17140d,
+      #0b0b0b 70%
     );
 
   box-shadow:
-    0 25px 70px rgba(0, 0, 0, .70),
-    inset 0 0 50px rgba(216, 169, 40, .04);
+    0 25px 70px rgba(0,0,0,.7);
 }
-
-
-/* DECORATIVE CIRCLE */
 
 .hero-logo-card::before {
   content: "";
@@ -545,39 +429,25 @@ button {
 
   border-radius: 50%;
 
-  border: 1px solid rgba(216, 169, 40, .18);
-
-  box-shadow:
-    0 0 60px rgba(216, 169, 40, .08);
-
-  pointer-events: none;
+  border: 1px solid rgba(216,169,40,.18);
 }
 
-
-/* ACTUAL BRAND LOGO */
-
 .hero-logo {
-  display: block !important;
-
   position: relative;
-
   z-index: 2;
 
   width: 220px !important;
   max-width: 220px !important;
 
   height: auto !important;
-
   max-height: 220px !important;
 
   object-fit: contain;
-
-  margin: auto;
 }
 
 
 /* =========================================================
-   7. SECTIONS
+   SECTIONS
 ========================================================= */
 
 .section {
@@ -598,9 +468,8 @@ button {
       #0e0e0e
     );
 
-  border-top: 1px solid rgba(255, 255, 255, .06);
-
-  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  border-top: 1px solid rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.06);
 }
 
 .section-alt > .container {
@@ -609,7 +478,7 @@ button {
 
 
 /* =========================================================
-   8. HEADINGS
+   HEADINGS
 ========================================================= */
 
 h2 {
@@ -642,13 +511,11 @@ h2 span {
   color: var(--muted);
 
   font-size: 15px;
-
-  line-height: 1.7;
 }
 
 
 /* =========================================================
-   9. TWO COLUMN
+   TWO COLUMN
 ========================================================= */
 
 .two-col {
@@ -659,8 +526,6 @@ h2 span {
     minmax(0, 1fr);
 
   gap: 80px;
-
-  align-items: start;
 }
 
 .two-col > * {
@@ -669,7 +534,7 @@ h2 span {
 
 
 /* =========================================================
-   10. SERVICES
+   SERVICES
 ========================================================= */
 
 .service-grid {
@@ -689,20 +554,16 @@ h2 span {
   padding: 28px 24px;
 
   border: 1px solid var(--border);
-
-  border-radius: var(--radius);
+  border-radius: 12px;
 
   background:
     linear-gradient(
       145deg,
-      #111111,
+      #111,
       #0b0b0b
     );
 
-  transition:
-    transform .3s ease,
-    border-color .3s ease,
-    background .3s ease;
+  transition: .3s ease;
 }
 
 .service-card:hover {
@@ -753,7 +614,7 @@ h2 span {
 
 
 /* =========================================================
-   11. PORTFOLIO
+   PORTFOLIO
 ========================================================= */
 
 .work-grid {
@@ -779,13 +640,12 @@ h2 span {
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(216, 169, 40, .22);
-
+  border: 1px solid rgba(216,169,40,.22);
   border-radius: 12px;
 
   background:
     radial-gradient(
-      circle at center,
+      circle,
       #17130a,
       #0d0d0d 70%
     );
@@ -796,16 +656,6 @@ h2 span {
   font-weight: 700;
 
   letter-spacing: .1em;
-
-  transition:
-    transform .3s ease,
-    border-color .3s ease;
-}
-
-.work-card:hover .work-placeholder {
-  transform: translateY(-4px);
-
-  border-color: var(--gold);
 }
 
 .work-card h3 {
@@ -826,7 +676,7 @@ h2 span {
 
 
 /* =========================================================
-   12. CTA
+   CTA
 ========================================================= */
 
 .cta-section {
@@ -834,25 +684,21 @@ h2 span {
 
   padding: 100px 0;
 
-  border-top: 1px solid rgba(255, 255, 255, .06);
+  text-align: center;
 
   background:
     radial-gradient(
-      circle at center,
-      rgba(216, 169, 40, .08),
+      circle,
+      rgba(216,169,40,.08),
       transparent 58%
     ),
     #090909;
-}
 
-.cta {
-  text-align: center;
+  border-top: 1px solid rgba(255,255,255,.06);
 }
 
 .cta h2 {
-  max-width: 800px;
-
-  margin: 0 auto 30px;
+  margin-bottom: 30px;
 }
 
 .cta .button {
@@ -861,7 +707,7 @@ h2 span {
 
 
 /* =========================================================
-   13. CONTACT
+   CONTACT
 ========================================================= */
 
 .contact {
@@ -876,18 +722,13 @@ h2 span {
   align-items: center;
 }
 
-.contact > * {
-  min-width: 0;
-}
-
 .contact-box {
   min-width: 0;
 
   padding: 30px;
 
   border: 1px solid var(--border);
-
-  border-radius: var(--radius);
+  border-radius: 12px;
 
   background: #0d0d0d;
 }
@@ -895,17 +736,15 @@ h2 span {
 .contact-box a {
   display: block;
 
-  margin: 14px 0;
+  margin: 15px 0;
 
   color: var(--gold);
 
   font-size: 15px;
 
-  line-height: 1.5;
-
   word-break: break-word;
 
-  transition: color .25s ease;
+  transition: .25s ease;
 }
 
 .contact-box a:hover {
@@ -914,7 +753,7 @@ h2 span {
 
 
 /* =========================================================
-   14. FOOTER
+   FOOTER
 ========================================================= */
 
 .footer {
@@ -922,9 +761,9 @@ h2 span {
 
   padding: 45px 0 25px;
 
-  border-top: 1px solid rgba(255, 255, 255, .08);
-
   background: #070707;
+
+  border-top: 1px solid rgba(255,255,255,.08);
 }
 
 .footer-inner {
@@ -954,13 +793,25 @@ h2 span {
 
 
 /* =========================================================
-   15. TABLET
+   VERY IMPORTANT
+   DISABLE OLD REVEAL HIDING
+========================================================= */
+
+.reveal {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important;
+}
+
+
+/* =========================================================
+   TABLET
 ========================================================= */
 
 @media (max-width: 1050px) {
 
   .nav-links {
-    gap: 18px;
+    gap: 17px;
   }
 
   .nav-links a {
@@ -969,10 +820,6 @@ h2 span {
 
   .hero {
     gap: 30px;
-  }
-
-  .hero h1 {
-    font-size: clamp(40px, 6vw, 58px);
   }
 
   .hero-logo-card {
@@ -998,7 +845,7 @@ h2 span {
 
 
 /* =========================================================
-   16. MOBILE NAV
+   MOBILE NAVIGATION
 ========================================================= */
 
 @media (max-width: 800px) {
@@ -1008,12 +855,15 @@ h2 span {
   }
 
   .brand-logo {
-    width: 160px;
-    max-width: 160px;
+    width: 155px;
+    max-width: 155px;
   }
 
   .menu-toggle {
     display: flex;
+
+    align-items: center;
+    justify-content: center;
   }
 
   .nav-links {
@@ -1028,18 +878,16 @@ h2 span {
     padding: 18px;
 
     flex-direction: column;
-
     align-items: stretch;
 
     gap: 0;
 
     border: 1px solid var(--border);
-
     border-radius: 10px;
 
     background: #0b0b0b;
 
-    box-shadow: var(--shadow);
+    box-shadow: 0 25px 70px rgba(0,0,0,.7);
   }
 
   .nav-links.active {
@@ -1054,30 +902,25 @@ h2 span {
     font-size: 13px;
   }
 
-  .nav-links a:last-child {
-    border-bottom: none;
-  }
-
   .nav-links a:not(.nav-cta)::after {
     display: none;
   }
 
   .nav-cta {
     margin-top: 10px;
-
     text-align: center;
   }
 }
 
 
 /* =========================================================
-   17. MOBILE
+   MOBILE
 ========================================================= */
 
 @media (max-width: 768px) {
 
   .container {
-    width: min(100% - 30px, 600px);
+    width: calc(100% - 30px);
   }
 
   .section {
@@ -1086,37 +929,27 @@ h2 span {
   }
 
   .section-alt > .container {
-    width: min(100% - 30px, 600px);
+    width: calc(100% - 30px);
   }
 
 
-  /* HERO */
-
   .hero {
-    width: min(100% - 30px, 600px);
+    width: calc(100% - 30px);
 
     min-height: auto;
 
     padding-top: 55px;
-    padding-bottom: 65px;
+    padding-bottom: 60px;
 
     grid-template-columns: 1fr;
 
     gap: 45px;
 
     text-align: center;
-
-    overflow: hidden;
-  }
-
-  .hero-copy {
-    width: 100%;
   }
 
   .hero h1 {
     font-size: clamp(38px, 10vw, 58px);
-
-    line-height: 1;
   }
 
   .hero-text {
@@ -1135,11 +968,7 @@ h2 span {
   }
 
 
-  /* HERO LOGO */
-
   .hero-art {
-    width: 100%;
-
     min-height: 290px;
   }
 
@@ -1148,13 +977,6 @@ h2 span {
     max-width: 260px !important;
 
     height: 260px !important;
-
-    padding: 20px;
-  }
-
-  .hero-logo-card::before {
-    width: 205px;
-    height: 205px;
   }
 
   .hero-logo {
@@ -1165,8 +987,6 @@ h2 span {
   }
 
 
-  /* TWO COLUMN */
-
   .two-col {
     grid-template-columns: 1fr;
 
@@ -1174,16 +994,12 @@ h2 span {
   }
 
 
-  /* CONTACT */
-
   .contact {
     grid-template-columns: 1fr;
 
     gap: 35px;
   }
 
-
-  /* FOOTER */
 
   .footer-inner {
     flex-direction: column;
@@ -1197,70 +1013,45 @@ h2 span {
 
 
 /* =========================================================
-   18. SMALL MOBILE
+   SMALL PHONES
 ========================================================= */
 
 @media (max-width: 520px) {
 
-  .container {
-    width: calc(100% - 28px);
-  }
-
+  .container,
   .section-alt > .container {
     width: calc(100% - 28px);
   }
 
-
-  /* HEADER */
-
   .brand-logo {
-    width: 145px;
-    max-width: 145px;
+    width: 140px;
+    max-width: 140px;
   }
-
-
-  /* HERO */
 
   .hero {
     width: calc(100% - 28px);
 
     padding-top: 45px;
     padding-bottom: 55px;
-
-    gap: 38px;
-  }
-
-  .eyebrow {
-    font-size: 11px;
   }
 
   .hero h1 {
-    font-size: 38px;
+    font-size: 37px;
   }
 
   .hero-text {
     font-size: 13px;
-
-    line-height: 1.65;
   }
-
-
-  /* BUTTONS */
 
   .hero-actions {
     width: 100%;
 
     flex-direction: column;
-
-    align-items: stretch;
   }
 
-  .button {
+  .hero-actions .button {
     width: 100%;
   }
-
-
-  /* LOGO */
 
   .hero-logo-card {
     width: 230px !important;
@@ -1272,76 +1063,40 @@ h2 span {
   .hero-logo {
     width: 165px !important;
     max-width: 165px !important;
-
-    max-height: 165px !important;
   }
-
-  .hero-logo-card::before {
-    width: 180px;
-    height: 180px;
-  }
-
-
-  /* GRIDS */
 
   .service-grid,
   .work-grid {
     grid-template-columns: 1fr;
   }
 
-
-  /* CARDS */
-
   .service-card {
     min-height: auto;
-
-    padding: 25px 20px;
-  }
-
-
-  /* HEADINGS */
-
-  .section-heading {
-    margin-bottom: 35px;
   }
 
   h2 {
     font-size: 34px;
   }
 
-
-  /* CTA */
-
   .cta-section {
     padding: 75px 0;
   }
 
-
-  /* CONTACT */
-
-  .contact-box {
-    padding: 22px;
+  .cta .button {
+    width: calc(100% - 20px);
   }
 
 }
 
 
 /* =========================================================
-   19. VERY SMALL PHONES
+   EXTRA SMALL
 ========================================================= */
 
 @media (max-width: 360px) {
 
-  .container {
-    width: calc(100% - 22px);
-  }
-
-  .hero {
-    width: calc(100% - 22px);
-  }
-
   .hero h1 {
-    font-size: 34px;
+    font-size: 33px;
   }
 
   .hero-logo-card {
@@ -1354,8 +1109,6 @@ h2 span {
   .hero-logo {
     width: 145px !important;
     max-width: 145px !important;
-
-    max-height: 145px !important;
   }
 
 }
