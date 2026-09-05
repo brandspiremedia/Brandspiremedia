@@ -1,1794 +1,1033 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --bg: #070707;
-  --panel: #0d0d0d;
-  --panel2: #111111;
-  --text: #f5f3ed;
-  --muted: #99978f;
-  --gold: #d9a52e;
-  --gold2: #f0c65d;
-  --line: #242424;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-}
+  <title>BrandSpire Media | Creative Media & Marketing</title>
 
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: Inter, Arial, sans-serif;
-  overflow-x: hidden;
-  line-height: 1.55;
-}
+  <meta
+    name="description"
+    content="BrandSpire Media helps businesses grow and stand out through creative media, marketing, branding, content and websites."
+  >
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-button,
-input,
-textarea {
-  font: inherit;
-}
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  >
 
-img {
-  display: block;
-  max-width: 100%;
-}
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
 
-/* HEADER */
+<!-- ==================================================
+     HEADER
+================================================== -->
 
-.site-header {
-  height: 72px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
+<header class="header" id="header">
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  <a href="#home" class="logo-link">
+    <img
+      src="assets/brandspire-logo.png"
+      alt="BrandSpire Media"
+      class="logo"
+    >
+  </a>
 
-  padding: 0 34px;
+  <button
+    class="menu-btn"
+    id="menuBtn"
+    aria-label="Open menu"
+    aria-expanded="false"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-  background: rgba(7, 7, 7, 0.92);
+  <nav class="navigation" id="navigation">
 
-  border-bottom: 1px solid #1c1c1c;
+    <a href="#home">Home</a>
 
-  backdrop-filter: blur(15px);
+    <a href="#about">About Us</a>
 
-  transition: 0.25s;
-}
+    <a href="#services">Services</a>
 
-.site-header.scrolled {
-  box-shadow: 0 12px 35px #0008;
-}
+    <a href="#work">Portfolio</a>
 
-.brand img {
-  width: 158px;
-}
+    <a href="#testimonials">Clients</a>
 
+    <a href="#blog">Blog</a>
 
-/* NAV */
+    <a href="#contact">Contact</a>
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 27px;
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNn8wqA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+      target="_blank"
+      rel="noopener"
+      class="connect-btn"
+    >
+      Let's Connect
+      <span>↗</span>
+    </a>
 
-  font-size: 11px;
-  font-weight: 700;
+  </nav>
 
-  text-transform: uppercase;
-}
+</header>
 
-.nav > a {
-  color: #c9c6bd;
-  transition: 0.2s;
-}
 
-.nav > a:hover {
-  color: var(--gold);
-}
+<main>
 
-.nav-cta {
-  border: 1px solid #8c691f;
-  padding: 10px 14px;
+<!-- ==================================================
+     HERO
+================================================== -->
 
-  color: var(--gold) !important;
-}
+<section class="hero" id="home">
 
-.nav-cta span {
-  margin-left: 7px;
-}
+  <div class="hero-content reveal">
 
+    <div class="eyebrow">
+      CREATIVE. STRATEGIC. IMPACTFUL.
+    </div>
 
-/* MOBILE MENU */
+    <h1>
+      We build brands
+      <span>that get noticed.</span>
+    </h1>
 
-.menu-toggle {
-  display: none;
+    <p class="hero-description">
+      BrandSpire Media is a creative media and marketing agency
+      helping businesses grow, connect and stand out in the
+      digital world.
+    </p>
 
-  background: none;
-  border: 0;
+    <div class="hero-buttons">
 
-  width: 38px;
+      <a
+        href="#services"
+        class="button button-gold"
+      >
+        Our Services
+        <span>→</span>
+      </a>
 
-  cursor: pointer;
-}
+      <a
+        href="#work"
+        class="button button-outline"
+      >
+        View Our Work
+        <span>→</span>
+      </a>
 
-.menu-toggle span {
-  display: block;
+    </div>
 
-  height: 2px;
+    <div class="hero-status">
+      <span></span>
+      We help businesses grow & stand out.
+    </div>
 
-  background: var(--gold);
+  </div>
 
-  margin: 6px 0;
-}
 
+  <!-- THIS IS A REAL HTML/CSS HERO VISUAL.
+       IT IS NOT THE PREVIEW IMAGE. -->
 
-/* GENERAL */
+  <div class="hero-visual reveal">
 
-.section {
-  width: min(1180px, calc(100% - 48px));
-  margin: auto;
-}
+    <div class="gold-glow"></div>
 
+    <div class="visual-window">
 
-/* HERO */
+      <div class="visual-photo photo-one"></div>
 
-.hero {
-  min-height: 650px;
+      <div class="visual-photo photo-two"></div>
 
-  margin-top: 72px;
+      <div class="visual-photo photo-three"></div>
 
-  display: grid;
+      <div class="visual-card card-camera">
+        <span>CREATIVE</span>
+      </div>
 
-  grid-template-columns: 1fr 1fr;
+      <div class="visual-card card-strategy">
+        <span>STRATEGY</span>
+      </div>
 
-  gap: 55px;
+      <div class="visual-brand">
 
-  align-items: center;
+        <img
+          src="assets/brandspire-logo.png"
+          alt="BrandSpire Media"
+        >
 
-  padding-top: 60px;
-  padding-bottom: 50px;
-}
+        <small>
+          MEDIA • MARKETING • DIGITAL
+        </small>
 
-.eyebrow {
-  color: var(--gold);
+      </div>
 
-  font-size: 11px;
+    </div>
 
-  font-weight: 800;
+  </div>
 
-  letter-spacing: 0.16em;
+</section>
 
-  text-transform: uppercase;
-}
 
-.hero h1,
-.section-top h2,
-.about-copy h2,
-.contact-copy h2 {
+<!-- ==================================================
+     SERVICES
+================================================== -->
 
-  font-size: clamp(43px, 5.3vw, 74px);
+<section
+  class="services section"
+  id="services"
+>
 
-  line-height: 1.01;
+  <div class="section-heading reveal">
 
-  letter-spacing: -0.055em;
+    <div>
+      <div class="eyebrow">
+        WHAT WE DO
+      </div>
 
-  margin: 14px 0 20px;
+      <h2>
+        Services that move
+        <span>brands forward.</span>
+      </h2>
+    </div>
 
-  max-width: 680px;
-}
+    <p>
+      Creative, strategic and digital solutions designed
+      around your business and your audience.
+    </p>
 
-em {
-  font-family: "Playfair Display", serif;
+  </div>
 
-  color: var(--gold);
 
-  font-style: normal;
+  <div class="services-grid">
 
-  font-weight: 700;
-}
+    <article class="service-card reveal">
 
-.hero-text {
-  max-width: 560px;
+      <div class="service-top">
+        <span>01</span>
+        <b>◎</b>
+      </div>
 
-  color: var(--muted);
+      <h3>
+        Social Media Management
+      </h3>
 
-  font-size: 15px;
+      <p>
+        Consistent planning, posting, community handling
+        and brand growth across social platforms.
+      </p>
 
-  line-height: 1.8;
-}
+      <a href="#contact">
+        Explore Service →
+      </a>
 
+    </article>
 
-/* BUTTONS */
 
-.hero-actions {
-  display: flex;
+    <article class="service-card reveal">
 
-  gap: 12px;
+      <div class="service-top">
+        <span>02</span>
+        <b>✦</b>
+      </div>
 
-  flex-wrap: wrap;
+      <h3>
+        Content Creation
+      </h3>
 
-  margin-top: 27px;
-}
+      <p>
+        Reels, short-form content, campaigns and creative
+        assets designed to capture attention.
+      </p>
 
-.btn {
+      <a href="#contact">
+        Explore Service →
+      </a>
 
-  min-height: 44px;
+    </article>
 
-  padding: 0 19px;
 
-  display: inline-flex;
+    <article class="service-card reveal">
 
-  align-items: center;
+      <div class="service-top">
+        <span>03</span>
+        <b>◇</b>
+      </div>
 
-  justify-content: center;
+      <h3>
+        Branding & Design
+      </h3>
 
-  gap: 11px;
+      <p>
+        Brand identities, graphics and visual systems
+        that make your business recognizable.
+      </p>
 
-  border: 1px solid #75591c;
+      <a href="#contact">
+        Explore Service →
+      </a>
 
-  font-size: 11px;
+    </article>
 
-  font-weight: 800;
 
-  text-transform: uppercase;
+    <article class="service-card reveal">
 
-  letter-spacing: 0.03em;
+      <div class="service-top">
+        <span>04</span>
+        <b>◌</b>
+      </div>
 
-  transition: 0.25s;
-}
+      <h3>
+        Photography & Videography
+      </h3>
 
-.btn-gold {
-  background: var(--gold);
+      <p>
+        Professional visual storytelling for products,
+        people, campaigns and businesses.
+      </p>
 
-  color: #111;
+      <a href="#contact">
+        Explore Service →
+      </a>
 
-  border-color: var(--gold);
-}
+    </article>
 
-.btn-gold:hover {
-  background: var(--gold2);
 
-  transform: translateY(-2px);
-}
+    <article class="service-card reveal">
 
-.btn-line {
-  background: transparent;
+      <div class="service-top">
+        <span>05</span>
+        <b>♢</b>
+      </div>
 
-  color: #eee;
-}
+      <h3>
+        Influencer Marketing
+      </h3>
 
-.btn-line:hover {
-  background: #17140e;
+      <p>
+        Creator collaborations selected according to
+        your audience, campaign and objectives.
+      </p>
 
-  border-color: var(--gold);
+      <a href="#contact">
+        Explore Service →
+      </a>
 
-  color: var(--gold);
+    </article>
 
-  transform: translateY(-2px);
-}
 
+    <article class="service-card reveal">
 
-/* HERO NOTE */
+      <div class="service-top">
+        <span>06</span>
+        <b>⌘</b>
+      </div>
 
-.hero-note {
+      <h3>
+        Website Creation & Handling
+      </h3>
 
-  margin-top: 24px;
+      <p>
+        Modern websites, updates, maintenance and
+        ongoing digital handling for your business.
+      </p>
 
-  color: #68665f;
+      <a href="#contact">
+        Explore Service →
+      </a>
 
-  font-size: 10px;
+    </article>
 
-  display: flex;
+  </div>
 
-  align-items: center;
+</section>
 
-  gap: 9px;
-}
 
-.pulse {
+<!-- ==================================================
+     ABOUT / WHY
+================================================== -->
 
-  width: 7px;
+<section
+  class="about section"
+  id="about"
+>
 
-  height: 7px;
+  <div class="about-image reveal">
 
-  border-radius: 50%;
+    <div class="about-photo"></div>
 
-  background: var(--gold);
+    <div class="image-label">
+      BRANDSPPIRE MEDIA
+      <small>
+        CREATIVE • STRATEGY • DIGITAL
+      </small>
+    </div>
 
-  box-shadow: 0 0 15px var(--gold);
-}
+  </div>
 
 
-/* HERO VISUAL */
+  <div class="about-content reveal">
 
-.hero-art {
-  height: 450px;
+    <div class="eyebrow">
+      ABOUT US
+    </div>
 
-  position: relative;
-}
+    <h2>
+      We build brands,
+      <span>not just content.</span>
+    </h2>
 
-.hero-glow {
+    <p>
+      At BrandSpire Media, we believe every business has a
+      story worth telling. Our job is to turn that story into
+      a strong visual and digital presence.
+    </p>
 
-  position: absolute;
+    <p>
+      We combine creative thinking, strategic planning and
+      practical execution to help brands communicate better,
+      connect with people and grow.
+    </p>
 
-  width: 350px;
+    <a
+      href="#contact"
+      class="text-button"
+    >
+      More About BrandSpire
+      <span>→</span>
+    </a>
 
-  height: 350px;
+  </div>
 
-  border-radius: 50%;
+</section>
 
-  background: #b67e1720;
 
-  filter: blur(65px);
+<!-- ==================================================
+     WHY CHOOSE US
+================================================== -->
 
-  left: 30%;
+<section class="why section">
 
-  top: 15%;
-}
+  <div class="section-heading reveal">
 
-.hero-frame {
+    <div>
 
-  position: absolute;
+      <div class="eyebrow">
+        WHY BRANDSPIRE?
+      </div>
 
-  inset: 25px 10px;
+      <h2>
+        Creative with
+        <span>purpose.</span>
+      </h2>
 
-  overflow: hidden;
+    </div>
 
-  border: 1px solid #30291d;
+  </div>
 
-  background: #0c0c0c;
 
-  box-shadow: 0 30px 80px #000;
-}
+  <div class="why-grid">
 
-.hero-image {
+    <article class="why-box reveal">
+      <span>01</span>
+      <h3>Creative Ideas</h3>
+      <p>
+        Fresh concepts designed around your brand instead
+        of generic templates.
+      </p>
+    </article>
 
-  position: absolute;
+    <article class="why-box reveal">
+      <span>02</span>
+      <h3>Strategy First</h3>
+      <p>
+        Every creative decision starts with your audience,
+        goals and business direction.
+      </p>
+    </article>
 
-  background-size: cover;
+    <article class="why-box reveal">
+      <span>03</span>
+      <h3>One Creative Partner</h3>
+      <p>
+        Social media, content, design and websites handled
+        under one creative roof.
+      </p>
+    </article>
 
-  background-position: center;
-}
+    <article class="why-box reveal">
+      <span>04</span>
+      <h3>Built to Grow</h3>
+      <p>
+        Your digital presence should evolve as your
+        business becomes bigger.
+      </p>
+    </article>
 
-.hero-image-main {
+  </div>
 
-  inset: 0 0 0 28%;
+</section>
 
-  background-image:
-    linear-gradient(90deg, #0008, #0002),
-    url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85");
-}
 
-.hero-image-small {
+<!-- ==================================================
+     OUR WORK
+================================================== -->
 
-  width: 44%;
+<section
+  class="work section"
+  id="work"
+>
 
-  height: 43%;
+  <div class="section-heading reveal">
 
-  left: 0;
+    <div>
 
-  top: 11%;
+      <div class="eyebrow">
+        OUR WORK
+      </div>
 
-  background-image:
-    linear-gradient(#0004, #0004),
-    url("https://images.unsplash.com/photo-1497215842964-222b430dc094?auto=format&fit=crop&w=700&q=85");
+      <h2>
+        Real projects.
+        <span>Coming soon.</span>
+      </h2>
 
-  border-right: 1px solid #333;
+    </div>
 
-  border-bottom: 1px solid #333;
-}
+    <div class="portfolio-status">
+      PORTFOLIO IN PROGRESS
+    </div>
 
-.hero-center {
+  </div>
 
-  position: absolute;
 
-  left: 8%;
+  <div class="portfolio-placeholder reveal">
 
-  bottom: 12%;
+    <div class="portfolio-symbol">
+      BS
+    </div>
 
-  width: 55%;
+    <div class="portfolio-text">
 
-  padding: 20px;
+      <h3>
+        We're building something worth showing.
+      </h3>
 
-  background: #080808df;
+      <p>
+        Our client projects are currently in progress.
+        We will publish completed work here as projects
+        launch. No fake projects and no misleading
+        portfolio pieces.
+      </p>
 
-  border: 1px solid #4d3b1a;
+      <a
+        href="#contact"
+        class="button button-gold"
+      >
+        Start Your Project
+        <span>→</span>
+      </a>
 
-  text-align: center;
-}
+    </div>
 
-.hero-center img {
+  </div>
 
-  width: min(245px, 90%);
+</section>
 
-  margin: auto;
-}
 
-.hero-center span {
+<!-- ==================================================
+     TESTIMONIALS
+================================================== -->
 
-  display: block;
+<section
+  class="testimonials section"
+  id="testimonials"
+>
 
-  color: #aaa;
+  <div class="section-heading reveal">
 
-  font-size: 8px;
+    <div>
 
-  letter-spacing: 0.2em;
+      <div class="eyebrow">
+        CLIENT EXPERIENCE
+      </div>
 
-  margin-top: 7px;
-}
+      <h2>
+        What people
+        <span>say.</span>
+      </h2>
 
-.hero-tag {
+    </div>
 
-  position: absolute;
+    <button
+      class="button button-outline"
+      id="openReview"
+      type="button"
+    >
+      Write a Review
+      <span>→</span>
+    </button>
 
-  color: var(--gold);
+  </div>
 
-  border: 1px solid #795b1c;
 
-  background: #080808dd;
+  <div
+    class="review-grid"
+    id="reviewGrid"
+  >
 
-  padding: 7px 10px;
+    <article class="review-card reveal">
 
-  font-size: 8px;
+      <div class="stars">
+        ★★★★★
+      </div>
 
-  font-weight: 800;
+      <p>
+        “Professional communication, thoughtful ideas
+        and a clean approach to creative work.”
+      </p>
 
-  letter-spacing: 0.12em;
-}
+      <strong>
+        BrandSpire Client
+      </strong>
 
-.tag-one {
-  top: 7%;
-  right: 5%;
-}
+    </article>
 
-.tag-two {
-  bottom: 7%;
-  right: 5%;
-}
 
+    <article class="review-card reveal">
 
-/* INTRO */
+      <div class="stars">
+        ★★★★★
+      </div>
 
-.intro-strip {
+      <p>
+        “The team understands that good content needs
+        both creativity and strategy.”
+      </p>
 
-  display: grid;
+      <strong>
+        BrandSpire Client
+      </strong>
 
-  grid-template-columns: repeat(3, 1fr);
+    </article>
 
-  border-top: 1px solid var(--line);
+  </div>
 
-  border-bottom: 1px solid var(--line);
-}
+</section>
 
-.intro-item {
 
-  padding: 25px 30px;
+<!-- ==================================================
+     BLOG
+================================================== -->
 
-  border-right: 1px solid var(--line);
-}
+<section
+  class="blog section"
+  id="blog"
+>
 
-.intro-item:last-child {
-  border: 0;
-}
+  <div class="blog-box reveal">
 
-.intro-item span {
+    <div>
 
-  color: var(--gold);
+      <div class="eyebrow">
+        BRANDSPPIRE INSIGHTS
+      </div>
 
-  font-size: 10px;
-}
+      <h2>
+        Ideas to help your
+        <span>brand grow.</span>
+      </h2>
 
-.intro-item strong {
+      <p>
+        Branding, social media, content and digital
+        growth resources are coming soon.
+      </p>
 
-  display: block;
+    </div>
 
-  font-size: 19px;
+    <div class="coming-soon">
+      BLOG<br>
+      <small>COMING SOON</small>
+    </div>
 
-  margin: 5px 0;
-}
+  </div>
 
-.intro-item p {
+</section>
 
-  color: var(--muted);
 
-  font-size: 11px;
-}
+<!-- ==================================================
+     CONTACT
+================================================== -->
 
+<section
+  class="contact section"
+  id="contact"
+>
 
-/* SECTION SPACING */
+  <div class="contact-content reveal">
 
-.services,
-.why,
-.work,
-.testimonials,
-.blog,
-.contact {
+    <div class="eyebrow">
+      LET'S CREATE
+    </div>
 
-  padding-top: 95px;
+    <h2>
+      Ready to make your
+      <span>brand stand out?</span>
+    </h2>
 
-  padding-bottom: 95px;
-}
+    <p>
+      Tell us about your business, your goals and what
+      you want to build. Let's start the conversation.
+    </p>
 
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNn8wqA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+      target="_blank"
+      rel="noopener"
+      class="button button-gold"
+    >
+      Start a Project
+      <span>→</span>
+    </a>
 
-/* SECTION TOP */
+  </div>
 
-.section-top {
 
-  display: flex;
+  <div class="contact-links reveal">
 
-  align-items: end;
+    <a
+      href="https://wa.me/917206149463"
+      target="_blank"
+      rel="noopener"
+    >
+      <span>WA</span>
+      <div>
+        <strong>WhatsApp</strong>
+        <small>Chat with BrandSpire</small>
+      </div>
+    </a>
 
-  justify-content: space-between;
 
-  gap: 30px;
+    <a
+      href="https://www.instagram.com/brandspire__media/"
+      target="_blank"
+      rel="noopener"
+    >
+      <span>IG</span>
+      <div>
+        <strong>Instagram</strong>
+        <small>@brandspire__media</small>
+      </div>
+    </a>
 
-  margin-bottom: 35px;
-}
 
-.section-top h2 {
+    <a
+      href="https://www.facebook.com/share/1cHBNtN7eo/?mibextid=wwXIfr"
+      target="_blank"
+      rel="noopener"
+    >
+      <span>FB</span>
+      <div>
+        <strong>Facebook</strong>
+        <small>BrandSpire Media</small>
+      </div>
+    </a>
 
-  font-size: 43px;
 
-  margin: 10px 0 0;
-}
+    <a href="mailto:officialbrandspiremedia@gmail.com">
+      <span>GM</span>
+      <div>
+        <strong>Email</strong>
+        <small>officialbrandspiremedia@gmail.com</small>
+      </div>
+    </a>
 
-.section-description {
+  </div>
 
-  max-width: 410px;
+</section>
 
-  color: var(--muted);
+</main>
 
-  font-size: 12px;
-}
 
+<!-- ==================================================
+     FOOTER
+================================================== -->
 
-/* SERVICES */
+<footer class="footer">
 
-.service-grid {
+  <div class="footer-inner">
 
-  display: grid;
+    <div class="footer-column footer-brand">
 
-  grid-template-columns:
-    repeat(3, 1fr);
+      <img
+        src="assets/brandspire-logo.png"
+        alt="BrandSpire Media"
+      >
 
-  gap: 12px;
-}
+      <p>
+        We help businesses grow & stand out.
+      </p>
 
-.service-card {
+      <div class="social-row">
 
-  min-height: 210px;
+        <a
+          href="https://www.instagram.com/brandspire__media/"
+          target="_blank"
+          rel="noopener"
+        >
+          IG
+        </a>
 
-  padding: 25px;
+        <a
+          href="https://www.facebook.com/share/1cHBNtN7eo/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener"
+        >
+          FB
+        </a>
 
-  background:
-    linear-gradient(
-      145deg,
-      #111,
-      #0b0b0b
-    );
+        <a
+          href="https://wa.me/917206149463"
+          target="_blank"
+          rel="noopener"
+        >
+          WA
+        </a>
 
-  border: 1px solid #202020;
+      </div>
 
-  position: relative;
+    </div>
 
-  overflow: hidden;
 
-  transition: 0.3s;
-}
+    <div class="footer-column">
 
-.service-card:hover {
+      <h4>
+        QUICK LINKS
+      </h4>
 
-  border-color: #73571c;
+      <a href="#home">Home</a>
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#work">Portfolio</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
 
-  transform: translateY(-5px);
-}
+    </div>
 
-.service-number {
 
-  position: absolute;
+    <div class="footer-column">
 
-  right: 17px;
+      <h4>
+        SERVICES
+      </h4>
 
-  top: 15px;
+      <a href="#services">
+        Social Media Management
+      </a>
 
-  color: #555;
+      <a href="#services">
+        Content Creation
+      </a>
 
-  font-size: 9px;
-}
+      <a href="#services">
+        Branding & Design
+      </a>
 
-.service-icon {
+      <a href="#services">
+        Photography & Videography
+      </a>
 
-  font-size: 34px;
+      <a href="#services">
+        Influencer Marketing
+      </a>
 
-  color: var(--gold);
+      <a href="#services">
+        Website Creation
+      </a>
 
-  margin-bottom: 20px;
-}
+    </div>
 
-.service-card h3 {
 
-  font-size: 17px;
+    <div class="footer-column">
 
-  max-width: 230px;
-}
+      <h4>
+        CONTACT
+      </h4>
 
-.service-card p {
+      <a href="mailto:officialbrandspiremedia@gmail.com">
+        officialbrandspiremedia@gmail.com
+      </a>
 
-  color: var(--muted);
+      <a
+        href="https://wa.me/917206149463"
+        target="_blank"
+        rel="noopener"
+      >
+        WhatsApp Us
+      </a>
 
-  font-size: 11px;
+      <a
+        href="https://www.instagram.com/brandspire__media/"
+        target="_blank"
+        rel="noopener"
+      >
+        Instagram
+      </a>
 
-  margin-top: 10px;
+    </div>
 
-  max-width: 270px;
-}
+  </div>
 
 
-/* ABOUT */
+  <div class="footer-bottom">
 
-.about {
+    <span>
+      © <span id="year"></span>
+      BrandSpire Media. All Rights Reserved.
+    </span>
 
-  display: grid;
+    <span>
+      Website designed, developed & handled by BrandSpire Media
+    </span>
 
-  grid-template-columns: 1fr 1fr;
+  </div>
 
-  gap: 70px;
+</footer>
 
-  align-items: center;
 
-  border-top: 1px solid var(--line);
-}
+<!-- ==================================================
+     REVIEW MODAL
+================================================== -->
 
-.about-visual {
+<div
+  class="review-modal"
+  id="reviewModal"
+  aria-hidden="true"
+>
 
-  position: relative;
+  <div class="review-modal-box">
 
-  height: 430px;
-}
+    <button
+      class="close-modal"
+      id="closeReview"
+      type="button"
+    >
+      ×
+    </button>
 
-.photo-card {
+    <div class="eyebrow">
+      YOUR EXPERIENCE
+    </div>
 
-  height: 100%;
+    <h2>
+      Write a
+      <span>review.</span>
+    </h2>
 
-  width: 82%;
+    <form id="reviewForm">
 
-  margin-left: auto;
+      <label>
+        Your Name
 
-  background:
-    linear-gradient(120deg, #0003, #0005),
-    url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85")
-    center/cover;
+        <input
+          id="reviewName"
+          type="text"
+          maxlength="60"
+          placeholder="Enter your name"
+          required
+        >
+      </label>
 
-  border: 1px solid #292929;
-}
 
-.photo-caption {
+      <label>
+        Your Rating
 
-  position: absolute;
+        <div
+          class="rating"
+          id="rating"
+        >
 
-  left: 0;
+          <button type="button" data-rating="1">★</button>
+          <button type="button" data-rating="2">★</button>
+          <button type="button" data-rating="3">★</button>
+          <button type="button" data-rating="4">★</button>
+          <button type="button" data-rating="5">★</button>
 
-  bottom: 35px;
+        </div>
 
-  background: #090909ef;
+      </label>
 
-  border: 1px solid #4e3c1b;
+      <input
+        type="hidden"
+        id="ratingValue"
+        value="5"
+      >
 
-  padding: 17px 20px;
-}
 
-.photo-caption strong {
+      <label>
+        Your Review
 
-  display: block;
+        <textarea
+          id="reviewText"
+          maxlength="500"
+          placeholder="Write your experience..."
+          required
+        ></textarea>
 
-  color: var(--gold);
+      </label>
 
-  font-size: 10px;
-}
 
-.photo-caption span {
+      <button
+        class="button button-gold"
+        type="submit"
+      >
+        Post Review
+        <span>→</span>
+      </button>
 
-  font-size: 9px;
+    </form>
 
-  color: #999;
-}
+  </div>
 
-.about-copy p:not(.eyebrow) {
+</div>
 
-  color: var(--muted);
 
-  font-size: 13px;
+<!-- ==================================================
+     FLOATING WHATSAPP
+================================================== -->
 
-  line-height: 1.8;
+<a
+  href="https://wa.me/917206149463"
+  target="_blank"
+  rel="noopener"
+  class="floating-whatsapp"
+  aria-label="WhatsApp"
+>
+  WA
+</a>
 
-  margin: 15px 0;
-}
 
-.text-link {
+<!-- ==================================================
+     BACK TO TOP
+================================================== -->
 
-  display: inline-flex;
+<button
+  class="back-top"
+  id="backTop"
+  type="button"
+>
+  ↑
+</button>
 
-  gap: 10px;
 
-  color: var(--gold);
+<script src="script.js"></script>
 
-  font-size: 11px;
-
-  font-weight: 800;
-
-  text-transform: uppercase;
-
-  margin-top: 10px;
-}
-
-
-/* WHY */
-
-.why {
-
-  border-top: 1px solid var(--line);
-}
-
-.why-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, 1fr);
-
-  gap: 10px;
-}
-
-.why-card {
-
-  padding: 25px;
-
-  border: 1px solid #202020;
-
-  background: #0b0b0b;
-}
-
-.why-card b {
-
-  color: var(--gold);
-
-  font-size: 11px;
-}
-
-.why-card h3 {
-
-  font-size: 16px;
-
-  margin: 22px 0 10px;
-}
-
-.why-card p {
-
-  color: var(--muted);
-
-  font-size: 11px;
-}
-
-
-/* WORK */
-
-.work {
-
-  border-top: 1px solid var(--line);
-}
-
-.status-pill {
-
-  border: 1px solid #70551b;
-
-  color: var(--gold);
-
-  padding: 8px 11px;
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  white-space: nowrap;
-}
-
-.work-placeholder {
-
-  min-height: 270px;
-
-  border: 1px dashed #3a301f;
-
-  background:
-    radial-gradient(
-      circle at 80% 30%,
-      #b17b1714,
-      transparent 30%
-    ),
-    #0b0b0b;
-
-  display: flex;
-
-  align-items: center;
-
-  gap: 35px;
-
-  padding: 45px;
-}
-
-.placeholder-mark,
-.blog-orb {
-
-  width: 85px;
-
-  height: 85px;
-
-  flex: none;
-
-  display: grid;
-
-  place-items: center;
-
-  border: 1px solid #806221;
-
-  color: var(--gold);
-
-  font-weight: 800;
-
-  font-size: 22px;
-}
-
-.work-placeholder h3 {
-
-  font-size: 25px;
-}
-
-.work-placeholder p {
-
-  color: var(--muted);
-
-  font-size: 12px;
-
-  max-width: 600px;
-
-  margin: 8px 0 18px;
-}
-
-
-/* TESTIMONIALS */
-
-.testimonials {
-
-  border-top: 1px solid var(--line);
-}
-
-.review-grid {
-
-  display: grid;
-
-  grid-template-columns:
-    repeat(3, 1fr);
-
-  gap: 12px;
-}
-
-.review-card {
-
-  padding: 25px;
-
-  background: #0c0c0c;
-
-  border: 1px solid #222;
-}
-
-.stars {
-
-  color: var(--gold);
-
-  letter-spacing: 3px;
-}
-
-.review-card p {
-
-  color: #aaa;
-
-  font-size: 12px;
-
-  line-height: 1.75;
-
-  margin: 17px 0;
-}
-
-.review-card strong {
-
-  font-size: 10px;
-}
-
-
-/* BLOG */
-
-.blog {
-
-  border-top: 1px solid var(--line);
-}
-
-.blog-card {
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 30px;
-
-  padding: 35px;
-
-  background:
-    linear-gradient(
-      110deg,
-      #0b0b0b,
-      #151108
-    );
-
-  border: 1px solid #252525;
-}
-
-.blog-label {
-
-  color: var(--gold);
-
-  font-size: 9px;
-
-  font-weight: 800;
-
-  letter-spacing: 0.12em;
-}
-
-.blog-card h3 {
-
-  font-size: 25px;
-
-  margin: 8px 0;
-}
-
-.blog-card p {
-
-  color: var(--muted);
-
-  font-size: 12px;
-}
-
-
-/* CONTACT */
-
-.contact {
-
-  border-top: 1px solid var(--line);
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 70px;
-}
-
-.contact-copy h2 {
-
-  font-size: 49px;
-}
-
-.contact-copy > p:not(.eyebrow) {
-
-  color: var(--muted);
-
-  font-size: 13px;
-
-  max-width: 540px;
-
-  margin: 18px 0 22px;
-}
-
-.contact-grid {
-
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 10px;
-
-  align-content: center;
-}
-
-.contact-grid a {
-
-  padding: 22px;
-
-  border: 1px solid #232323;
-
-  background: #0b0b0b;
-
-  transition: 0.25s;
-}
-
-.contact-grid a:hover {
-
-  border-color: #76591c;
-
-  transform: translateY(-3px);
-}
-
-.contact-grid span {
-
-  color: var(--gold);
-
-  font-size: 10px;
-
-  font-weight: 800;
-}
-
-.contact-grid strong {
-
-  display: block;
-
-  font-size: 13px;
-
-  margin-top: 8px;
-}
-
-.contact-grid small {
-
-  color: #777;
-
-  font-size: 9px;
-}
-
-
-/* FOOTER */
-
-.footer {
-
-  border-top: 1px solid var(--line);
-
-  padding: 50px 34px 20px;
-
-  background: #050505;
-}
-
-.footer-main {
-
-  width: min(1180px, 100%);
-
-  margin: auto;
-
-  display: grid;
-
-  grid-template-columns:
-    1.4fr 1fr 1fr 1.2fr;
-
-  gap: 40px;
-}
-
-.footer-brand img {
-
-  width: 175px;
-}
-
-.footer-brand p {
-
-  color: #777;
-
-  font-size: 10px;
-
-  margin-top: 10px;
-}
-
-.footer h4 {
-
-  color: var(--gold);
-
-  font-size: 10px;
-
-  margin-bottom: 15px;
-}
-
-.footer-main > div > a {
-
-  display: block;
-
-  color: #85837d;
-
-  font-size: 10px;
-
-  margin: 8px 0;
-}
-
-.footer-main > div > a:hover {
-
-  color: var(--gold);
-}
-
-.footer-social {
-
-  display: flex;
-
-  gap: 7px;
-
-  margin-top: 15px;
-}
-
-.footer-social a {
-
-  width: 29px !important;
-
-  height: 29px !important;
-
-  display: grid !important;
-
-  place-items: center;
-
-  border: 1px solid #282828;
-}
-
-.footer-bottom {
-
-  width: min(1180px, 100%);
-
-  margin: 35px auto 0;
-
-  padding-top: 15px;
-
-  border-top: 1px solid #191919;
-
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  color: #555;
-
-  font-size: 8px;
-}
-
-
-/* REVIEW MODAL */
-
-.modal {
-
-  position: fixed;
-
-  inset: 0;
-
-  z-index: 2000;
-
-  background: #000c;
-
-  backdrop-filter: blur(8px);
-
-  display: none;
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding: 20px;
-}
-
-.modal.open {
-
-  display: flex;
-}
-
-.modal-box {
-
-  position: relative;
-
-  width: min(480px, 100%);
-
-  background: #0d0d0d;
-
-  border: 1px solid #775a1d;
-
-  padding: 32px;
-}
-
-.modal-box h2 {
-
-  font-size: 32px;
-
-  margin: 8px 0 20px;
-}
-
-.modal-close {
-
-  position: absolute;
-
-  top: 8px;
-
-  right: 13px;
-
-  background: none;
-
-  border: 0;
-
-  color: #aaa;
-
-  font-size: 28px;
-
-  cursor: pointer;
-}
-
-.modal label {
-
-  display: block;
-
-  color: #999;
-
-  font-size: 10px;
-
-  margin: 13px 0;
-}
-
-.modal input,
-.modal textarea {
-
-  width: 100%;
-
-  margin-top: 6px;
-
-  background: #080808;
-
-  color: #fff;
-
-  border: 1px solid #292929;
-
-  padding: 11px;
-
-  outline: none;
-}
-
-.modal textarea {
-
-  min-height: 100px;
-
-  resize: vertical;
-}
-
-.rating {
-
-  display: flex;
-
-  gap: 3px;
-}
-
-.rating button {
-
-  background: none;
-
-  border: 0;
-
-  color: #444;
-
-  font-size: 25px;
-
-  cursor: pointer;
-}
-
-.rating button.active {
-
-  color: var(--gold);
-}
-
-
-/* FLOATING BUTTONS */
-
-.floating-wa,
-.back-top {
-
-  position: fixed;
-
-  z-index: 900;
-
-  width: 45px;
-
-  height: 45px;
-
-  border-radius: 50%;
-
-  display: grid;
-
-  place-items: center;
-}
-
-.floating-wa {
-
-  right: 18px;
-
-  bottom: 18px;
-
-  background: var(--gold);
-
-  color: #111;
-
-  font-size: 8px;
-
-  font-weight: 900;
-
-  box-shadow: 0 8px 30px #000;
-}
-
-.back-top {
-
-  right: 18px;
-
-  bottom: 72px;
-
-  background: #101010;
-
-  color: var(--gold);
-
-  border: 1px solid #72561c;
-
-  opacity: 0;
-
-  pointer-events: none;
-
-  cursor: pointer;
-}
-
-.back-top.show {
-
-  opacity: 1;
-
-  pointer-events: auto;
-}
-
-
-/* ANIMATION */
-
-.reveal {
-
-  opacity: 0;
-
-  transform: translateY(20px);
-
-  transition:
-    opacity .6s ease,
-    transform .6s ease;
-}
-
-.reveal.visible {
-
-  opacity: 1;
-
-  transform: none;
-}
-
-
-/* TABLET */
-
-@media (max-width: 1000px) {
-
-  .nav {
-
-    gap: 16px;
-
-    font-size: 9px;
-  }
-
-  .hero {
-
-    gap: 25px;
-  }
-
-  .service-grid {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-  .why-grid {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-
-  .footer-main {
-
-    grid-template-columns:
-      repeat(2, 1fr);
-  }
-}
-
-
-/* MOBILE */
-
-@media (max-width: 760px) {
-
-  .section {
-
-    width:
-      min(100% - 30px, 600px);
-  }
-
-  .site-header {
-
-    height: 62px;
-
-    padding:
-      0 15px;
-  }
-
-  .brand img {
-
-    width: 135px;
-  }
-
-  .menu-toggle {
-
-    display: block;
-  }
-
-  .nav {
-
-    position: absolute;
-
-    top: 62px;
-
-    left: 0;
-
-    right: 0;
-
-    display: none;
-
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 0;
-
-    padding:
-      8px 15px 16px;
-
-    background: #080808;
-
-    border-bottom:
-      1px solid #75591d;
-  }
-
-  .nav.open {
-
-    display: flex;
-  }
-
-  .nav > a {
-
-    padding:
-      12px 2px;
-
-    font-size: 10px;
-  }
-
-  .nav-cta {
-
-    text-align: center;
-  }
-
-
-  /* HERO */
-
-  .hero {
-
-    margin-top: 62px;
-
-    min-height: auto;
-
-    grid-template-columns: 1fr;
-
-    padding-top: 55px;
-
-    padding-bottom: 55px;
-  }
-
-  .hero h1 {
-
-    font-size: 48px;
-  }
-
-  .hero-art {
-
-    height: 310px;
-  }
-
-  .hero-frame {
-
-    inset: 10px 0;
-  }
-
-  .hero-center {
-
-    left: 7%;
-
-    bottom: 9%;
-
-    width: 58%;
-  }
-
-
-  /* INTRO */
-
-  .intro-strip {
-
-    grid-template-columns: 1fr;
-  }
-
-  .intro-item {
-
-    border-right: 0;
-
-    border-bottom:
-      1px solid var(--line);
-  }
-
-  .intro-item:last-child {
-
-    border-bottom: 0;
-  }
-
-
-  /* SECTIONS */
-
-  .services,
-  .why,
-  .work,
-  .testimonials,
-  .blog,
-  .contact {
-
-    padding-top: 65px;
-
-    padding-bottom: 65px;
-  }
-
-  .section-top {
-
-    display: block;
-  }
-
-  .section-top h2 {
-
-    font-size: 38px;
-
-    margin-bottom: 15px;
-  }
-
-
-  /* SERVICES */
-
-  .service-grid {
-
-    grid-template-columns: 1fr;
-  }
-
-
-  /* ABOUT */
-
-  .about {
-
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-  }
-
-  .about-visual {
-
-    height: 310px;
-  }
-
-  .photo-card {
-
-    width: 88%;
-  }
-
-
-  /* WHY */
-
-  .why-grid {
-
-    grid-template-columns: 1fr;
-  }
-
-
-  /* WORK */
-
-  .work-placeholder {
-
-    display: block;
-
-    padding: 30px;
-  }
-
-  .placeholder-mark {
-
-    margin-bottom: 20px;
-  }
-
-
-  /* REVIEWS */
-
-  .review-grid {
-
-    grid-template-columns: 1fr;
-  }
-
-
-  /* BLOG */
-
-  .blog-card {
-
-    display: block;
-  }
-
-  .blog-orb {
-
-    margin-top: 25px;
-  }
-
-
-  /* CONTACT */
-
-  .contact {
-
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-  }
-
-  .contact-copy h2 {
-
-    font-size: 42px;
-  }
-
-
-  /* FOOTER */
-
-  .footer {
-
-    padding:
-      38px 15px 18px;
-  }
-
-  .footer-main {
-
-    grid-template-columns:
-      1fr 1fr;
-
-    gap: 28px;
-  }
-
-  .footer-bottom {
-
-    display: block;
-  }
-
-  .footer-bottom span {
-
-    display: block;
-
-    margin: 5px 0;
-  }
-
-  .floating-wa {
-
-    right: 14px;
-
-    bottom: 14px;
-  }
-
-}
-
-
-/* SMALL MOBILE */
-
-@media (max-width: 480px) {
-
-  .hero h1 {
-
-    font-size: 40px;
-  }
-
-  .hero-text {
-
-    font-size: 13px;
-  }
-
-  .hero-actions {
-
-    display: grid;
-
-    grid-template-columns: 1fr;
-  }
-
-  .hero-actions .btn {
-
-    width: 100%;
-  }
-
-  .hero-art {
-
-    height: 265px;
-  }
-
-  .hero-image-main {
-
-    left: 20%;
-  }
-
-  .hero-center {
-
-    width: 70%;
-
-    padding: 13px;
-  }
-
-  .hero-tag {
-
-    font-size: 7px;
-  }
-
-  .contact-grid {
-
-    grid-template-columns: 1fr;
-  }
-
-  .footer-main {
-
-    grid-template-columns: 1fr;
-  }
-
-  .footer-brand img {
-
-    width: 155px;
-  }
-
-}
-
-
-/* REDUCED MOTION */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-
-    scroll-behavior: auto;
-  }
-
-  .reveal {
-
-    opacity: 1;
-
-    transform: none;
-
-    transition: none;
-  }
-
-  * {
-
-    transition: none !important;
-  }
-}
+</body>
+</html>
