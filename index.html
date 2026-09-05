@@ -2,10 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="BrandSpire Media — We help businesses grow and stand out.">
-  <meta name="theme-color" content="#070707">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="BrandSpire Media — We help businesses grow and stand out."
+  >
 
   <title>BrandSpire Media | Creative. Strategic. Impactful.</title>
 
@@ -22,11 +28,14 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
 
-  <header class="site-header" id="top">
+  <!-- ==================================================
+       HEADER
+  =================================================== -->
 
-    <a href="#home" class="brand" aria-label="BrandSpire Media Home">
+  <header class="header" id="header">
+
+    <a href="#home" class="logo">
       <img
         src="assets/brandspire-logo.png"
         alt="BrandSpire Media"
@@ -34,9 +43,9 @@
     </a>
 
     <button
-      class="menu-toggle"
-      id="menuToggle"
-      aria-label="Open menu"
+      class="menu-button"
+      id="menuButton"
+      aria-label="Open navigation"
       aria-expanded="false"
     >
       <span></span>
@@ -44,7 +53,7 @@
       <span></span>
     </button>
 
-    <nav class="nav" id="mainNav">
+    <nav class="navigation" id="navigation">
 
       <a href="#home">Home</a>
 
@@ -52,15 +61,17 @@
 
       <a href="#services">Services</a>
 
-      <a href="#work">Our Work</a>
+      <a href="#work">Portfolio</a>
 
-      <a href="#testimonials">Testimonials</a>
+      <a href="#testimonials">Clients</a>
+
+      <a href="#blog">Blog</a>
 
       <a href="#contact">Contact</a>
 
       <a
-        class="nav-cta"
         href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNn8wqA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+        class="connect-button"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -73,41 +84,50 @@
   </header>
 
 
-  <!-- ================= MAIN ================= -->
+
+  <!-- ==================================================
+       MAIN
+  =================================================== -->
 
   <main>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- ==================================================
+         HERO
+    =================================================== -->
 
-    <section class="hero section" id="home">
+    <section class="hero" id="home">
 
-      <div class="hero-copy reveal">
+      <div class="hero-content">
 
-        <p class="eyebrow">
-          WE HELP BUSINESSES GROW &amp; STAND OUT
-        </p>
+        <div class="small-title">
+          CREATIVE. STRATEGIC. IMPACTFUL.
+        </div>
 
         <h1>
-          CREATIVE.<br>
-          STRATEGIC.<br>
-          <em>IMPACTFUL.</em>
+          WE BUILD BRANDS
+          <span>THAT GET NOTICED.</span>
         </h1>
 
-        <p class="hero-text">
-          We build brands that get noticed. From strategy and social media
-          to content, design and websites, we turn ideas into a powerful
-          digital presence.
+        <p>
+          BrandSpire Media is a creative media &amp; marketing agency
+          helping businesses grow, connect and stand out in the digital world.
         </p>
 
-        <div class="hero-actions">
+        <div class="hero-buttons">
 
-          <a href="#services" class="btn btn-gold">
+          <a
+            href="#services"
+            class="button gold-button"
+          >
             OUR SERVICES
             <span>→</span>
           </a>
 
-          <a href="#work" class="btn btn-outline">
+          <a
+            href="#work"
+            class="button outline-button"
+          >
             VIEW OUR WORK
             <span>▶</span>
           </a>
@@ -117,37 +137,344 @@
       </div>
 
 
-      <div class="hero-visual reveal">
+      <!-- HERO VISUAL -->
 
-        <div class="glow"></div>
+      <div class="hero-visual">
 
-        <div class="hero-photo">
+        <div class="gold-glow"></div>
 
-          <img
-            src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=85"
-            alt="Creative team working together"
-          >
-
-        </div>
-
-
-        <div class="hero-logo-card">
+        <div class="brand-display">
 
           <img
             src="assets/brandspire-logo.png"
             alt="BrandSpire Media Logo"
           >
 
+          <p>
+            WE HELP BUSINESSES GROW &amp; STAND OUT
+          </p>
+
         </div>
 
 
-        <div class="floating-stat">
+        <!-- Small creative collage -->
 
-          <strong>50+</strong>
+        <div class="creative-collage">
+
+          <div class="collage-card card-one">
+            <span>CONTENT</span>
+          </div>
+
+          <div class="collage-card card-two">
+            <span>SOCIAL</span>
+          </div>
+
+          <div class="collage-card card-three">
+            <span>BRAND</span>
+          </div>
+
+          <div class="collage-card card-four">
+            <span>MEDIA</span>
+          </div>
+
+          <div class="collage-card card-five">
+            <span>STRATEGY</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         SERVICES + WORK
+    =================================================== -->
+
+    <section class="services-work">
+
+
+      <!-- SERVICES -->
+
+      <div class="services-area" id="services">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p>
+              WHAT WE DO
+            </p>
+
+            <h2>
+              OUR <span>SERVICES</span>
+            </h2>
+
+          </div>
+
+          <a href="#contact">
+            VIEW ALL SERVICES
+            <span>→</span>
+          </a>
+
+        </div>
+
+
+        <div class="services-list">
+
+
+          <div class="service-item">
+
+            <div class="service-icon">
+              ◈
+            </div>
+
+            <h3>
+              SOCIAL MEDIA
+              <br>
+              MANAGEMENT
+            </h3>
+
+          </div>
+
+
+          <div class="service-item">
+
+            <div class="service-icon">
+              ▷
+            </div>
+
+            <h3>
+              CONTENT
+              <br>
+              CREATION
+            </h3>
+
+          </div>
+
+
+          <div class="service-item">
+
+            <div class="service-icon">
+              ◎
+            </div>
+
+            <h3>
+              PHOTOGRAPHY &amp;
+              <br>
+              VIDEOGRAPHY
+            </h3>
+
+          </div>
+
+
+          <div class="service-item">
+
+            <div class="service-icon">
+              ✎
+            </div>
+
+            <h3>
+              BRANDING &amp;
+              <br>
+              DESIGN
+            </h3>
+
+          </div>
+
+
+          <div class="service-item">
+
+            <div class="service-icon">
+              ♧
+            </div>
+
+            <h3>
+              INFLUENCER
+              <br>
+              MARKETING
+            </h3>
+
+          </div>
+
+
+          <div class="service-item">
+
+            <div class="service-icon">
+              ▤
+            </div>
+
+            <h3>
+              WEBSITE CREATION
+              <br>
+              &amp; HANDLING
+            </h3>
+
+          </div>
+
+
+          <div class="service-item">
+
+            <div class="service-icon">
+              ↗
+            </div>
+
+            <h3>
+              DIGITAL
+              <br>
+              MARKETING
+            </h3>
+
+          </div>
+
+
+          <div class="service-item">
+
+            <div class="service-icon">
+              ◉
+            </div>
+
+            <h3>
+              REELS &amp; SHORT
+              <br>
+              FORM CONTENT
+            </h3>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- WORK -->
+
+      <div class="work-area" id="work">
+
+        <div class="section-heading">
+
+          <div>
+
+            <p>
+              SELECTED DIRECTION
+            </p>
+
+            <h2>
+              OUR <span>WORK SPEAKS</span>
+            </h2>
+
+          </div>
+
+          <a href="#contact">
+            VIEW PORTFOLIO
+            <span>→</span>
+          </a>
+
+        </div>
+
+
+        <div class="work-list">
+
+
+          <div class="work-card work-product">
+
+            <div class="work-overlay">
+
+              <small>
+                PRODUCT
+              </small>
+
+              <strong>
+                PRODUCT SHOOT
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-card work-social">
+
+            <div class="work-overlay">
+
+              <small>
+                SOCIAL MEDIA
+              </small>
+
+              <strong>
+                CAMPAIGN
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-card work-brand">
+
+            <div class="work-overlay">
+
+              <small>
+                BRAND
+              </small>
+
+              <strong>
+                SHOOT
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-card work-event">
+
+            <div class="work-overlay">
+
+              <small>
+                EVENT
+              </small>
+
+              <strong>
+                COVERAGE
+              </strong>
+
+            </div>
+
+          </div>
+
+
+          <div class="work-card work-content">
+
+            <div class="work-overlay">
+
+              <small>
+                CONTENT
+              </small>
+
+              <strong>
+                CREATION
+              </strong>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="portfolio-message">
+
+          <strong>
+            PROJECTS IN PROGRESS
+          </strong>
 
           <span>
-            PROJECTS<br>
-            IN PROGRESS
+            Our portfolio is being built with real client projects.
+            Completed work will appear here as projects launch.
           </span>
 
         </div>
@@ -158,384 +485,26 @@
 
 
 
-    <!-- ================= SERVICES ================= -->
+    <!-- ==================================================
+         ABOUT / WHY / IMPACT / CTA
+    =================================================== -->
 
-    <section class="split-section section" id="services">
+    <section class="information" id="about">
 
-      <div class="section-head">
 
-        <div>
+      <!-- ABOUT -->
 
-          <p class="mini-label">
-            WHAT WE DO
-          </p>
+      <div class="info-block">
 
-          <h2>
-            OUR <em>SERVICES</em>
-          </h2>
-
-        </div>
-
-        <a href="#services" class="text-link">
-          VIEW ALL SERVICES
-          <span>→</span>
-        </a>
-
-      </div>
-
-
-      <div class="services-grid">
-
-
-        <!-- Service 1 -->
-
-        <article class="service-card reveal">
-
-          <div class="service-icon">
-            ▣
-          </div>
-
-          <h3>
-            SOCIAL MEDIA<br>
-            MANAGEMENT
-          </h3>
-
-          <p>
-            Strategy, posting, engagement and growth.
-          </p>
-
-        </article>
-
-
-        <!-- Service 2 -->
-
-        <article class="service-card reveal">
-
-          <div class="service-icon">
-            ▷
-          </div>
-
-          <h3>
-            CONTENT<br>
-            CREATION
-          </h3>
-
-          <p>
-            Scroll-stopping content built for your brand.
-          </p>
-
-        </article>
-
-
-        <!-- Service 3 -->
-
-        <article class="service-card reveal">
-
-          <div class="service-icon">
-            ◎
-          </div>
-
-          <h3>
-            PHOTOGRAPHY &amp;<br>
-            VIDEOGRAPHY
-          </h3>
-
-          <p>
-            Real visuals that make your business memorable.
-          </p>
-
-        </article>
-
-
-        <!-- Service 4 -->
-
-        <article class="service-card reveal">
-
-          <div class="service-icon">
-            ⌁
-          </div>
-
-          <h3>
-            BRANDING &amp;<br>
-            DESIGN
-          </h3>
-
-          <p>
-            Identity, graphics and campaigns with purpose.
-          </p>
-
-        </article>
-
-
-        <!-- Service 5 -->
-
-        <article class="service-card reveal">
-
-          <div class="service-icon">
-            ♙
-          </div>
-
-          <h3>
-            INFLUENCER<br>
-            MARKETING
-          </h3>
-
-          <p>
-            Relevant creators and campaigns that connect.
-          </p>
-
-        </article>
-
-
-        <!-- Service 6 -->
-
-        <article class="service-card reveal">
-
-          <div class="service-icon">
-            ▤
-          </div>
-
-          <h3>
-            WEBSITE CREATION<br>
-            &amp; HANDLING
-          </h3>
-
-          <p>
-            Modern websites, updates and ongoing support.
-          </p>
-
-        </article>
-
-
-        <!-- Service 7 -->
-
-        <article class="service-card reveal">
-
-          <div class="service-icon">
-            ↗
-          </div>
-
-          <h3>
-            DIGITAL<br>
-            MARKETING
-          </h3>
-
-          <p>
-            Campaigns designed around measurable goals.
-          </p>
-
-        </article>
-
-
-        <!-- Service 8 -->
-
-        <article class="service-card reveal">
-
-          <div class="service-icon">
-            ◉
-          </div>
-
-          <h3>
-            REELS &amp; SHORT<br>
-            FORM CONTENT
-          </h3>
-
-          <p>
-            Fast, engaging formats made for attention.
-          </p>
-
-        </article>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ================= OUR WORK ================= -->
-
-    <section
-      class="split-section section work-section"
-      id="work"
-    >
-
-      <div class="section-head">
-
-        <div>
-
-          <p class="mini-label">
-            SELECTED DIRECTION
-          </p>
-
-          <h2>
-            OUR <em>WORK SPEAKS</em>
-          </h2>
-
-        </div>
-
-        <a href="#contact" class="text-link">
-          VIEW PORTFOLIO
-          <span>→</span>
-        </a>
-
-      </div>
-
-
-      <div class="work-grid">
-
-
-        <article class="work-card reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1612810436541-336d7f7e1c25?auto=format&fit=crop&w=700&q=85"
-            alt="Product photography"
-          >
-
-          <div>
-
-            <small>
-              PRODUCT
-            </small>
-
-            <h3>
-              PRODUCT SHOOT
-            </h3>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="work-card reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=700&q=85"
-            alt="Social media campaign"
-          >
-
-          <div>
-
-            <small>
-              SOCIAL MEDIA
-            </small>
-
-            <h3>
-              CAMPAIGN
-            </h3>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="work-card reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=700&q=85"
-            alt="Brand photoshoot"
-          >
-
-          <div>
-
-            <small>
-              BRAND
-            </small>
-
-            <h3>
-              SHOOT
-            </h3>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="work-card reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=700&q=85"
-            alt="Event coverage"
-          >
-
-          <div>
-
-            <small>
-              EVENT
-            </small>
-
-            <h3>
-              COVERAGE
-            </h3>
-
-          </div>
-
-        </article>
-
-
-
-        <article class="work-card reveal">
-
-          <img
-            src="https://images.unsplash.com/photo-1492724441997-5dc865305da7?auto=format&fit=crop&w=700&q=85"
-            alt="Content creation"
-          >
-
-          <div>
-
-            <small>
-              CONTENT
-            </small>
-
-            <h3>
-              CREATION
-            </h3>
-
-          </div>
-
-        </article>
-
-      </div>
-
-
-      <div class="portfolio-note">
-
-        <strong>
-          PROJECTS IN PROGRESS
-        </strong>
-
-        <span>
-          We are building our portfolio with real client work.
-          Completed projects will appear here as they launch.
-        </span>
-
-      </div>
-
-    </section>
-
-
-
-    <!-- ================= ABOUT ================= -->
-
-    <section
-      class="info-section section"
-      id="about"
-    >
-
-
-      <div class="about-col reveal">
-
-        <p class="mini-label">
+        <p class="info-label">
           WHO WE ARE
         </p>
 
         <h2>
-          ABOUT <em>US</em>
+          ABOUT <span>US</span>
         </h2>
 
-        <p>
+        <p class="info-text">
           We are storytellers, creators and strategists.
           Our mission is simple — to craft impactful content,
           build strong brands and deliver measurable results.
@@ -543,7 +512,7 @@
 
         <a
           href="#contact"
-          class="btn btn-outline small"
+          class="small-outline-button"
         >
           MORE ABOUT US
           <span>→</span>
@@ -553,17 +522,19 @@
 
 
 
-      <div class="why-col reveal">
+      <!-- WHY -->
 
-        <p class="mini-label">
+      <div class="info-block">
+
+        <p class="info-label">
           THE BRANDSPIRE DIFFERENCE
         </p>
 
         <h2>
-          WHY <em>BRANDSPIRE?</em>
+          WHY <span>BRANDSPIRE?</span>
         </h2>
 
-        <ul class="check-list">
+        <ul class="why-list">
 
           <li>
             Creative &amp; Innovative Ideas
@@ -587,36 +558,38 @@
 
 
 
-      <div class="impact-col reveal">
+      <!-- IMPACT -->
 
-        <p class="mini-label">
+      <div class="info-block impact-block">
+
+        <p class="info-label">
           THE NUMBERS
         </p>
 
         <h2>
-          OUR <em>IMPACT</em>
+          OUR <span>IMPACT</span>
         </h2>
 
-        <div class="stats">
+        <div class="impact-grid">
 
           <div>
             <strong>50+</strong>
-            <span>PROJECTS</span>
+            <small>PROJECTS</small>
           </div>
 
           <div>
             <strong>30+</strong>
-            <span>BRANDS</span>
+            <small>BRANDS</small>
           </div>
 
           <div>
             <strong>100%</strong>
-            <span>CLIENT SATISFACTION</span>
+            <small>CLIENT SATISFACTION</small>
           </div>
 
           <div>
             <strong>∞</strong>
-            <span>GROWTH POSSIBILITIES</span>
+            <small>GROWTH POSSIBILITIES</small>
           </div>
 
         </div>
@@ -625,59 +598,42 @@
 
 
 
-      <div class="about-photo reveal">
+      <!-- CTA -->
 
-        <img
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1000&q=85"
-          alt="Creative team collaborating"
-        >
+      <div class="info-cta">
 
-      </div>
-
-    </section>
-
-
-
-    <!-- ================= CTA ================= -->
-
-    <section class="cta-section section reveal">
-
-      <div>
-
-        <p class="mini-label">
+        <p class="info-label">
           READY WHEN YOU ARE
         </p>
 
         <h2>
-          LET'S CREATE SOMETHING<br>
-          <em>AMAZING TOGETHER!</em>
+          LET'S CREATE SOMETHING
+          <span>AMAZING TOGETHER!</span>
         </h2>
 
-      </div>
+        <div class="cta-buttons">
 
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNn8wqA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+            class="button gold-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            START A PROJECT
+            <span>→</span>
+          </a>
 
-      <div class="cta-actions">
+          <a
+            href="https://wa.me/917206149463"
+            class="button outline-button"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WHATSAPP US
+            <span>◉</span>
+          </a>
 
-        <a
-          class="btn btn-gold"
-          href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNn8wqA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          START A PROJECT
-          <span>→</span>
-        </a>
-
-
-        <a
-          class="btn btn-outline"
-          href="https://wa.me/917206149463"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          WHATSAPP US
-          <span>◉</span>
-        </a>
+        </div>
 
       </div>
 
@@ -685,30 +641,32 @@
 
 
 
-    <!-- ================= TESTIMONIALS ================= -->
+    <!-- ==================================================
+         TESTIMONIALS
+    =================================================== -->
 
     <section
-      class="reviews section"
+      class="testimonials"
       id="testimonials"
     >
 
-      <div class="section-head">
+      <div class="section-heading">
 
         <div>
 
-          <p class="mini-label">
+          <p>
             CLIENT LOVE
           </p>
 
           <h2>
-            WHAT CLIENTS <em>SAY</em>
+            WHAT CLIENTS <span>SAY</span>
           </h2>
 
         </div>
 
         <button
-          class="text-link"
-          id="reviewBtn"
+          class="review-button"
+          id="reviewButton"
           type="button"
         >
           WRITE A REVIEW
@@ -764,21 +722,77 @@
 
 
 
-    <!-- ================= CONTACT ================= -->
+    <!-- ==================================================
+         BLOG
+    =================================================== -->
 
     <section
-      class="contact section"
+      class="blog"
+      id="blog"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <p>
+            INSIGHTS
+          </p>
+
+          <h2>
+            OUR <span>BLOG</span>
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <div class="blog-card">
+
+        <div>
+          <small>
+            BRANDSPİRE MEDIA
+          </small>
+
+          <h3>
+            Ideas, insights &amp; strategies
+            for growing your brand.
+          </h3>
+
+          <p>
+            Our blog is coming soon with practical ideas
+            around branding, social media, content and digital growth.
+          </p>
+        </div>
+
+        <span class="coming-soon">
+          COMING SOON
+        </span>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- ==================================================
+         CONTACT
+    =================================================== -->
+
+    <section
+      class="contact"
       id="contact"
     >
 
-      <div class="contact-copy reveal">
+      <div class="contact-content">
 
-        <p class="mini-label">
+        <p class="info-label">
           START A CONVERSATION
         </p>
 
         <h2>
-          LET'S <em>CONNECT.</em>
+          LET'S <span>CONNECT.</span>
         </h2>
 
         <p>
@@ -787,8 +801,8 @@
         </p>
 
         <a
-          class="btn btn-gold"
           href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNn8wqA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+          class="button gold-button"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -799,7 +813,7 @@
       </div>
 
 
-      <div class="contact-links reveal">
+      <div class="contact-options">
 
         <a
           href="https://wa.me/917206149463"
@@ -810,7 +824,6 @@
           WhatsApp
         </a>
 
-
         <a
           href="https://www.instagram.com/brandspire__media/"
           target="_blank"
@@ -820,7 +833,6 @@
           Instagram
         </a>
 
-
         <a
           href="https://www.facebook.com/share/1cHBNtN7eo/?mibextid=wwXIfr"
           target="_blank"
@@ -829,7 +841,6 @@
           <span>f</span>
           Facebook
         </a>
-
 
         <a
           href="mailto:officialbrandspiremedia@gmail.com"
@@ -846,12 +857,13 @@
 
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- ==================================================
+       FOOTER
+  =================================================== -->
 
   <footer class="footer">
 
-
-    <div class="footer-brand">
+    <div class="footer-column footer-brand">
 
       <img
         src="assets/brandspire-logo.png"
@@ -865,54 +877,41 @@
     </div>
 
 
-
-    <div>
+    <div class="footer-column">
 
       <h4>
         QUICK LINKS
       </h4>
 
-      <a href="#home">
-        Home
-      </a>
+      <a href="#home">Home</a>
 
-      <a href="#about">
-        About Us
-      </a>
+      <a href="#about">About Us</a>
 
-      <a href="#services">
-        Services
-      </a>
+      <a href="#services">Services</a>
 
-      <a href="#work">
-        Our Work
-      </a>
+      <a href="#work">Portfolio</a>
 
-      <a href="#testimonials">
-        Testimonials
-      </a>
+      <a href="#testimonials">Clients</a>
 
-      <a href="#contact">
-        Contact
-      </a>
+      <a href="#blog">Blog</a>
+
+      <a href="#contact">Contact</a>
 
     </div>
 
 
-
-    <div>
+    <div class="footer-column">
 
       <h4>
         FOLLOW US
       </h4>
 
-      <div class="socials">
+      <div class="social-icons">
 
         <a
           href="https://www.instagram.com/brandspire__media/"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Instagram"
         >
           IG
         </a>
@@ -921,7 +920,6 @@
           href="https://www.facebook.com/share/1cHBNtN7eo/?mibextid=wwXIfr"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Facebook"
         >
           FB
         </a>
@@ -930,7 +928,6 @@
           href="https://wa.me/917206149463"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="WhatsApp"
         >
           WA
         </a>
@@ -940,8 +937,7 @@
     </div>
 
 
-
-    <div>
+    <div class="footer-column">
 
       <h4>
         CONTACT US
@@ -958,13 +954,11 @@
     </div>
 
 
-
     <div class="footer-bottom">
 
       <span>
         © <span id="year"></span>
-        BrandSpire Media.
-        All rights reserved.
+        BrandSpire Media. All rights reserved.
       </span>
 
       <span>
@@ -977,44 +971,42 @@
 
 
 
-  <!-- ================= REVIEW MODAL ================= -->
+  <!-- ==================================================
+       REVIEW MODAL
+  =================================================== -->
 
   <div
-    class="modal"
+    class="review-modal"
     id="reviewModal"
     aria-hidden="true"
   >
 
-    <div class="modal-box">
+    <div class="review-modal-box">
 
       <button
-        class="modal-close"
-        id="closeModal"
         type="button"
-        aria-label="Close"
+        class="close-modal"
+        id="closeModal"
       >
         ×
       </button>
 
-
-      <p class="mini-label">
+      <p class="info-label">
         YOUR EXPERIENCE
       </p>
 
       <h2>
-        WRITE A <em>REVIEW</em>
+        WRITE A <span>REVIEW</span>
       </h2>
 
-
       <form id="reviewForm">
-
 
         <label>
           Name
 
           <input
-            id="reviewName"
             type="text"
+            id="reviewName"
             maxlength="60"
             placeholder="Your name"
             required
@@ -1023,13 +1015,12 @@
         </label>
 
 
-
         <label>
           Rating
 
           <div
-            class="rating-input"
-            id="ratingInput"
+            class="rating"
+            id="rating"
           >
 
             <button
@@ -1093,8 +1084,8 @@
 
 
         <button
-          class="btn btn-gold"
           type="submit"
+          class="button gold-button"
         >
           POST REVIEW
           <span>→</span>
@@ -1108,11 +1099,13 @@
 
 
 
-  <!-- ================= FLOATING BUTTONS ================= -->
+  <!-- ==================================================
+       FLOATING WHATSAPP
+  =================================================== -->
 
   <a
-    class="floating-wa"
     href="https://wa.me/917206149463"
+    class="floating-whatsapp"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="WhatsApp"
@@ -1121,20 +1114,19 @@
   </a>
 
 
+  <!-- BACK TO TOP -->
+
   <button
+    type="button"
     class="back-top"
     id="backTop"
-    type="button"
     aria-label="Back to top"
   >
     ↑
   </button>
 
 
-
-  <!-- ================= JAVASCRIPT ================= -->
-
-  <script src="script.js" defer></script>
+  <script src="script.js"></script>
 
 </body>
 </html>
