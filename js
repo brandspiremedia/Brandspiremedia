@@ -1,47 +1,63 @@
+/* ==================================================
+   BRANDSPPIRE MEDIA
+   MAIN WEBSITE JAVASCRIPT
+================================================== */
+
+
+/* ==================================================
+   ELEMENTS
+================================================== */
+
 const header =
-  document.querySelector("#siteHeader");
+  document.getElementById("header");
 
-const menu =
-  document.querySelector("#menuToggle");
+const menuBtn =
+  document.getElementById("menuBtn");
 
-const nav =
-  document.querySelector("#mainNav");
+const navigation =
+  document.getElementById("navigation");
 
 
-/* =========================
+/* ==================================================
    MOBILE MENU
-========================= */
+================================================== */
 
-menu?.addEventListener(
-  "click",
-  () => {
+if (menuBtn && navigation) {
 
-    const open =
-      nav.classList.toggle("open");
+  menuBtn.addEventListener(
+    "click",
+    () => {
 
-    menu.setAttribute(
-      "aria-expanded",
-      open ? "true" : "false"
-    );
+      const isOpen =
+        navigation.classList.toggle(
+          "open"
+        );
 
-    menu.setAttribute(
-      "aria-label",
-      open
-        ? "Close menu"
-        : "Open menu"
-    );
+      menuBtn.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
 
-  }
-);
+      menuBtn.setAttribute(
+        "aria-label",
+        isOpen
+          ? "Close menu"
+          : "Open menu"
+      );
+
+    }
+  );
+
+}
 
 
-/* =========================
-   CLOSE MOBILE MENU
-========================= */
+/* ==================================================
+   CLOSE MOBILE MENU AFTER CLICK
+================================================== */
 
 document
   .querySelectorAll(
-    ".nav a[href^='#']"
+    "#navigation a"
   )
   .forEach(
     link => {
@@ -50,11 +66,11 @@ document
         "click",
         () => {
 
-          nav?.classList.remove(
+          navigation?.classList.remove(
             "open"
           );
 
-          menu?.setAttribute(
+          menuBtn?.setAttribute(
             "aria-expanded",
             "false"
           );
@@ -66,13 +82,13 @@ document
   );
 
 
-/* =========================
-   SMOOTH SCROLL
-========================= */
+/* ==================================================
+   SMOOTH INTERNAL NAVIGATION
+================================================== */
 
 document
   .querySelectorAll(
-    "a[href^='#']"
+    'a[href^="#"]'
   )
   .forEach(
     link => {
@@ -81,18 +97,22 @@ document
         "click",
         event => {
 
-          const id =
-            link.getAttribute("href");
+          const targetID =
+            link.getAttribute(
+              "href"
+            );
 
           if (
-            !id ||
-            id === "#"
+            !targetID ||
+            targetID === "#"
           ) {
             return;
           }
 
           const target =
-            document.querySelector(id);
+            document.querySelector(
+              targetID
+            );
 
           if (!target) {
             return;
@@ -105,17 +125,19 @@ document
               ? header.offsetHeight
               : 0;
 
-          const y =
-            target
-              .getBoundingClientRect()
-              .top +
-            window.scrollY -
-            headerHeight -
+          const position =
+            target.getBoundingClientRect()
+              .top
+            +
+            window.scrollY
+            -
+            headerHeight
+            -
             8;
 
           window.scrollTo({
 
-            top: y,
+            top: position,
 
             behavior: "smooth"
 
@@ -128,39 +150,48 @@ document
   );
 
 
-/* =========================
-   HEADER
-========================= */
+/* ==================================================
+   HEADER SCROLL EFFECT
+================================================== */
 
-function headerState() {
+function updateHeader() {
 
   if (!header) {
     return;
   }
 
-  header.classList.toggle(
-    "scrolled",
-    window.scrollY > 20
-  );
+  if (window.scrollY > 20) {
+
+    header.classList.add(
+      "scrolled"
+    );
+
+  } else {
+
+    header.classList.remove(
+      "scrolled"
+    );
+
+  }
 
 }
 
 window.addEventListener(
   "scroll",
-  headerState,
+  updateHeader,
   {
     passive: true
   }
 );
 
-headerState();
+updateHeader();
 
 
-/* =========================
-   SCROLL ANIMATION
-========================= */
+/* ==================================================
+   SCROLL REVEAL
+================================================== */
 
-const reveals =
+const revealElements =
   document.querySelectorAll(
     ".reveal"
   );
@@ -171,7 +202,7 @@ if (
   in window
 ) {
 
-  const observer =
+  const revealObserver =
     new IntersectionObserver(
       entries => {
 
@@ -186,7 +217,7 @@ if (
                 "visible"
               );
 
-              observer.unobserve(
+              revealObserver.unobserve(
                 entry.target
               );
 
@@ -202,17 +233,19 @@ if (
     );
 
 
-  reveals.forEach(
+  revealElements.forEach(
     element => {
 
-      observer.observe(element);
+      revealObserver.observe(
+        element
+      );
 
     }
   );
 
 } else {
 
-  reveals.forEach(
+  revealElements.forEach(
     element => {
 
       element.classList.add(
@@ -225,34 +258,47 @@ if (
 }
 
 
-/* =========================
+/* ==================================================
    BACK TO TOP
-========================= */
+================================================== */
 
 const backTop =
-  document.querySelector(
-    "#backTop"
+  document.getElementById(
+    "backTop"
   );
 
 
-function backTopState() {
+function updateBackTop() {
 
-  backTop?.classList.toggle(
-    "show",
-    window.scrollY > 500
-  );
+  if (!backTop) {
+    return;
+  }
+
+  if (window.scrollY > 500) {
+
+    backTop.classList.add(
+      "show"
+    );
+
+  } else {
+
+    backTop.classList.remove(
+      "show"
+    );
+
+  }
 
 }
 
 window.addEventListener(
   "scroll",
-  backTopState,
+  updateBackTop,
   {
     passive: true
   }
 );
 
-backTopState();
+updateBackTop();
 
 
 backTop?.addEventListener(
@@ -271,13 +317,13 @@ backTop?.addEventListener(
 );
 
 
-/* =========================
-   YEAR
-========================= */
+/* ==================================================
+   FOOTER YEAR
+================================================== */
 
 const year =
-  document.querySelector(
-    "#year"
+  document.getElementById(
+    "year"
   );
 
 if (year) {
@@ -288,38 +334,38 @@ if (year) {
 }
 
 
-/* =================================================
+/* ==================================================
    REVIEW SYSTEM
-================================================= */
+================================================== */
 
-const modal =
-  document.querySelector(
-    "#reviewModal"
+const reviewModal =
+  document.getElementById(
+    "reviewModal"
   );
 
 const openReview =
-  document.querySelector(
-    "#reviewButton"
+  document.getElementById(
+    "openReview"
   );
 
 const closeReview =
-  document.querySelector(
-    "#closeModal"
+  document.getElementById(
+    "closeReview"
   );
 
-const form =
-  document.querySelector(
-    "#reviewForm"
+const reviewForm =
+  document.getElementById(
+    "reviewForm"
   );
 
-const grid =
-  document.querySelector(
-    "#reviewGrid"
+const reviewGrid =
+  document.getElementById(
+    "reviewGrid"
   );
 
 const ratingValue =
-  document.querySelector(
-    "#ratingValue"
+  document.getElementById(
+    "ratingValue"
   );
 
 const ratingButtons =
@@ -329,22 +375,32 @@ const ratingButtons =
     )
   ];
 
-const REVIEW_KEY =
-  "brandspire_reviews_v3";
+const REVIEW_STORAGE_KEY =
+  "brandspire_reviews_final";
+
 
 let reviews = [];
 
 
-/* Load saved reviews */
+/* ==================================================
+   LOAD REVIEWS
+================================================== */
 
 try {
 
-  reviews =
-    JSON.parse(
-      localStorage.getItem(
-        REVIEW_KEY
-      ) || "[]"
+  const savedReviews =
+    localStorage.getItem(
+      REVIEW_STORAGE_KEY
     );
+
+  if (savedReviews) {
+
+    reviews =
+      JSON.parse(
+        savedReviews
+      );
+
+  }
 
   if (
     !Array.isArray(reviews)
@@ -361,68 +417,89 @@ try {
 }
 
 
-/* =========================
-   SECURITY
-========================= */
+/* ==================================================
+   ESCAPE USER CONTENT
+================================================== */
 
 function escapeHTML(value) {
 
-  return String(value).replace(
-    /[&<>"']/g,
-    character => {
+  return String(value)
+    .replace(
+      /[&<>"']/g,
+      character => {
 
-      const map = {
+        const characters = {
 
-        "&": "&amp;",
+          "&": "&amp;",
 
-        "<": "&lt;",
+          "<": "&lt;",
 
-        ">": "&gt;",
+          ">": "&gt;",
 
-        '"': "&quot;",
+          '"': "&quot;",
 
-        "'": "&#039;"
+          "'": "&#039;"
 
-      };
+        };
 
-      return map[character];
+        return characters[
+          character
+        ];
 
-    }
-  );
+      }
+    );
 
 }
 
 
-/* =========================
+/* ==================================================
    RATING
-========================= */
+================================================== */
 
 function setRating(value) {
 
-  value =
+  let rating =
+    Number(value);
+
+  if (
+    !Number.isFinite(
+      rating
+    )
+  ) {
+
+    rating = 5;
+
+  }
+
+  rating =
     Math.max(
       1,
       Math.min(
         5,
-        Number(value) || 5
+        rating
       )
     );
+
 
   if (ratingValue) {
 
     ratingValue.value =
-      value;
+      rating;
 
   }
+
 
   ratingButtons.forEach(
     button => {
 
-      button.classList.toggle(
-        "active",
+      const buttonRating =
         Number(
           button.dataset.rating
-        ) <= value
+        );
+
+      button.classList.toggle(
+        "active",
+        buttonRating <= rating
       );
 
     }
@@ -452,9 +529,9 @@ ratingButtons.forEach(
 setRating(5);
 
 
-/* =========================
-   REVIEW CARD
-========================= */
+/* ==================================================
+   CREATE REVIEW CARD
+================================================== */
 
 function createReviewCard(
   review
@@ -469,33 +546,48 @@ function createReviewCard(
     "review-card reveal visible";
 
 
-  const rating =
+  let rating =
+    Number(
+      review.rating
+    );
+
+  rating =
     Math.max(
       1,
       Math.min(
         5,
-        Number(review.rating) || 5
+        rating || 5
       )
     );
 
 
-  const stars =
-    "★".repeat(rating) +
-    "☆".repeat(5 - rating);
+  const fullStars =
+    "★".repeat(
+      rating
+    );
+
+  const emptyStars =
+    "☆".repeat(
+      5 - rating
+    );
 
 
   card.innerHTML = `
 
     <div class="stars">
-      ${stars}
+      ${fullStars}${emptyStars}
     </div>
 
     <p>
-      “${escapeHTML(review.text)}”
+      “${escapeHTML(
+        review.text
+      )}”
     </p>
 
     <strong>
-      ${escapeHTML(review.name)}
+      ${escapeHTML(
+        review.name
+      )}
     </strong>
 
   `;
@@ -506,34 +598,36 @@ function createReviewCard(
 }
 
 
-/* =========================
-   LOAD REVIEWS
-========================= */
+/* ==================================================
+   DISPLAY SAVED REVIEWS
+================================================== */
 
 reviews.forEach(
   review => {
 
-    grid?.appendChild(
-      createReviewCard(review)
+    reviewGrid?.appendChild(
+      createReviewCard(
+        review
+      )
     );
 
   }
 );
 
 
-/* =========================
-   OPEN MODAL
-========================= */
+/* ==================================================
+   OPEN REVIEW MODAL
+================================================== */
 
 openReview?.addEventListener(
   "click",
   () => {
 
-    modal?.classList.add(
+    reviewModal?.classList.add(
       "open"
     );
 
-    modal?.setAttribute(
+    reviewModal?.setAttribute(
       "aria-hidden",
       "false"
     );
@@ -545,30 +639,30 @@ openReview?.addEventListener(
       () => {
 
         document
-          .querySelector(
-            "#reviewName"
+          .getElementById(
+            "reviewName"
           )
           ?.focus();
 
       },
-      80
+      100
     );
 
   }
 );
 
 
-/* =========================
-   CLOSE MODAL
-========================= */
+/* ==================================================
+   CLOSE REVIEW MODAL
+================================================== */
 
-function closeModal() {
+function closeReviewModal() {
 
-  modal?.classList.remove(
+  reviewModal?.classList.remove(
     "open"
   );
 
-  modal?.setAttribute(
+  reviewModal?.setAttribute(
     "aria-hidden",
     "true"
   );
@@ -581,21 +675,22 @@ function closeModal() {
 
 closeReview?.addEventListener(
   "click",
-  closeModal
+  closeReviewModal
 );
 
 
-/* Outside click */
+/* Click outside */
 
-modal?.addEventListener(
+reviewModal?.addEventListener(
   "click",
   event => {
 
     if (
-      event.target === modal
+      event.target ===
+      reviewModal
     ) {
 
-      closeModal();
+      closeReviewModal();
 
     }
 
@@ -611,12 +706,12 @@ document.addEventListener(
 
     if (
       event.key === "Escape" &&
-      modal?.classList.contains(
+      reviewModal?.classList.contains(
         "open"
       )
     ) {
 
-      closeModal();
+      closeReviewModal();
 
     }
 
@@ -624,11 +719,11 @@ document.addEventListener(
 );
 
 
-/* =========================
+/* ==================================================
    SUBMIT REVIEW
-========================= */
+================================================== */
 
-form?.addEventListener(
+reviewForm?.addEventListener(
   "submit",
   event => {
 
@@ -636,13 +731,13 @@ form?.addEventListener(
 
 
     const nameInput =
-      document.querySelector(
-        "#reviewName"
+      document.getElementById(
+        "reviewName"
       );
 
     const textInput =
-      document.querySelector(
-        "#reviewText"
+      document.getElementById(
+        "reviewText"
       );
 
 
@@ -676,26 +771,28 @@ form?.addEventListener(
     }
 
 
-    const review = {
+    const newReview = {
 
-      name,
+      name: name,
 
-      text,
+      text: text,
 
-      rating
+      rating: rating
 
     };
 
 
     reviews.unshift(
-      review
+      newReview
     );
 
+
+    /* Save */
 
     try {
 
       localStorage.setItem(
-        REVIEW_KEY,
+        REVIEW_STORAGE_KEY,
         JSON.stringify(
           reviews
         )
@@ -703,87 +800,100 @@ form?.addEventListener(
 
     } catch {
 
-      /* Continue even if storage fails */
+      /* The review still appears
+         even if browser storage
+         is unavailable. */
 
     }
 
 
-    /* Show immediately */
+    /* Immediately display */
 
-    grid?.prepend(
-      createReviewCard(review)
-    );
+    if (reviewGrid) {
+
+      reviewGrid.prepend(
+        createReviewCard(
+          newReview
+        )
+      );
+
+    }
 
 
-    /* Reset */
+    /* Reset form */
 
-    form.reset();
+    reviewForm.reset();
 
     setRating(5);
 
-    closeModal();
+    closeReviewModal();
 
 
-    /* Scroll back to testimonials */
+    /* Return to testimonials */
 
     setTimeout(
       () => {
 
         document
-          .querySelector(
-            "#testimonials"
+          .getElementById(
+            "testimonials"
           )
           ?.scrollIntoView({
+
             behavior: "smooth",
+
             block: "start"
+
           });
 
       },
-      100
+      150
     );
 
   }
 );
 
 
-/* =========================
-   CLICK OUTSIDE MOBILE MENU
-========================= */
+/* ==================================================
+   CLOSE MENU WHEN CLICKING OUTSIDE
+================================================== */
 
 document.addEventListener(
   "click",
   event => {
 
     if (
-      !nav ||
-      !menu
+      !navigation ||
+      !menuBtn
     ) {
       return;
     }
 
-    const insideNav =
-      nav.contains(
+
+    const clickedNavigation =
+      navigation.contains(
         event.target
       );
 
-    const insideButton =
-      menu.contains(
+    const clickedMenu =
+      menuBtn.contains(
         event.target
       );
+
 
     if (
-      !insideNav &&
-      !insideButton &&
-      nav.classList.contains(
+      !clickedNavigation &&
+      !clickedMenu &&
+      navigation.classList.contains(
         "open"
       )
     ) {
 
-      nav.classList.remove(
+      navigation.classList.remove(
         "open"
       );
 
-      menu.setAttribute(
+      menuBtn.setAttribute(
         "aria-expanded",
         "false"
       );
