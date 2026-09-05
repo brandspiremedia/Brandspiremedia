@@ -1,324 +1,767 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const $ = (selector) => document.querySelector(selector);
-  const $$ = (selector) => document.querySelectorAll(selector);
+/* =========================================================
+   BRANDSPIRE MEDIA
+   Main JavaScript
+========================================================= */
 
-  const menu = $("#menu");
-  const nav = $("#nav");
-  const header = $("#header");
-  const backTop = $("#top");
-  const year = $("#year");
 
-  // Current year
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+/* =========================
+   ELEMENTS
+========================= */
 
-  // =========================
-  // MOBILE MENU
-  // =========================
+const header = document.querySelector(".site-header");
+const menuToggle = document.querySelector("#menuToggle");
+const nav = document.querySelector("#mainNav");
 
-  menu?.addEventListener("click", () => {
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+if (menuToggle && nav) {
+
+  menuToggle.addEventListener("click", () => {
+
     const isOpen = nav.classList.toggle("open");
 
-    menu.setAttribute("aria-expanded", String(isOpen));
-    menu.textContent = isOpen ? "✕" : "☰";
+    menuToggle.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      isOpen ? "Close menu" : "Open menu"
+    );
+
   });
 
-  // Close mobile menu after clicking a navigation link
-  nav?.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("open");
+}
 
-      if (menu) {
-        menu.setAttribute("aria-expanded", "false");
-        menu.textContent = "☰";
+
+/* =========================
+   CLOSE MOBILE MENU
+   WHEN LINK IS CLICKED
+========================= */
+
+document.querySelectorAll('.nav a[href^="#"]').forEach(link => {
+
+  link.addEventListener("click", () => {
+
+    if (!nav || !menuToggle) return;
+
+    nav.classList.remove("open");
+
+    menuToggle.setAttribute(
+      "aria-expanded",
+      "false"
+    );
+
+    menuToggle.setAttribute(
+      "aria-label",
+      "Open menu"
+    );
+
+  });
+
+});
+
+
+/* =========================
+   SMOOTH SCROLL
+========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+  link.addEventListener("click", event => {
+
+    const targetId = link.getAttribute("href");
+
+    if (!targetId || targetId === "#") {
+      return;
+    }
+
+    const target = document.querySelector(targetId);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const headerHeight =
+      header ? header.offsetHeight : 0;
+
+    const targetPosition =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      headerHeight -
+      8;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: "smooth"
+    });
+
+  });
+
+});
+
+
+/* =========================
+   HEADER ON SCROLL
+========================= */
+
+function updateHeader() {
+
+  if (!header) return;
+
+  if (window.scrollY > 20) {
+
+    header.classList.add("scrolled");
+
+  } else {
+
+    header.classList.remove("scrolled");
+
+  }
+
+}
+
+window.addEventListener(
+  "scroll",
+  updateHeader,
+  { passive: true }
+);
+
+updateHeader();
+
+
+/* =========================
+   SCROLL REVEAL ANIMATION
+========================= */
+
+const revealElements =
+  document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+
+  const revealObserver =
+    new IntersectionObserver(
+      entries => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add("visible");
+
+            revealObserver.unobserve(
+              entry.target
+            );
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
       }
-    });
+    );
+
+  revealElements.forEach(element => {
+
+    revealObserver.observe(element);
+
   });
 
-  // =========================
-  // SMOOTH SCROLL
-  // =========================
+} else {
 
-  document.querySelectorAll('a[href^="#"]').forEach((link) => {
-    link.addEventListener("click", (event) => {
-      const targetId = link.getAttribute("href");
+  /* Fallback for older browsers */
 
-      if (!targetId || targetId === "#") return;
+  revealElements.forEach(element => {
 
-      const target = document.querySelector(targetId);
+    element.classList.add("visible");
 
-      if (!target) return;
-
-      event.preventDefault();
-
-      const headerHeight = header ? header.offsetHeight : 0;
-
-      const targetPosition =
-        target.getBoundingClientRect().top +
-        window.scrollY -
-        headerHeight;
-
-      window.scrollTo({
-        top: Math.max(0, targetPosition),
-        behavior: "smooth"
-      });
-
-      history.replaceState(null, "", targetId);
-    });
   });
 
-  // =========================
-  // HEADER ON SCROLL
-  // =========================
+}
 
-  const handleScroll = () => {
-    if (header) {
-      header.classList.toggle("scrolled", window.scrollY > 15);
-    }
 
-    if (backTop) {
-      backTop.classList.toggle("show", window.scrollY > 600);
-    }
-  };
+/* =========================
+   BACK TO TOP
+========================= */
 
-  window.addEventListener("scroll", handleScroll, {
-    passive: true
-  });
+const backTop =
+  document.querySelector("#backTop");
 
-  handleScroll();
+function updateBackTop() {
 
-  // =========================
-  // BACK TO TOP
-  // =========================
+  if (!backTop) return;
 
-  backTop?.addEventListener("click", () => {
+  if (window.scrollY > 500) {
+
+    backTop.classList.add("show");
+
+  } else {
+
+    backTop.classList.remove("show");
+
+  }
+
+}
+
+window.addEventListener(
+  "scroll",
+  updateBackTop,
+  { passive: true }
+);
+
+backTop?.addEventListener(
+  "click",
+  () => {
+
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
-  });
 
-  // =========================
-  // SCROLL ANIMATIONS
-  // =========================
+  }
+);
 
-  const revealElements = $$(".reveal");
+updateBackTop();
 
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(
-      (entries, observerInstance) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-            observerInstance.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1
-      }
+
+/* =========================
+   CURRENT YEAR
+========================= */
+
+const yearElement =
+  document.querySelector("#year");
+
+if (yearElement) {
+
+  yearElement.textContent =
+    new Date().getFullYear();
+
+}
+
+
+/* =========================================================
+   REVIEW SYSTEM
+========================================================= */
+
+const reviewModal =
+  document.querySelector("#reviewModal");
+
+const reviewButton =
+  document.querySelector("#reviewBtn");
+
+const closeModalButton =
+  document.querySelector("#closeModal");
+
+const reviewForm =
+  document.querySelector("#reviewForm");
+
+const reviewGrid =
+  document.querySelector("#reviewGrid");
+
+const ratingValue =
+  document.querySelector("#ratingValue");
+
+const ratingButtons =
+  [...document.querySelectorAll(
+    "#ratingInput button"
+  )];
+
+
+/* =========================
+   REVIEW STORAGE
+========================= */
+
+const REVIEW_STORAGE_KEY =
+  "brandspire_reviews_v1";
+
+let savedReviews = [];
+
+try {
+
+  savedReviews =
+    JSON.parse(
+      localStorage.getItem(
+        REVIEW_STORAGE_KEY
+      ) || "[]"
     );
 
-    revealElements.forEach((element) => {
-      observer.observe(element);
-    });
-  } else {
-    revealElements.forEach((element) => {
-      element.classList.add("visible");
-    });
+  if (!Array.isArray(savedReviews)) {
+    savedReviews = [];
   }
 
-  // =========================
-  // REVIEW SYSTEM
-  // =========================
+} catch (error) {
 
-  const reviewModal = $("#reviewModal");
-  const openReviewButton = $("#openReview");
-  const reviewForm = $("#reviewForm");
-  const reviewList = $("#reviewList");
+  savedReviews = [];
 
-  const storageKey = "brandspire_reviews_v1";
+}
 
-  // Get saved reviews
-  function getReviews() {
-    try {
-      return JSON.parse(
-        localStorage.getItem(storageKey) || "[]"
-      );
-    } catch (error) {
-      return [];
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(value) {
+
+  return String(value).replace(
+    /[&<>"']/g,
+    character => {
+
+      const characters = {
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#039;"
+      };
+
+      return characters[character];
+
     }
-  }
+  );
 
-  // Protect review text before displaying it
-  function escapeHTML(value) {
-    return String(value).replace(
-      /[&<>"']/g,
-      (character) => {
-        const characters = {
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          '"': "&quot;",
-          "'": "&#039;"
-        };
+}
 
-        return characters[character];
-      }
+
+/* =========================
+   SET RATING
+========================= */
+
+function setRating(rating) {
+
+  if (!ratingValue) return;
+
+  rating = Number(rating);
+
+  if (rating < 1) rating = 1;
+  if (rating > 5) rating = 5;
+
+  ratingValue.value = rating;
+
+  ratingButtons.forEach(button => {
+
+    const buttonRating =
+      Number(button.dataset.rating);
+
+    button.classList.toggle(
+      "active",
+      buttonRating <= rating
     );
-  }
 
-  // Display submitted reviews
-  function renderReviews() {
-    if (!reviewList) return;
-
-    // Remove previously generated reviews
-    reviewList
-      .querySelectorAll(".user-review")
-      .forEach((review) => review.remove());
-
-    const reviews = getReviews();
-
-    reviews
-      .slice()
-      .reverse()
-      .forEach((review) => {
-        const reviewElement = document.createElement("article");
-
-        reviewElement.className = "review user-review";
-
-        const stars =
-          "★★★★★".slice(0, review.rating) +
-          "☆☆☆☆☆".slice(0, 5 - review.rating);
-
-        reviewElement.innerHTML = `
-          <div class="stars">${stars}</div>
-
-          <p>
-            “${escapeHTML(review.text)}”
-          </p>
-
-          <strong>
-            ${escapeHTML(review.name)}
-          </strong>
-
-          <small>
-            Website review
-          </small>
-        `;
-
-        reviewList.prepend(reviewElement);
-      });
-  }
-
-  // Open review popup
-  openReviewButton?.addEventListener("click", () => {
-    if (!reviewModal) return;
-
-    reviewModal.classList.add("open");
-    reviewModal.setAttribute("aria-hidden", "false");
-
-    document.body.style.overflow = "hidden";
-
-    setTimeout(() => {
-      $("#reviewName")?.focus();
-    }, 100);
   });
 
-  // Close review popup
-  function closeReviewModal() {
-    if (!reviewModal) return;
+}
 
-    reviewModal.classList.remove("open");
-    reviewModal.setAttribute("aria-hidden", "true");
 
-    document.body.style.overflow = "";
-  }
+/* Default rating */
 
-  reviewModal
-    ?.querySelectorAll("[data-close]")
-    .forEach((button) => {
-      button.addEventListener(
-        "click",
-        closeReviewModal
+setRating(5);
+
+
+/* =========================
+   RATING BUTTONS
+========================= */
+
+ratingButtons.forEach(button => {
+
+  button.addEventListener(
+    "click",
+    () => {
+
+      setRating(
+        Number(button.dataset.rating)
       );
-    });
 
-  // Close with Escape key
-  document.addEventListener("keydown", (event) => {
+    }
+  );
+
+});
+
+
+/* =========================
+   OPEN REVIEW MODAL
+========================= */
+
+function openReviewModal() {
+
+  if (!reviewModal) return;
+
+  reviewModal.classList.add("open");
+
+  reviewModal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.style.overflow = "hidden";
+
+  setTimeout(() => {
+
+    document
+      .querySelector("#reviewName")
+      ?.focus();
+
+  }, 100);
+
+}
+
+reviewButton?.addEventListener(
+  "click",
+  openReviewModal
+);
+
+
+/* =========================
+   CLOSE REVIEW MODAL
+========================= */
+
+function closeReviewModal() {
+
+  if (!reviewModal) return;
+
+  reviewModal.classList.remove("open");
+
+  reviewModal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.style.overflow = "";
+
+}
+
+closeModalButton?.addEventListener(
+  "click",
+  closeReviewModal
+);
+
+
+/* Close by clicking outside */
+
+reviewModal?.addEventListener(
+  "click",
+  event => {
+
+    if (event.target === reviewModal) {
+
+      closeReviewModal();
+
+    }
+
+  }
+);
+
+
+/* Close with Escape */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
     if (
       event.key === "Escape" &&
       reviewModal?.classList.contains("open")
     ) {
-      closeReviewModal();
-    }
-  });
 
-  // Submit review
-  reviewForm?.addEventListener("submit", (event) => {
+      closeReviewModal();
+
+    }
+
+  }
+);
+
+
+/* =========================
+   CREATE REVIEW CARD
+========================= */
+
+function createReviewCard(review) {
+
+  const article =
+    document.createElement("article");
+
+  article.className =
+    "review-card reveal visible";
+
+  const rating =
+    Math.max(
+      1,
+      Math.min(5, Number(review.rating))
+    );
+
+  const stars =
+    "★".repeat(rating) +
+    "☆".repeat(5 - rating);
+
+  article.innerHTML = `
+
+    <div class="stars">
+      ${stars}
+    </div>
+
+    <p>
+      “${escapeHTML(review.text)}”
+    </p>
+
+    <strong>
+      — ${escapeHTML(review.name)}
+    </strong>
+
+  `;
+
+  return article;
+
+}
+
+
+/* =========================
+   DISPLAY REVIEW
+========================= */
+
+function displayReview(
+  review,
+  addToTop = true
+) {
+
+  if (!reviewGrid) return;
+
+  const card =
+    createReviewCard(review);
+
+  if (addToTop) {
+
+    reviewGrid.prepend(card);
+
+  } else {
+
+    reviewGrid.appendChild(card);
+
+  }
+
+}
+
+
+/* =========================
+   LOAD SAVED REVIEWS
+========================= */
+
+savedReviews.forEach(review => {
+
+  displayReview(
+    review,
+    false
+  );
+
+});
+
+
+/* =========================
+   SUBMIT REVIEW
+========================= */
+
+reviewForm?.addEventListener(
+  "submit",
+  event => {
+
     event.preventDefault();
 
-    const formData = new FormData(reviewForm);
+    const nameInput =
+      document.querySelector("#reviewName");
 
-    const name = String(
-      formData.get("name") || ""
-    ).trim();
+    const textInput =
+      document.querySelector("#reviewText");
 
-    const rating = Number(
-      formData.get("rating")
-    );
 
-    const text = String(
-      formData.get("review") || ""
-    ).trim();
+    const name =
+      nameInput?.value.trim() || "";
 
-    // Validation
-    if (
-      !name ||
-      !text ||
-      rating < 1 ||
-      rating > 5
-    ) {
+    const text =
+      textInput?.value.trim() || "";
+
+    const rating =
+      Number(
+        ratingValue?.value || 5
+      );
+
+
+    /* Validation */
+
+    if (!name) {
+
+      nameInput?.focus();
+
       return;
+
     }
 
+    if (!text) {
+
+      textInput?.focus();
+
+      return;
+
+    }
+
+
     const newReview = {
+
       name: name,
-      rating: rating,
+
+      rating:
+        Math.max(
+          1,
+          Math.min(5, rating)
+        ),
+
       text: text
+
     };
 
-    const reviews = getReviews();
 
-    reviews.push(newReview);
+    /* Save review */
 
-    localStorage.setItem(
-      storageKey,
-      JSON.stringify(reviews)
+    savedReviews.unshift(
+      newReview
     );
 
-    // Reset form
+
+    try {
+
+      localStorage.setItem(
+        REVIEW_STORAGE_KEY,
+        JSON.stringify(savedReviews)
+      );
+
+    } catch (error) {
+
+      console.warn(
+        "Review could not be saved locally.",
+        error
+      );
+
+    }
+
+
+    /* Immediately display */
+
+    displayReview(
+      newReview,
+      true
+    );
+
+
+    /* Reset form */
+
     reviewForm.reset();
 
-    // Immediately show review
-    renderReviews();
+    setRating(5);
 
-    // Close popup
+
+    /* Close modal */
+
     closeReviewModal();
 
-    // Scroll to the new review
-    setTimeout(() => {
-      const latestReview =
-        reviewList?.querySelector(".user-review");
 
-      latestReview?.scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-    }, 150);
-  });
+    /* Scroll to testimonials */
 
-  // Render existing reviews on page load
-  renderReviews();
-});
+    const testimonials =
+      document.querySelector(
+        "#testimonials"
+      );
+
+    if (testimonials) {
+
+      setTimeout(() => {
+
+        const headerHeight =
+          header
+            ? header.offsetHeight
+            : 0;
+
+        const position =
+          testimonials.getBoundingClientRect()
+            .top +
+          window.scrollY -
+          headerHeight -
+          8;
+
+        window.scrollTo({
+          top: position,
+          behavior: "smooth"
+        });
+
+      }, 100);
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   MOBILE SAFETY
+========================================================= */
+
+/*
+   Close mobile menu when clicking outside.
+*/
+
+document.addEventListener(
+  "click",
+  event => {
+
+    if (!nav || !menuToggle) return;
+
+    const clickedInsideMenu =
+      nav.contains(event.target);
+
+    const clickedToggle =
+      menuToggle.contains(event.target);
+
+    if (
+      !clickedInsideMenu &&
+      !clickedToggle &&
+      nav.classList.contains("open")
+    ) {
+
+      nav.classList.remove("open");
+
+      menuToggle.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuToggle.setAttribute(
+        "aria-label",
+        "Open menu"
+      );
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   PREVENT ACCIDENTAL HORIZONTAL OVERFLOW
+========================================================= */
+
+window.addEventListener(
+  "load",
+  () => {
+
+    document.documentElement.style
+      .overflowX = "hidden";
+
+    document.body.style
+      .overflowX = "hidden";
+
+  }
+);
