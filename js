@@ -1,282 +1,523 @@
 /* =========================================================
    BRANDSPIRE MEDIA
-   CLEAN MASTER JAVASCRIPT
-   ========================================================= */
+   MAIN JAVASCRIPT
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
 
-  /* -------------------------------------------------------
-     MOBILE MENU
-  ------------------------------------------------------- */
+/* ================= YEAR ================= */
 
-  const menuBtn = document.getElementById("menuBtn");
-  const mobileNav = document.getElementById("mobileNav");
+const year = document.getElementById("year");
 
-  if (menuBtn && mobileNav) {
+if (year) {
+  year.textContent = new Date().getFullYear();
+}
 
-    menuBtn.addEventListener("click", () => {
-      mobileNav.classList.toggle("active");
+
+/* ================= MOBILE MENU ================= */
+
+const menuButton = document.getElementById("menuButton");
+const mobileNav = document.getElementById("mobileNav");
+
+if (menuButton && mobileNav) {
+
+  menuButton.addEventListener("click", () => {
+
+    const isOpen = mobileNav.classList.toggle("active");
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      isOpen ? "true" : "false"
+    );
+
+  });
+
+
+  mobileNav.querySelectorAll("a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+      mobileNav.classList.remove("active");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
     });
 
-    mobileNav.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        mobileNav.classList.remove("active");
-      });
+  });
+
+}
+
+
+/* ================= SMOOTH NAVIGATION ================= */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+  link.addEventListener("click", function(event) {
+
+    const targetId = this.getAttribute("href");
+
+    if (!targetId || targetId === "#") {
+      return;
+    }
+
+    const target = document.querySelector(targetId);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const headerHeight = 75;
+
+    const position =
+      target.getBoundingClientRect().top +
+      window.scrollY -
+      headerHeight;
+
+    window.scrollTo({
+      top: position,
+      behavior: "smooth"
     });
-  }
+
+  });
+
+});
 
 
-  /* -------------------------------------------------------
-     SCROLL REVEAL
-  ------------------------------------------------------- */
+/* ================= SCROLL REVEAL ================= */
 
-  const revealElements = document.querySelectorAll(".reveal");
+const revealElements =
+  document.querySelectorAll(".reveal");
 
-  if ("IntersectionObserver" in window) {
 
-    const observer = new IntersectionObserver(
-      (entries, obs) => {
+if ("IntersectionObserver" in window) {
+
+  const revealObserver =
+    new IntersectionObserver(
+
+      entries => {
 
         entries.forEach(entry => {
 
           if (entry.isIntersecting) {
+
             entry.target.classList.add("visible");
-            obs.unobserve(entry.target);
+
+            revealObserver.unobserve(
+              entry.target
+            );
+
           }
 
         });
 
       },
+
       {
         threshold: 0.12
       }
+
     );
 
-    revealElements.forEach(element => {
-      observer.observe(element);
-    });
 
-  } else {
+  revealElements.forEach(element => {
 
-    revealElements.forEach(element => {
-      element.classList.add("visible");
-    });
+    revealObserver.observe(element);
+
+  });
+
+} else {
+
+  revealElements.forEach(element => {
+
+    element.classList.add("visible");
+
+  });
+
+}
+
+
+/* ================= SERVICE DATA ================= */
+
+const serviceData = {
+
+  social: {
+
+    number: "01",
+
+    title: "Social Media Management",
+
+    description:
+      "We manage your social presence with strategy, consistency and creative content designed to build a stronger audience and recognizable brand.",
+
+    list: [
+      "Content strategy and monthly planning",
+      "Social media management",
+      "Community management & DM handling",
+      "Content calendars",
+      "Hashtag and trend research",
+      "Performance reporting"
+    ]
+
+  },
+
+
+  content: {
+
+    number: "02",
+
+    title: "Content Creation",
+
+    description:
+      "We create scroll-stopping content that communicates your brand clearly and gives your audience a reason to stop, watch and remember.",
+
+    list: [
+      "Social media creatives",
+      "Reels and short-form content",
+      "Copywriting and captions",
+      "Story and carousel creation",
+      "Campaign creative direction",
+      "Brand-consistent visual content"
+    ]
+
+  },
+
+
+  branding: {
+
+    number: "03",
+
+    title: "Branding & Design",
+
+    description:
+      "We create distinctive visual identities that help your business look professional, recognizable and consistent across every touchpoint.",
+
+    list: [
+      "Logo design",
+      "Brand identity systems",
+      "Colour and typography direction",
+      "Business card and stationery design",
+      "Social media brand kit",
+      "Visual templates"
+    ]
+
+  },
+
+
+  visual: {
+
+    number: "04",
+
+    title: "Photography & Videography",
+
+    description:
+      "Professional visual production that captures your brand, products, people and experiences in a way that feels authentic and premium.",
+
+    list: [
+      "Product photography",
+      "Brand photography",
+      "Reels and video production",
+      "Event coverage",
+      "Brand films",
+      "Creative visual direction"
+    ]
+
+  },
+
+
+  influencer: {
+
+    number: "05",
+
+    title: "Influencer Marketing",
+
+    description:
+      "We connect brands with relevant creators and help structure partnerships that reach the right audience in an authentic way.",
+
+    list: [
+      "Creator research",
+      "Influencer selection",
+      "Campaign planning",
+      "Creator outreach",
+      "Campaign coordination",
+      "Performance tracking"
+    ]
+
+  },
+
+
+  website: {
+
+    number: "06",
+
+    title: "Website Creation",
+
+    description:
+      "We create modern, responsive websites designed around your brand, your audience and your business goals.",
+
+    list: [
+      "Website strategy",
+      "UI/UX design",
+      "Responsive development",
+      "Mobile-first layouts",
+      "Performance optimization",
+      "SEO-ready structure"
+    ]
 
   }
 
+};
 
-  /* -------------------------------------------------------
-     YEAR
-  ------------------------------------------------------- */
 
-  const year = document.getElementById("year");
+/* ================= SERVICE MODAL ================= */
 
-  if (year) {
-    year.textContent = new Date().getFullYear();
+const serviceModal =
+  document.getElementById("serviceModal");
+
+const modalOverlay =
+  document.getElementById("modalOverlay");
+
+const modalClose =
+  document.getElementById("modalClose");
+
+const modalNumber =
+  document.getElementById("modalNumber");
+
+const modalTitle =
+  document.getElementById("modalTitle");
+
+const modalDescription =
+  document.getElementById("modalDescription");
+
+const modalList =
+  document.getElementById("modalList");
+
+
+function openService(serviceKey) {
+
+  const service =
+    serviceData[serviceKey];
+
+  if (!service) {
+    return;
   }
 
+  modalNumber.textContent =
+    service.number;
 
-  /* -------------------------------------------------------
-     REVIEW SYSTEM
-  ------------------------------------------------------- */
+  modalTitle.textContent =
+    service.title;
 
-  const reviewOpen = document.getElementById("reviewOpen");
-  const reviewClose = document.getElementById("reviewClose");
-  const reviewModal = document.getElementById("reviewModal");
-  const reviewForm = document.getElementById("reviewForm");
-  const reviewsList = document.getElementById("reviewsList");
-  const stars = document.querySelectorAll("#stars button");
+  modalDescription.textContent =
+    service.description;
 
-  let selectedRating = 0;
+  modalList.innerHTML = "";
 
+  service.list.forEach(item => {
 
-  function openReviewModal() {
-    if (reviewModal) {
-      reviewModal.classList.add("active");
-      document.body.style.overflow = "hidden";
-    }
-  }
+    const li =
+      document.createElement("li");
 
+    li.textContent = item;
 
-  function closeReviewModal() {
-    if (reviewModal) {
-      reviewModal.classList.remove("active");
-      document.body.style.overflow = "";
-    }
-  }
+    modalList.appendChild(li);
+
+  });
+
+  serviceModal.classList.add("active");
+
+  document.body.classList.add("modal-open");
+
+}
 
 
-  if (reviewOpen) {
-    reviewOpen.addEventListener("click", openReviewModal);
-  }
+function closeService() {
 
-  if (reviewClose) {
-    reviewClose.addEventListener("click", closeReviewModal);
-  }
+  serviceModal.classList.remove("active");
 
-  if (reviewModal) {
-    reviewModal.addEventListener("click", event => {
+  document.body.classList.remove("modal-open");
 
-      if (event.target === reviewModal) {
-        closeReviewModal();
-      }
-
-    });
-  }
+}
 
 
-  /* -------------------------------------------------------
-     STAR RATING
-  ------------------------------------------------------- */
+document.querySelectorAll(".learn-more")
+  .forEach(button => {
 
-  stars.forEach(star => {
+    button.addEventListener("click", () => {
 
-    star.addEventListener("click", () => {
+      const service =
+        button.dataset.service;
 
-      selectedRating = Number(star.dataset.rating);
-
-      stars.forEach(item => {
-
-        const rating = Number(item.dataset.rating);
-
-        item.classList.toggle(
-          "active",
-          rating <= selectedRating
-        );
-
-      });
+      openService(service);
 
     });
 
   });
 
 
-  /* -------------------------------------------------------
-     LOAD REVIEWS
-  ------------------------------------------------------- */
+if (modalClose) {
 
-  function loadReviews() {
+  modalClose.addEventListener(
+    "click",
+    closeService
+  );
 
-    if (!reviewsList) return;
+}
 
-    const savedReviews =
-      JSON.parse(localStorage.getItem("brandspireReviews")) || [];
 
-    if (savedReviews.length === 0) {
+if (modalOverlay) {
 
-      reviewsList.innerHTML = `
-        <div class="empty-reviews">
-          <span>✦</span>
-          <h3>Be Our First Reviewer</h3>
-          <p>Your experience can help others discover BrandSpire Media.</p>
-        </div>
-      `;
+  modalOverlay.addEventListener(
+    "click",
+    closeService
+  );
 
-      return;
+}
+
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key === "Escape" &&
+      serviceModal.classList.contains("active")
+    ) {
+
+      closeService();
+
     }
 
-
-    reviewsList.innerHTML = savedReviews
-      .map(review => {
-
-        const starsText =
-          "★".repeat(review.rating) +
-          "☆".repeat(5 - review.rating);
-
-        return `
-          <article class="review-card">
-            <div class="review-stars">${starsText}</div>
-            <h4>${escapeHTML(review.name)}</h4>
-            <p>${escapeHTML(review.text)}</p>
-          </article>
-        `;
-
-      })
-      .join("");
-
   }
+);
 
 
-  /* -------------------------------------------------------
-     POST REVIEW
-  ------------------------------------------------------- */
+/* ================= BACK TO TOP ================= */
 
-  if (reviewForm) {
-
-    reviewForm.addEventListener("submit", event => {
-
-      event.preventDefault();
-
-      const name =
-        document.getElementById("reviewName").value.trim();
-
-      const text =
-        document.getElementById("reviewText").value.trim();
+const backTop =
+  document.getElementById("backTop");
 
 
-      if (!name || !text) {
-        alert("Please complete all fields.");
-        return;
-      }
+window.addEventListener(
+  "scroll",
+  () => {
+
+    if (window.scrollY > 700) {
+
+      backTop.classList.add("show");
+
+    } else {
+
+      backTop.classList.remove("show");
+
+    }
+
+  },
+  { passive: true }
+);
 
 
-      if (selectedRating === 0) {
-        alert("Please select a rating.");
-        return;
-      }
+if (backTop) {
 
+  backTop.addEventListener(
+    "click",
+    () => {
 
-      const reviews =
-        JSON.parse(localStorage.getItem("brandspireReviews")) || [];
-
-
-      reviews.unshift({
-        name: name,
-        text: text,
-        rating: selectedRating
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
       });
 
+    }
+  );
 
-      localStorage.setItem(
-        "brandspireReviews",
-        JSON.stringify(reviews)
-      );
-
-
-      reviewForm.reset();
-
-      selectedRating = 0;
-
-      stars.forEach(star => {
-        star.classList.remove("active");
-      });
+}
 
 
-      closeReviewModal();
+/* ================= HEADER EFFECT ================= */
 
-      loadReviews();
-
-    });
-
-  }
+const header =
+  document.getElementById("header");
 
 
-  /* -------------------------------------------------------
-     BASIC HTML ESCAPE
-  ------------------------------------------------------- */
+window.addEventListener(
+  "scroll",
+  () => {
 
-  function escapeHTML(value) {
+    if (window.scrollY > 30) {
 
-    return value
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
+      header.style.background =
+        "rgba(8,8,13,.94)";
 
-  }
+    } else {
+
+      header.style.background =
+        "rgba(8,8,13,.76)";
+
+    }
+
+  },
+  { passive: true }
+);
 
 
-  loadReviews();
+/* ================= CARD TILT ================= */
 
-});
+const cards =
+  document.querySelectorAll(
+    ".service-card, .why-card"
+  );
+
+
+if (
+  window.matchMedia(
+    "(pointer:fine)"
+  ).matches
+) {
+
+  cards.forEach(card => {
+
+    card.addEventListener(
+      "mousemove",
+      event => {
+
+        const rect =
+          card.getBoundingClientRect();
+
+        const x =
+          event.clientX - rect.left;
+
+        const y =
+          event.clientY - rect.top;
+
+        const rotateX =
+          ((y / rect.height) - .5) * -3;
+
+        const rotateY =
+          ((x / rect.width) - .5) * 3;
+
+        card.style.transform =
+          `perspective(800px)
+           rotateX(${rotateX}deg)
+           rotateY(${rotateY}deg)
+           translateY(-5px)`;
+
+      }
+    );
+
+
+    card.addEventListener(
+      "mouseleave",
+      () => {
+
+        card.style.transform = "";
+
+      }
+    );
+
+  });
+
+}
