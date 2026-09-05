@@ -1,84 +1,69 @@
-/* =========================================================
-   BRANDSPIRE MEDIA
-   MAIN JAVASCRIPT
-========================================================= */
-
-
-/* =========================
-   ELEMENTS
-========================= */
-
 const header =
-  document.querySelector("#header");
+  document.querySelector("#siteHeader");
 
-const menuButton =
-  document.querySelector("#menuButton");
+const menu =
+  document.querySelector("#menuToggle");
 
-const navigation =
-  document.querySelector("#navigation");
+const nav =
+  document.querySelector("#mainNav");
 
 
 /* =========================
    MOBILE MENU
 ========================= */
 
-if (menuButton && navigation) {
+menu?.addEventListener(
+  "click",
+  () => {
 
-  menuButton.addEventListener(
-    "click",
-    () => {
+    const open =
+      nav.classList.toggle("open");
 
-      const isOpen =
-        navigation.classList.toggle("open");
+    menu.setAttribute(
+      "aria-expanded",
+      open ? "true" : "false"
+    );
 
-      menuButton.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
+    menu.setAttribute(
+      "aria-label",
+      open
+        ? "Close menu"
+        : "Open menu"
+    );
 
-      menuButton.setAttribute(
-        "aria-label",
-        isOpen
-          ? "Close navigation"
-          : "Open navigation"
-      );
-
-    }
-  );
-
-}
+  }
+);
 
 
 /* =========================
-   CLOSE MENU AFTER CLICK
+   CLOSE MOBILE MENU
 ========================= */
 
 document
   .querySelectorAll(
-    ".navigation a[href^='#']"
+    ".nav a[href^='#']"
   )
-  .forEach(link => {
+  .forEach(
+    link => {
 
-    link.addEventListener(
-      "click",
-      () => {
+      link.addEventListener(
+        "click",
+        () => {
 
-        navigation?.classList.remove("open");
+          nav?.classList.remove(
+            "open"
+          );
 
-        menuButton?.setAttribute(
-          "aria-expanded",
-          "false"
-        );
+          menu?.setAttribute(
+            "aria-expanded",
+            "false"
+          );
 
-        menuButton?.setAttribute(
-          "aria-label",
-          "Open navigation"
-        );
+        }
+      );
 
-      }
-    );
-
-  });
+    }
+  );
 
 
 /* =========================
@@ -89,95 +74,101 @@ document
   .querySelectorAll(
     "a[href^='#']"
   )
-  .forEach(link => {
+  .forEach(
+    link => {
 
-    link.addEventListener(
-      "click",
-      event => {
+      link.addEventListener(
+        "click",
+        event => {
 
-        const id =
-          link.getAttribute("href");
+          const id =
+            link.getAttribute("href");
 
-        if (!id || id === "#") {
-          return;
+          if (
+            !id ||
+            id === "#"
+          ) {
+            return;
+          }
+
+          const target =
+            document.querySelector(id);
+
+          if (!target) {
+            return;
+          }
+
+          event.preventDefault();
+
+          const headerHeight =
+            header
+              ? header.offsetHeight
+              : 0;
+
+          const y =
+            target
+              .getBoundingClientRect()
+              .top +
+            window.scrollY -
+            headerHeight -
+            8;
+
+          window.scrollTo({
+
+            top: y,
+
+            behavior: "smooth"
+
+          });
+
         }
+      );
 
-        const target =
-          document.querySelector(id);
-
-        if (!target) {
-          return;
-        }
-
-        event.preventDefault();
-
-        const headerHeight =
-          header
-            ? header.offsetHeight
-            : 0;
-
-        const position =
-          target.getBoundingClientRect().top +
-          window.scrollY -
-          headerHeight -
-          5;
-
-        window.scrollTo({
-          top: position,
-          behavior: "smooth"
-        });
-
-      }
-    );
-
-  });
+    }
+  );
 
 
 /* =========================
-   HEADER SCROLL EFFECT
+   HEADER
 ========================= */
 
-function updateHeader() {
+function headerState() {
 
   if (!header) {
     return;
   }
 
-  if (window.scrollY > 15) {
-
-    header.classList.add("scrolled");
-
-  } else {
-
-    header.classList.remove("scrolled");
-
-  }
+  header.classList.toggle(
+    "scrolled",
+    window.scrollY > 20
+  );
 
 }
 
 window.addEventListener(
   "scroll",
-  updateHeader,
+  headerState,
   {
     passive: true
   }
 );
 
-updateHeader();
+headerState();
 
 
 /* =========================
-   REVEAL ANIMATIONS
+   SCROLL ANIMATION
 ========================= */
 
-const revealElements =
+const reveals =
   document.querySelectorAll(
     ".reveal"
   );
 
 
 if (
-  "IntersectionObserver" in window
+  "IntersectionObserver"
+  in window
 ) {
 
   const observer =
@@ -211,7 +202,7 @@ if (
     );
 
 
-  revealElements.forEach(
+  reveals.forEach(
     element => {
 
       observer.observe(element);
@@ -221,7 +212,7 @@ if (
 
 } else {
 
-  revealElements.forEach(
+  reveals.forEach(
     element => {
 
       element.classList.add(
@@ -239,35 +230,29 @@ if (
 ========================= */
 
 const backTop =
-  document.querySelector("#backTop");
+  document.querySelector(
+    "#backTop"
+  );
 
 
-function updateBackTop() {
+function backTopState() {
 
-  if (!backTop) {
-    return;
-  }
-
-  if (window.scrollY > 400) {
-
-    backTop.classList.add("show");
-
-  } else {
-
-    backTop.classList.remove("show");
-
-  }
+  backTop?.classList.toggle(
+    "show",
+    window.scrollY > 500
+  );
 
 }
 
-
 window.addEventListener(
   "scroll",
-  updateBackTop,
+  backTopState,
   {
     passive: true
   }
 );
+
+backTopState();
 
 
 backTop?.addEventListener(
@@ -275,14 +260,15 @@ backTop?.addEventListener(
   () => {
 
     window.scrollTo({
+
       top: 0,
+
       behavior: "smooth"
+
     });
 
   }
 );
-
-updateBackTop();
 
 
 /* =========================
@@ -290,7 +276,9 @@ updateBackTop();
 ========================= */
 
 const year =
-  document.querySelector("#year");
+  document.querySelector(
+    "#year"
+  );
 
 if (year) {
 
@@ -300,45 +288,54 @@ if (year) {
 }
 
 
-/* =========================================================
+/* =================================================
    REVIEW SYSTEM
-========================================================= */
+================================================= */
 
-const reviewModal =
-  document.querySelector("#reviewModal");
-
-const reviewButton =
-  document.querySelector("#reviewButton");
-
-const closeModal =
-  document.querySelector("#closeModal");
-
-const reviewForm =
-  document.querySelector("#reviewForm");
-
-const reviewGrid =
-  document.querySelector("#reviewGrid");
-
-const ratingValue =
-  document.querySelector("#ratingValue");
-
-const ratingButtons =
-  Array.from(
-    document.querySelectorAll(
-      "#rating button"
-    )
+const modal =
+  document.querySelector(
+    "#reviewModal"
   );
 
+const openReview =
+  document.querySelector(
+    "#reviewButton"
+  );
 
-/* =========================
-   REVIEW STORAGE
-========================= */
+const closeReview =
+  document.querySelector(
+    "#closeModal"
+  );
+
+const form =
+  document.querySelector(
+    "#reviewForm"
+  );
+
+const grid =
+  document.querySelector(
+    "#reviewGrid"
+  );
+
+const ratingValue =
+  document.querySelector(
+    "#ratingValue"
+  );
+
+const ratingButtons =
+  [
+    ...document.querySelectorAll(
+      "#rating button"
+    )
+  ];
 
 const REVIEW_KEY =
-  "brandspire_reviews_v2";
+  "brandspire_reviews_v3";
 
 let reviews = [];
 
+
+/* Load saved reviews */
 
 try {
 
@@ -349,7 +346,9 @@ try {
       ) || "[]"
     );
 
-  if (!Array.isArray(reviews)) {
+  if (
+    !Array.isArray(reviews)
+  ) {
 
     reviews = [];
 
@@ -363,7 +362,7 @@ try {
 
 
 /* =========================
-   ESCAPE TEXT
+   SECURITY
 ========================= */
 
 function escapeHTML(value) {
@@ -375,9 +374,13 @@ function escapeHTML(value) {
       const map = {
 
         "&": "&amp;",
+
         "<": "&lt;",
+
         ">": "&gt;",
+
         '"': "&quot;",
+
         "'": "&#039;"
 
       };
@@ -401,7 +404,7 @@ function setRating(value) {
       1,
       Math.min(
         5,
-        Number(value)
+        Number(value) || 5
       )
     );
 
@@ -415,14 +418,11 @@ function setRating(value) {
   ratingButtons.forEach(
     button => {
 
-      const number =
-        Number(
-          button.dataset.rating
-        );
-
       button.classList.toggle(
         "active",
-        number <= value
+        Number(
+          button.dataset.rating
+        ) <= value
       );
 
     }
@@ -430,13 +430,6 @@ function setRating(value) {
 
 }
 
-
-/* Default */
-
-setRating(5);
-
-
-/* Rating click */
 
 ratingButtons.forEach(
   button => {
@@ -456,25 +449,110 @@ ratingButtons.forEach(
 );
 
 
+setRating(5);
+
+
+/* =========================
+   REVIEW CARD
+========================= */
+
+function createReviewCard(
+  review
+) {
+
+  const card =
+    document.createElement(
+      "article"
+    );
+
+  card.className =
+    "review-card reveal visible";
+
+
+  const rating =
+    Math.max(
+      1,
+      Math.min(
+        5,
+        Number(review.rating) || 5
+      )
+    );
+
+
+  const stars =
+    "★".repeat(rating) +
+    "☆".repeat(5 - rating);
+
+
+  card.innerHTML = `
+
+    <div class="stars">
+      ${stars}
+    </div>
+
+    <p>
+      “${escapeHTML(review.text)}”
+    </p>
+
+    <strong>
+      ${escapeHTML(review.name)}
+    </strong>
+
+  `;
+
+
+  return card;
+
+}
+
+
+/* =========================
+   LOAD REVIEWS
+========================= */
+
+reviews.forEach(
+  review => {
+
+    grid?.appendChild(
+      createReviewCard(review)
+    );
+
+  }
+);
+
+
 /* =========================
    OPEN MODAL
 ========================= */
 
-reviewButton?.addEventListener(
+openReview?.addEventListener(
   "click",
   () => {
 
-    reviewModal?.classList.add(
+    modal?.classList.add(
       "open"
     );
 
-    reviewModal?.setAttribute(
+    modal?.setAttribute(
       "aria-hidden",
       "false"
     );
 
     document.body.style.overflow =
       "hidden";
+
+    setTimeout(
+      () => {
+
+        document
+          .querySelector(
+            "#reviewName"
+          )
+          ?.focus();
+
+      },
+      80
+    );
 
   }
 );
@@ -484,13 +562,13 @@ reviewButton?.addEventListener(
    CLOSE MODAL
 ========================= */
 
-function closeReviewModal() {
+function closeModal() {
 
-  reviewModal?.classList.remove(
+  modal?.classList.remove(
     "open"
   );
 
-  reviewModal?.setAttribute(
+  modal?.setAttribute(
     "aria-hidden",
     "true"
   );
@@ -501,24 +579,23 @@ function closeReviewModal() {
 }
 
 
-closeModal?.addEventListener(
+closeReview?.addEventListener(
   "click",
-  closeReviewModal
+  closeModal
 );
 
 
-/* Click outside */
+/* Outside click */
 
-reviewModal?.addEventListener(
+modal?.addEventListener(
   "click",
   event => {
 
     if (
-      event.target ===
-      reviewModal
+      event.target === modal
     ) {
 
-      closeReviewModal();
+      closeModal();
 
     }
 
@@ -534,116 +611,14 @@ document.addEventListener(
 
     if (
       event.key === "Escape" &&
-      reviewModal?.classList.contains(
+      modal?.classList.contains(
         "open"
       )
     ) {
 
-      closeReviewModal();
+      closeModal();
 
     }
-
-  }
-);
-
-
-/* =========================
-   CREATE REVIEW CARD
-========================= */
-
-function createReviewCard(
-  review
-) {
-
-  const article =
-    document.createElement(
-      "article"
-    );
-
-  article.className =
-    "review-card";
-
-
-  const rating =
-    Math.max(
-      1,
-      Math.min(
-        5,
-        Number(review.rating)
-      )
-    );
-
-
-  const stars =
-    "★".repeat(rating) +
-    "☆".repeat(5 - rating);
-
-
-  article.innerHTML = `
-
-    <div class="stars">
-      ${stars}
-    </div>
-
-    <p>
-      “${escapeHTML(review.text)}”
-    </p>
-
-    <strong>
-      — ${escapeHTML(review.name)}
-    </strong>
-
-  `;
-
-
-  return article;
-
-}
-
-
-/* =========================
-   SHOW REVIEW
-========================= */
-
-function showReview(
-  review,
-  first = true
-) {
-
-  if (!reviewGrid) {
-    return;
-  }
-
-  const card =
-    createReviewCard(
-      review
-    );
-
-
-  if (first) {
-
-    reviewGrid.prepend(card);
-
-  } else {
-
-    reviewGrid.appendChild(card);
-
-  }
-
-}
-
-
-/* =========================
-   LOAD SAVED REVIEWS
-========================= */
-
-reviews.forEach(
-  review => {
-
-    showReview(
-      review,
-      false
-    );
 
   }
 );
@@ -653,7 +628,7 @@ reviews.forEach(
    SUBMIT REVIEW
 ========================= */
 
-reviewForm?.addEventListener(
+form?.addEventListener(
   "submit",
   event => {
 
@@ -672,29 +647,20 @@ reviewForm?.addEventListener(
 
 
     const name =
-      nameInput
-        ?.value
-        .trim() || "";
-
+      nameInput.value.trim();
 
     const text =
-      textInput
-        ?.value
-        .trim() || "";
-
+      textInput.value.trim();
 
     const rating =
       Number(
-        ratingValue
-          ?.value || 5
-      );
+        ratingValue.value
+      ) || 5;
 
-
-    /* Validate */
 
     if (!name) {
 
-      nameInput?.focus();
+      nameInput.focus();
 
       return;
 
@@ -703,37 +669,26 @@ reviewForm?.addEventListener(
 
     if (!text) {
 
-      textInput?.focus();
+      textInput.focus();
 
       return;
 
     }
 
 
-    /* New review */
-
-    const newReview = {
+    const review = {
 
       name,
 
-      rating:
-        Math.max(
-          1,
-          Math.min(
-            5,
-            rating
-          )
-        ),
+      text,
 
-      text
+      rating
 
     };
 
 
-    /* Save */
-
     reviews.unshift(
-      newReview
+      review
     );
 
 
@@ -746,86 +701,53 @@ reviewForm?.addEventListener(
         )
       );
 
-    } catch (error) {
+    } catch {
 
-      console.log(
-        "Could not save review.",
-        error
-      );
+      /* Continue even if storage fails */
 
     }
 
 
-    /* Immediately display */
+    /* Show immediately */
 
-    showReview(
-      newReview,
-      true
+    grid?.prepend(
+      createReviewCard(review)
     );
 
 
     /* Reset */
 
-    reviewForm.reset();
+    form.reset();
 
     setRating(5);
 
-
-    /* Close */
-
-    closeReviewModal();
+    closeModal();
 
 
-    /* Scroll to testimonials */
+    /* Scroll back to testimonials */
 
-    const testimonials =
-      document.querySelector(
-        "#testimonials"
-      );
+    setTimeout(
+      () => {
 
-
-    if (testimonials) {
-
-      setTimeout(
-        () => {
-
-          const headerHeight =
-            header
-              ? header.offsetHeight
-              : 0;
-
-          const position =
-            testimonials
-              .getBoundingClientRect()
-              .top +
-            window.scrollY -
-            headerHeight -
-            5;
-
-
-          window.scrollTo({
-
-            top:
-              position,
-
-            behavior:
-              "smooth"
-
+        document
+          .querySelector(
+            "#testimonials"
+          )
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
           });
 
-        },
-        100
-      );
-
-    }
+      },
+      100
+    );
 
   }
 );
 
 
 /* =========================
-   CLOSE MENU WHEN
-   CLICKING OUTSIDE
+   CLICK OUTSIDE MOBILE MENU
 ========================= */
 
 document.addEventListener(
@@ -833,44 +755,37 @@ document.addEventListener(
   event => {
 
     if (
-      !navigation ||
-      !menuButton
+      !nav ||
+      !menu
     ) {
       return;
     }
 
-
-    const insideNavigation =
-      navigation.contains(
+    const insideNav =
+      nav.contains(
         event.target
       );
 
     const insideButton =
-      menuButton.contains(
+      menu.contains(
         event.target
       );
 
-
     if (
-      !insideNavigation &&
+      !insideNav &&
       !insideButton &&
-      navigation.classList.contains(
+      nav.classList.contains(
         "open"
       )
     ) {
 
-      navigation.classList.remove(
+      nav.classList.remove(
         "open"
       );
 
-      menuButton.setAttribute(
+      menu.setAttribute(
         "aria-expanded",
         "false"
-      );
-
-      menuButton.setAttribute(
-        "aria-label",
-        "Open navigation"
       );
 
     }
