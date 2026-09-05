@@ -1,652 +1,1007 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>BrandSpire Media | Creative Digital Agency</title>
+  <title>BrandSpire Media | Turn Ambition Into Iconic Digital Dominance</title>
+
   <meta
     name="description"
-    content="BrandSpire Media helps businesses grow through social media, branding, content creation, photography, websites and digital marketing."
-  />
+    content="BrandSpire Media is a creative digital agency helping ambitious businesses build powerful brands through social media, content, branding, photography, websites and digital growth."
+  >
+
+  <meta name="theme-color" content="#09090f">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
 
-  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="container nav-wrap">
+<!-- ================= HEADER ================= -->
 
-      <a href="#home" class="brand">
-        <img src="assets/brandspire-logo.png" alt="BrandSpire Media">
-      </a>
+<header class="header" id="header">
 
-      <nav class="desktop-nav">
-        <a href="#home">Home</a>
-        <a href="#services">Services</a>
-        <a href="#about">About</a>
-        <a href="#work">Our Work</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#contact" class="nav-contact">Let's Connect</a>
-      </nav>
+  <div class="container nav">
 
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-        <span></span>
-        <span></span>
-      </button>
+    <a href="#home" class="brand" aria-label="BrandSpire Media Home">
+      <img
+        src="assets/brandspire-logo.png"
+        alt="BrandSpire Media"
+      >
+    </a>
 
-    </div>
+    <nav class="desktop-nav">
 
-    <div class="mobile-nav" id="mobileNav">
       <a href="#home">Home</a>
       <a href="#services">Services</a>
-      <a href="#about">About</a>
       <a href="#work">Our Work</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#contact">Let's Connect</a>
+      <a href="#about">About</a>
+      <a href="#mission">Mission</a>
+      <a href="#contact">Contact</a>
+
+    </nav>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNnNw8qA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="nav-button"
+      data-testid="nav-contact-button"
+    >
+      Let's Connect
+    </a>
+
+    <button
+      class="menu-button"
+      id="menuButton"
+      aria-label="Open navigation"
+      aria-expanded="false"
+      data-testid="mobile-menu-button"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#work">Our Work</a>
+    <a href="#about">About</a>
+    <a href="#mission">Mission</a>
+    <a href="#contact">Contact</a>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNnNw8qA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mobile-cta"
+    >
+      Start an Enquiry →
+    </a>
+
+  </div>
+
+</header>
+
+
+<main>
+
+<!-- ================= HERO ================= -->
+
+<section class="hero" id="home">
+
+  <div class="hero-glow glow-one"></div>
+  <div class="hero-glow glow-two"></div>
+
+  <div class="hero-shape shape-one"></div>
+  <div class="hero-shape shape-two"></div>
+
+  <div class="container hero-content">
+
+    <div class="hero-label">
+      CREATIVE DIGITAL AGENCY
     </div>
-  </header>
+
+    <h1>
+      WE IGNITE BRANDS.
+      <span>SPARK IDEAS.</span>
+      <span>FUEL GROWTH.</span>
+    </h1>
+
+    <p>
+      BrandSpire Media transforms startups and growing businesses
+      into standout brands that command attention, build loyalty,
+      and drive real results.
+    </p>
+
+    <div class="hero-buttons">
+
+      <a
+        href="#work"
+        class="gradient-button"
+        data-testid="hero-work-button"
+      >
+        See Our Work <span>→</span>
+      </a>
+
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNnNw8qA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="outline-button"
+        data-testid="hero-enquiry-button"
+      >
+        Get Started <span>→</span>
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
 
 
-  <main>
+<!-- ================= MARQUEE ================= -->
 
-    <!-- HERO -->
-    <section class="hero section" id="home">
-      <div class="hero-glow glow-one"></div>
-      <div class="hero-glow glow-two"></div>
+<section class="marquee">
 
-      <div class="container hero-grid">
+  <div class="marquee-track">
 
-        <div class="hero-content reveal">
-          <div class="eyebrow">
-            <span></span>
-            CREATIVE DIGITAL AGENCY
-          </div>
+    <span>BRANDING</span>
+    <i>✦</i>
+    <span>SOCIAL MEDIA</span>
+    <i>✦</i>
+    <span>CONTENT</span>
+    <i>✦</i>
+    <span>WEBSITES</span>
+    <i>✦</i>
+    <span>GROWTH</span>
+    <i>✦</i>
+    <span>DIGITAL MARKETING</span>
+    <i>✦</i>
 
-          <h1>
-            We Build Brands
-            <em>That Stand Out.</em>
-          </h1>
+    <span>BRANDING</span>
+    <i>✦</i>
+    <span>SOCIAL MEDIA</span>
+    <i>✦</i>
+    <span>CONTENT</span>
+    <i>✦</i>
+    <span>WEBSITES</span>
+    <i>✦</i>
+    <span>GROWTH</span>
+    <i>✦</i>
 
-          <p>
-            From strategy to content, design to digital —
-            BrandSpire Media turns ideas into brands people remember.
-          </p>
+  </div>
 
-          <div class="hero-buttons">
-            <a href="#contact" class="btn btn-gold">
-              Let's Work Together
-              <span>↗</span>
-            </a>
-
-            <a href="#services" class="btn btn-outline">
-              Explore Services
-            </a>
-          </div>
-
-          <div class="hero-mini">
-            <div class="mini-avatars">
-              <span>BS</span>
-              <span>+</span>
-            </div>
-            <div>
-              <strong>Creative. Strategic. Digital.</strong>
-              <small>Built for ambitious brands.</small>
-            </div>
-          </div>
-        </div>
+</section>
 
 
-        <div class="hero-visual reveal">
-          <div class="hero-image-card">
-            <img
-              src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1100&q=85"
-              alt="Creative team working together"
-            >
+<!-- ================= SERVICES ================= -->
 
-            <div class="image-overlay"></div>
+<section class="services section" id="services">
 
-            <div class="floating-card">
-              <span class="floating-icon">✦</span>
-              <div>
-                <strong>Ideas → Impact</strong>
-                <small>Creative solutions that work.</small>
-              </div>
-            </div>
-          </div>
+  <div class="container">
 
-          <div class="hero-number">
-            <strong>01</strong>
-            <span>CREATIVE<br>PARTNER</span>
-          </div>
-        </div>
+    <div class="section-heading center reveal">
 
+      <div class="eyebrow">
+        WHAT WE DO
       </div>
-    </section>
 
+      <h2>
+        SERVICES BUILT TO
+        <span>GROW YOUR BRAND</span>
+      </h2>
 
-    <!-- SERVICES -->
-    <section class="services section" id="services">
-      <div class="container">
+      <p>
+        From strategy to execution, we offer everything your brand
+        needs to stand out, connect, and convert.
+      </p>
 
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">
-              <span></span>
-              WHAT WE DO
-            </div>
-
-            <h2>
-              Everything Your
-              <em>Brand Needs.</em>
-            </h2>
-          </div>
-
-          <p>
-            One creative partner for your complete digital presence.
-            Strategy, creativity and execution under one roof.
-          </p>
-        </div>
-
-
-        <div class="services-grid">
-
-          <article class="service-card reveal">
-            <div class="service-top">
-              <span class="service-number">01</span>
-              <span class="service-arrow">↗</span>
-            </div>
-            <div class="service-icon">◎</div>
-            <h3>Social Media<br>Management</h3>
-            <p>Strategic social media that builds presence, engagement and growth.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-top">
-              <span class="service-number">02</span>
-              <span class="service-arrow">↗</span>
-            </div>
-            <div class="service-icon">◇</div>
-            <h3>Content<br>Creation</h3>
-            <p>Scroll-stopping content designed around your brand and audience.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-top">
-              <span class="service-number">03</span>
-              <span class="service-arrow">↗</span>
-            </div>
-            <div class="service-icon">✦</div>
-            <h3>Branding<br>& Design</h3>
-            <p>Distinctive visual identities that make your business memorable.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-top">
-              <span class="service-number">04</span>
-              <span class="service-arrow">↗</span>
-            </div>
-            <div class="service-icon">◉</div>
-            <h3>Photography<br>& Videography</h3>
-            <p>Professional visuals that give your brand a premium presence.</p>
-          </article>
-
-          <article class="service-card reveal">
-            <div class="service-top">
-              <span class="service-number">05</span>
-              <span class="service-arrow">↗</span>
-            </div>
-            <div class="service-icon">✧</div>
-            <h3>Influencer<br>Marketing</h3>
-            <p>Creator collaborations that connect your brand with the right audience.</p>
-          </article>
-
-          <article class="service-card service-card-gold reveal">
-            <div class="service-top">
-              <span class="service-number">06</span>
-              <span class="service-arrow">↗</span>
-            </div>
-            <div class="service-icon">⌘</div>
-            <h3>Website Creation<br>& Handling</h3>
-            <p>Modern websites built to look great, work smoothly and grow with you.</p>
-          </article>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- ABOUT -->
-    <section class="about section" id="about">
-      <div class="container about-grid">
-
-        <div class="about-visual reveal">
-          <div class="about-image">
-            <img
-              src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85"
-              alt="Modern creative workspace"
-            >
-          </div>
-
-          <div class="about-badge">
-            <strong>BRAND</strong>
-            <span>SPIRE</span>
-            <small>MEDIA</small>
-          </div>
-        </div>
-
-
-        <div class="about-content reveal">
-
-          <div class="eyebrow">
-            <span></span>
-            ABOUT BRANDSPIRE
-          </div>
-
-          <h2>
-            More Than An Agency.
-            <em>Your Creative Partner.</em>
-          </h2>
-
-          <p>
-            BrandSpire Media is a creative digital agency focused on
-            helping businesses build strong, recognizable and impactful
-            brands.
-          </p>
-
-          <p>
-            We combine creative thinking, strategic planning and digital
-            execution to create work that doesn't just look good —
-            it delivers results.
-          </p>
-
-          <div class="stats">
-
-            <div class="stat">
-              <strong>360°</strong>
-              <span>Brand Approach</span>
-            </div>
-
-            <div class="stat">
-              <strong>6+</strong>
-              <span>Core Services</span>
-            </div>
-
-            <div class="stat">
-              <strong>100%</strong>
-              <span>Creative Focus</span>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- WHY US -->
-    <section class="why section">
-      <div class="container">
-
-        <div class="section-heading center reveal">
-          <div>
-            <div class="eyebrow">
-              <span></span>
-              WHY BRANDSPIRE
-            </div>
-
-            <h2>
-              Creative With A
-              <em>Purpose.</em>
-            </h2>
-          </div>
-
-          <p>
-            We don't create for the sake of creating.
-            Every idea has a purpose, every design has a reason.
-          </p>
-        </div>
-
-
-        <div class="why-grid">
-
-          <div class="why-image reveal">
-            <img
-              src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=85"
-              alt="Creative team collaboration"
-            >
-          </div>
-
-          <div class="why-list">
-
-            <div class="why-item reveal">
-              <span>01</span>
-              <div>
-                <h3>Strategy First</h3>
-                <p>We understand your goals before we create anything.</p>
-              </div>
-            </div>
-
-            <div class="why-item reveal">
-              <span>02</span>
-              <div>
-                <h3>Creative Thinking</h3>
-                <p>Fresh ideas designed to make your brand stand apart.</p>
-              </div>
-            </div>
-
-            <div class="why-item reveal">
-              <span>03</span>
-              <div>
-                <h3>Consistent Execution</h3>
-                <p>From your first post to your website, everything stays on brand.</p>
-              </div>
-            </div>
-
-            <div class="why-item reveal">
-              <span>04</span>
-              <div>
-                <h3>Long-Term Partnership</h3>
-                <p>We aim to grow with your business, not just finish a project.</p>
-              </div>
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- WORK -->
-    <section class="work section" id="work">
-      <div class="container">
-
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">
-              <span></span>
-              SELECTED WORK
-            </div>
-
-            <h2>
-              We're Building
-              <em>Something Great.</em>
-            </h2>
-          </div>
-
-          <p>
-            Our portfolio is currently growing as we work with exciting
-            brands and businesses.
-          </p>
-        </div>
-
-
-        <div class="work-placeholder reveal">
-
-          <div class="work-placeholder-bg">
-            <img
-              src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=1400&q=85"
-              alt="Creative design workspace"
-            >
-          </div>
-
-          <div class="work-placeholder-content">
-            <span>PORTFOLIO</span>
-            <h3>Projects In Progress</h3>
-            <p>
-              Real projects. Real results. Coming soon.
-            </p>
-          </div>
-
-          <div class="work-tag">COMING SOON</div>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- REVIEWS -->
-    <section class="reviews section" id="reviews">
-      <div class="container">
-
-        <div class="section-heading center reveal">
-          <div>
-            <div class="eyebrow">
-              <span></span>
-              CLIENT LOVE
-            </div>
-
-            <h2>
-              Your Words.
-              <em>Our Motivation.</em>
-            </h2>
-          </div>
-
-          <p>
-            Have worked with us? Share your experience.
-          </p>
-        </div>
-
-
-        <div class="review-area">
-
-          <div class="reviews-list" id="reviewsList">
-            <div class="empty-reviews">
-              <span>✦</span>
-              <h3>Be Our First Reviewer</h3>
-              <p>Your experience can help others discover BrandSpire Media.</p>
-            </div>
-          </div>
-
-          <button class="btn btn-gold review-open" id="reviewOpen">
-            Write a Review <span>↗</span>
-          </button>
-
-        </div>
-
-      </div>
-    </section>
-
-
-    <!-- REVIEW MODAL -->
-    <div class="modal" id="reviewModal">
-      <div class="modal-box">
-
-        <button class="modal-close" id="reviewClose">×</button>
-
-        <div class="eyebrow">
-          <span></span>
-          SHARE YOUR EXPERIENCE
-        </div>
-
-        <h2>Write a <em>Review.</em></h2>
-
-        <form id="reviewForm">
-
-          <label>
-            Your Name
-            <input type="text" id="reviewName" required placeholder="Enter your name">
-          </label>
-
-          <label>
-            Rating
-            <div class="stars" id="stars">
-              <button type="button" data-rating="1">★</button>
-              <button type="button" data-rating="2">★</button>
-              <button type="button" data-rating="3">★</button>
-              <button type="button" data-rating="4">★</button>
-              <button type="button" data-rating="5">★</button>
-            </div>
-          </label>
-
-          <label>
-            Your Review
-            <textarea id="reviewText" required placeholder="Tell us about your experience..."></textarea>
-          </label>
-
-          <button class="btn btn-gold" type="submit">
-            Post Review <span>↗</span>
-          </button>
-
-        </form>
-
-      </div>
     </div>
 
 
-    <!-- CONTACT -->
-    <section class="contact section" id="contact">
-      <div class="container contact-box reveal">
+    <div class="services-grid">
 
-        <div class="contact-content">
 
-          <div class="eyebrow">
-            <span></span>
-            LET'S CONNECT
-          </div>
+      <!-- 01 -->
 
-          <h2>
-            Ready To Build
-            <em>Something Powerful?</em>
-          </h2>
+      <article class="service-card purple reveal">
 
-          <p>
-            Tell us about your brand, your goals and where you want to go.
-            Let's create something people remember.
-          </p>
+        <div class="service-number">01</div>
 
-          <a
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNnNw8qA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-gold"
-          >
-            Start Your Brand Journey <span>↗</span>
-          </a>
+        <div class="service-icon">⌁</div>
 
+        <div class="service-kicker">
+          ALWAYS ON. ALWAYS ON-BRAND.
         </div>
 
-        <div class="contact-side">
-          <div class="contact-line"></div>
-
-          <p>Prefer WhatsApp?</p>
-
-          <a
-            href="https://wa.me/917206149463"
-            target="_blank"
-            rel="noopener"
-            class="whatsapp-link"
-          >
-            <span class="whatsapp-icon">◔</span>
-            Chat With Us
-            <span>↗</span>
-          </a>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-
-      <div class="footer-main">
-
-        <div class="footer-brand">
-          <img src="assets/brandspire-logo.png" alt="BrandSpire Media">
-
-          <p>
-            Creative ideas. Strategic thinking.
-            Digital execution.
-          </p>
-        </div>
-
-
-        <div class="footer-column">
-          <h4>Explore</h4>
-          <a href="#home">Home</a>
-          <a href="#services">Services</a>
-          <a href="#about">About</a>
-          <a href="#work">Our Work</a>
-        </div>
-
-
-        <div class="footer-column">
-          <h4>Services</h4>
-          <a href="#services">Social Media</a>
-          <a href="#services">Content Creation</a>
-          <a href="#services">Branding & Design</a>
-          <a href="#services">Websites</a>
-        </div>
-
-
-        <div class="footer-column">
-          <h4>Connect</h4>
-
-          <a href="mailto:officialbrandspiremedia@gmail.com">
-            Gmail
-          </a>
-
-          <a
-            href="https://www.instagram.com/brandspire__media/"
-            target="_blank"
-            rel="noopener"
-          >
-            Instagram
-          </a>
-
-          <a
-            href="https://www.facebook.com/share/1cHBNtN7eo/?mibextid=wwXIfr"
-            target="_blank"
-            rel="noopener"
-          >
-            Facebook
-          </a>
-
-          <a
-            href="https://wa.me/917206149463"
-            target="_blank"
-            rel="noopener"
-          >
-            WhatsApp
-          </a>
-        </div>
-
-      </div>
-
-
-      <div class="footer-bottom">
-        <p>© <span id="year"></span> BrandSpire Media. All rights reserved.</p>
+        <h3>
+          SOCIAL MEDIA MANAGEMENT
+        </h3>
 
         <p>
-          Website designed, developed & handled by
-          <strong>BrandSpire Media</strong>
+          Strategic content calendars, community management,
+          and growth campaigns that keep your audience engaged.
         </p>
 
-        <a href="#home" class="back-top">↑</a>
+        <button
+          class="learn-more"
+          data-service="social"
+          data-testid="service-social-media-button"
+        >
+          Learn more <span>→</span>
+        </button>
+
+      </article>
+
+
+      <!-- 02 -->
+
+      <article class="service-card pink reveal">
+
+        <div class="service-number">02</div>
+
+        <div class="service-icon">✦</div>
+
+        <div class="service-kicker">
+          CONTENT THAT GETS NOTICED.
+        </div>
+
+        <h3>
+          CONTENT CREATION
+        </h3>
+
+        <p>
+          Scroll-stopping visuals, copy, and campaigns crafted
+          to tell your brand story.
+        </p>
+
+        <button
+          class="learn-more"
+          data-service="content"
+          data-testid="service-content-button"
+        >
+          Learn more <span>→</span>
+        </button>
+
+      </article>
+
+
+      <!-- 03 -->
+
+      <article class="service-card blue reveal">
+
+        <div class="service-number">03</div>
+
+        <div class="service-icon">◇</div>
+
+        <div class="service-kicker">
+          YOUR IDENTITY, PERFECTED.
+        </div>
+
+        <h3>
+          BRANDING & DESIGN
+        </h3>
+
+        <p>
+          Logos, identities, and visual systems that make
+          your brand impossible to ignore.
+        </p>
+
+        <button
+          class="learn-more"
+          data-service="branding"
+          data-testid="service-branding-button"
+        >
+          Learn more <span>→</span>
+        </button>
+
+      </article>
+
+
+      <!-- 04 -->
+
+      <article class="service-card cyan reveal">
+
+        <div class="service-number">04</div>
+
+        <div class="service-icon">▣</div>
+
+        <div class="service-kicker">
+          VISUALS THAT SPEAK LOUDER THAN WORDS.
+        </div>
+
+        <h3>
+          PHOTOGRAPHY & VIDEOGRAPHY
+        </h3>
+
+        <p>
+          Professional photo and video production that elevates
+          your brand's visual presence.
+        </p>
+
+        <button
+          class="learn-more"
+          data-service="visual"
+          data-testid="service-visual-button"
+        >
+          Learn more <span>→</span>
+        </button>
+
+      </article>
+
+
+      <!-- 05 -->
+
+      <article class="service-card green reveal">
+
+        <div class="service-number">05</div>
+
+        <div class="service-icon">◎</div>
+
+        <div class="service-kicker">
+          REACH THE RIGHT PEOPLE, THE RIGHT WAY.
+        </div>
+
+        <h3>
+          INFLUENCER MARKETING
+        </h3>
+
+        <p>
+          Authentic partnerships with creators who amplify
+          your message to the right audience.
+        </p>
+
+        <button
+          class="learn-more"
+          data-service="influencer"
+          data-testid="service-influencer-button"
+        >
+          Learn more <span>→</span>
+        </button>
+
+      </article>
+
+
+      <!-- 06 -->
+
+      <article class="service-card violet reveal">
+
+        <div class="service-number">06</div>
+
+        <div class="service-icon">◎</div>
+
+        <div class="service-kicker">
+          YOUR DIGITAL HOME, BUILT TO CONVERT.
+        </div>
+
+        <h3>
+          WEBSITE CREATION
+        </h3>
+
+        <p>
+          High-performance, beautifully designed websites that
+          represent your brand and turn visitors into customers.
+        </p>
+
+        <button
+          class="learn-more"
+          data-service="website"
+          data-testid="service-website-button"
+        >
+          Learn more <span>→</span>
+        </button>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WORK ================= -->
+
+<section class="work section" id="work">
+
+  <div class="container">
+
+    <div class="section-heading center reveal">
+
+      <div class="eyebrow">
+        OUR WORK
+      </div>
+
+      <h2>
+        SOMETHING <span>BIG IS COMING</span>
+      </h2>
+
+      <p>
+        We've just launched and we're already working on exciting
+        projects. Our portfolio will be live very soon — check back shortly!
+      </p>
+
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNnNw8qA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="gradient-button"
+        data-testid="work-with-us-button"
+      >
+        Work With Us <span>→</span>
+      </a>
+
+    </div>
+
+
+    <div class="work-placeholder reveal">
+
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="orb orb-three"></div>
+
+      <div class="coming-content">
+
+        <span class="coming-label">
+          PORTFOLIO
+        </span>
+
+        <h3>
+          PROJECTS<br>
+          <span>IN PROGRESS.</span>
+        </h3>
+
+        <p>
+          Real projects. Real results. Coming soon.
+        </p>
+
       </div>
 
     </div>
-  </footer>
+
+  </div>
+
+</section>
 
 
-  <script src="script.js"></script>
+<!-- ================= ABOUT ================= -->
+
+<section class="about section" id="about">
+
+  <div class="container about-grid">
+
+    <div class="about-image reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1603201667230-bd139210db18?auto=format&fit=crop&w=1200&q=85"
+        alt="Creative team working together"
+      >
+
+      <div class="est-badge">
+        <small>EST.</small>
+        <strong>2026</strong>
+      </div>
+
+    </div>
+
+
+    <div class="about-content reveal">
+
+      <div class="eyebrow">
+        ABOUT BRANDSPIRE
+      </div>
+
+      <h2>
+        BORN FROM A
+        <span>PASSION FOR BRANDS</span>
+      </h2>
+
+      <p>
+        BrandSpire Media was founded in 2026 by Harnarayan Soni
+        with one simple belief — every business deserves a brand
+        that truly represents who they are and what they stand for.
+      </p>
+
+      <p>
+        We're a young, hungry agency that brings creative thinking
+        and strategic execution together. From social media and
+        content to complete brand identities and websites, we put
+        creativity and purpose into everything we do.
+      </p>
+
+      <div class="about-tags">
+
+        <span>Social Media Management</span>
+        <span>Content Creation</span>
+        <span>Branding & Design</span>
+        <span>Photography & Videography</span>
+        <span>Influencer Marketing</span>
+        <span>Website Creation</span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= MISSION ================= -->
+
+<section class="mission section" id="mission">
+
+  <div class="container">
+
+    <div class="section-heading center reveal">
+
+      <div class="eyebrow">
+        OUR MISSION
+      </div>
+
+      <h2>
+        WHERE BRANDS
+        <span>COME ALIVE</span>
+      </h2>
+
+    </div>
+
+
+    <div class="mission-box reveal">
+
+      <div class="mission-icon">
+        ✦
+      </div>
+
+      <p>
+        "To ignite the brands of ambitious businesses through bold
+        creative work, strategic thinking, and relentless dedication
+        — helping them grow, connect, and leave a lasting impression."
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= WHY US ================= -->
+
+<section class="why section">
+
+  <div class="container">
+
+    <div class="section-heading center reveal">
+
+      <div class="eyebrow">
+        WHY BRANDSPIRE
+      </div>
+
+      <h2>
+        BUILT DIFFERENT.
+        <span>BUILT FOR YOU.</span>
+      </h2>
+
+    </div>
+
+
+    <div class="why-grid">
+
+
+      <article class="why-card reveal">
+
+        <div class="why-icon pink-icon">✦</div>
+
+        <h3>BOLD CREATIVITY</h3>
+
+        <p>
+          We don't do average. Every idea we bring to the table
+          is designed to stand out and make an impact.
+        </p>
+
+      </article>
+
+
+      <article class="why-card reveal">
+
+        <div class="why-icon orange-icon">◎</div>
+
+        <h3>STRATEGY FIRST</h3>
+
+        <p>
+          Great creative without strategy is just art. We combine
+          both to deliver work that actually moves the needle.
+        </p>
+
+      </article>
+
+
+      <article class="why-card reveal">
+
+        <div class="why-icon blue-icon">♢</div>
+
+        <h3>CLIENT PARTNERSHIP</h3>
+
+        <p>
+          We treat every client's brand like our own. Your success
+          is our success — full stop.
+        </p>
+
+      </article>
+
+
+      <article class="why-card reveal">
+
+        <div class="why-icon green-icon">ϟ</div>
+
+        <h3>FAST & RELIABLE</h3>
+
+        <p>
+          Deadlines matter. We deliver high-quality work on time,
+          without cutting corners.
+        </p>
+
+      </article>
+
+
+      <article class="why-card reveal">
+
+        <div class="why-icon violet-icon">↗</div>
+
+        <h3>GROWTH FOCUSED</h3>
+
+        <p>
+          Everything we create is built with one goal:
+          helping your business move forward.
+        </p>
+
+      </article>
+
+
+      <article class="why-card reveal">
+
+        <div class="why-icon pink-icon">☆</div>
+
+        <h3>100% DEDICATED</h3>
+
+        <p>
+          When you work with us, you get our full attention and
+          commitment from day one to delivery.
+        </p>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section class="contact section" id="contact">
+
+  <div class="container">
+
+    <div class="contact-heading reveal">
+
+      <div class="eyebrow">
+        LET'S TALK
+      </div>
+
+      <h2>
+        LET'S BUILD
+        <span>SOMETHING GREAT</span>
+      </h2>
+
+      <p>
+        Have a project in mind? We'd love to hear about it.
+        Tell us about your brand and let's see what we can build together.
+      </p>
+
+    </div>
+
+
+    <div class="contact-grid">
+
+
+      <div class="contact-card reveal">
+
+        <span class="contact-small">
+          START YOUR PROJECT
+        </span>
+
+        <h3>
+          SEND US A MESSAGE
+        </h3>
+
+        <p>
+          Tell us about your brand, your goals, and what you're
+          looking to achieve.
+        </p>
+
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNnNw8qA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="gradient-button"
+          data-testid="contact-enquiry-button"
+        >
+          Start Your Enquiry <span>→</span>
+        </a>
+
+      </div>
+
+
+      <div class="contact-methods reveal">
+
+        <div class="contact-method">
+
+          <div class="contact-method-icon email">
+            ✉
+          </div>
+
+          <div>
+            <small>EMAIL</small>
+
+            <a href="mailto:officialbrandspiremedia@gmail.com">
+              officialbrandspiremedia@gmail.com
+            </a>
+          </div>
+
+        </div>
+
+
+        <a
+          href="https://wa.me/917206149463"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-method"
+          data-testid="contact-whatsapp"
+        >
+
+          <div class="contact-method-icon whatsapp-icon">
+            ◔
+          </div>
+
+          <div>
+            <small>WHATSAPP</small>
+            <strong>Chat with BrandSpire Media</strong>
+          </div>
+
+        </a>
+
+
+        <a
+          href="https://www.instagram.com/brandspire__media/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-method"
+          data-testid="contact-instagram"
+        >
+
+          <div class="contact-method-icon instagram">
+            ◎
+          </div>
+
+          <div>
+            <small>INSTAGRAM</small>
+            <strong>@brandspire__media</strong>
+          </div>
+
+        </a>
+
+
+        <a
+          href="https://www.facebook.com/share/1cHBNtN7eo/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="contact-method"
+          data-testid="contact-facebook"
+        >
+
+          <div class="contact-method-icon facebook">
+            f
+          </div>
+
+          <div>
+            <small>FACEBOOK</small>
+            <strong>BrandSpire Media</strong>
+          </div>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div class="container footer-grid">
+
+
+    <div class="footer-brand">
+
+      <img
+        src="assets/brandspire-logo.png"
+        alt="BrandSpire Media"
+      >
+
+      <p>
+        We ignite brands, spark ideas, and fuel growth for
+        businesses ready to stand out in a crowded world.
+      </p>
+
+      <div class="footer-socials">
+
+        <a
+          href="https://www.instagram.com/brandspire__media/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram"
+        >
+          IG
+        </a>
+
+        <a
+          href="https://www.facebook.com/share/1cHBNtN7eo/?mibextid=wwXIfr"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+        >
+          FB
+        </a>
+
+        <a
+          href="https://wa.me/917206149463"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp"
+        >
+          WA
+        </a>
+
+        <a
+          href="mailto:officialbrandspiremedia@gmail.com"
+          aria-label="Email"
+        >
+          @
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>NAVIGATION</h4>
+
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#work">Our Work</a>
+      <a href="#about">About</a>
+      <a href="#mission">Mission</a>
+      <a href="#contact">Contact</a>
+
+    </div>
+
+
+    <div class="footer-column">
+
+      <h4>SERVICES</h4>
+
+      <a href="#services">Social Media Management</a>
+      <a href="#services">Content Creation</a>
+      <a href="#services">Branding & Design</a>
+      <a href="#services">Photography & Videography</a>
+      <a href="#services">Influencer Marketing</a>
+      <a href="#services">Website Creation</a>
+
+    </div>
+
+
+  </div>
+
+
+  <div class="container footer-bottom">
+
+    <p>
+      © <span id="year"></span> BrandSpire Media. All rights reserved.
+    </p>
+
+    <p>
+      Website designed, developed & handled by
+      <strong>BrandSpire Media</strong>
+    </p>
+
+  </div>
+
+</footer>
+
+
+<!-- ================= SERVICE MODAL ================= -->
+
+<div class="service-modal" id="serviceModal">
+
+  <div class="modal-overlay" id="modalOverlay"></div>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      id="modalClose"
+      aria-label="Close"
+    >
+      ×
+    </button>
+
+    <div class="modal-number" id="modalNumber">
+      01
+    </div>
+
+    <h2 id="modalTitle">
+      Social Media Management
+    </h2>
+
+    <p id="modalDescription"></p>
+
+    <ul id="modalList"></ul>
+
+    <a
+      href="https://docs.google.com/forms/d/e/1FAIpQLSdDPbQHjwNnNw8qA6iQstf6iWJCaj7lH3ycfx7Gl19CtNlZLw/viewform?usp=publish-editor"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="gradient-button"
+    >
+      Enquire About This Service →
+    </a>
+
+  </div>
+
+</div>
+
+
+<!-- ================= BACK TO TOP ================= -->
+
+<button
+  class="back-top"
+  id="backTop"
+  aria-label="Back to top"
+  data-testid="back-to-top"
+>
+  ↑
+</button>
+
+
+<script src="script.js"></script>
+
 </body>
 </html>
