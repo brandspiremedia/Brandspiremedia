@@ -1,904 +1,532 @@
-/* ==================================================
-   BRANDSPPIRE MEDIA
-   MAIN WEBSITE JAVASCRIPT
-================================================== */
+/* =========================================================
+   BRANDSPIRE MEDIA
+   WEBSITE JAVASCRIPT
+========================================================= */
 
+document.addEventListener("DOMContentLoaded", () => {
 
-/* ==================================================
-   ELEMENTS
-================================================== */
+    const header = document.getElementById("header");
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("nav");
+    const backTop = document.getElementById("backTop");
 
-const header =
-  document.getElementById("header");
+    /* ================= HEADER ================= */
 
-const menuBtn =
-  document.getElementById("menuBtn");
+    function updateHeader() {
 
-const navigation =
-  document.getElementById("navigation");
-
-
-/* ==================================================
-   MOBILE MENU
-================================================== */
-
-if (menuBtn && navigation) {
-
-  menuBtn.addEventListener(
-    "click",
-    () => {
-
-      const isOpen =
-        navigation.classList.toggle(
-          "open"
-        );
-
-      menuBtn.setAttribute(
-        "aria-expanded",
-        isOpen ? "true" : "false"
-      );
-
-      menuBtn.setAttribute(
-        "aria-label",
-        isOpen
-          ? "Close menu"
-          : "Open menu"
-      );
-
-    }
-  );
-
-}
-
-
-/* ==================================================
-   CLOSE MOBILE MENU AFTER CLICK
-================================================== */
-
-document
-  .querySelectorAll(
-    "#navigation a"
-  )
-  .forEach(
-    link => {
-
-      link.addEventListener(
-        "click",
-        () => {
-
-          navigation?.classList.remove(
-            "open"
-          );
-
-          menuBtn?.setAttribute(
-            "aria-expanded",
-            "false"
-          );
-
+        if (window.scrollY > 40) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
         }
-      );
 
-    }
-  );
-
-
-/* ==================================================
-   SMOOTH INTERNAL NAVIGATION
-================================================== */
-
-document
-  .querySelectorAll(
-    'a[href^="#"]'
-  )
-  .forEach(
-    link => {
-
-      link.addEventListener(
-        "click",
-        event => {
-
-          const targetID =
-            link.getAttribute(
-              "href"
-            );
-
-          if (
-            !targetID ||
-            targetID === "#"
-          ) {
-            return;
-          }
-
-          const target =
-            document.querySelector(
-              targetID
-            );
-
-          if (!target) {
-            return;
-          }
-
-          event.preventDefault();
-
-          const headerHeight =
-            header
-              ? header.offsetHeight
-              : 0;
-
-          const position =
-            target.getBoundingClientRect()
-              .top
-            +
-            window.scrollY
-            -
-            headerHeight
-            -
-            8;
-
-          window.scrollTo({
-
-            top: position,
-
-            behavior: "smooth"
-
-          });
-
+        if (window.scrollY > 500) {
+            backTop.classList.add("show");
+        } else {
+            backTop.classList.remove("show");
         }
-      );
-
     }
-  );
+
+    window.addEventListener("scroll", updateHeader);
+
+    updateHeader();
 
 
-/* ==================================================
-   HEADER SCROLL EFFECT
-================================================== */
+    /* ================= MOBILE MENU ================= */
 
-function updateHeader() {
+    menuBtn.addEventListener("click", () => {
 
-  if (!header) {
-    return;
-  }
-
-  if (window.scrollY > 20) {
-
-    header.classList.add(
-      "scrolled"
-    );
-
-  } else {
-
-    header.classList.remove(
-      "scrolled"
-    );
-
-  }
-
-}
-
-window.addEventListener(
-  "scroll",
-  updateHeader,
-  {
-    passive: true
-  }
-);
-
-updateHeader();
-
-
-/* ==================================================
-   SCROLL REVEAL
-================================================== */
-
-const revealElements =
-  document.querySelectorAll(
-    ".reveal"
-  );
-
-
-if (
-  "IntersectionObserver"
-  in window
-) {
-
-  const revealObserver =
-    new IntersectionObserver(
-      entries => {
-
-        entries.forEach(
-          entry => {
-
-            if (
-              entry.isIntersecting
-            ) {
-
-              entry.target.classList.add(
-                "visible"
-              );
-
-              revealObserver.unobserve(
-                entry.target
-              );
-
-            }
-
-          }
-        );
-
-      },
-      {
-        threshold: 0.12
-      }
-    );
-
-
-  revealElements.forEach(
-    element => {
-
-      revealObserver.observe(
-        element
-      );
-
-    }
-  );
-
-} else {
-
-  revealElements.forEach(
-    element => {
-
-      element.classList.add(
-        "visible"
-      );
-
-    }
-  );
-
-}
-
-
-/* ==================================================
-   BACK TO TOP
-================================================== */
-
-const backTop =
-  document.getElementById(
-    "backTop"
-  );
-
-
-function updateBackTop() {
-
-  if (!backTop) {
-    return;
-  }
-
-  if (window.scrollY > 500) {
-
-    backTop.classList.add(
-      "show"
-    );
-
-  } else {
-
-    backTop.classList.remove(
-      "show"
-    );
-
-  }
-
-}
-
-window.addEventListener(
-  "scroll",
-  updateBackTop,
-  {
-    passive: true
-  }
-);
-
-updateBackTop();
-
-
-backTop?.addEventListener(
-  "click",
-  () => {
-
-    window.scrollTo({
-
-      top: 0,
-
-      behavior: "smooth"
+        nav.classList.toggle("active");
 
     });
 
-  }
-);
+
+    /* ================= NAVIGATION ================= */
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const targetId = link.getAttribute("href");
+
+            if (!targetId || targetId === "#") {
+                return;
+            }
+
+            const target = document.querySelector(targetId);
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            nav.classList.remove("active");
+
+            const headerHeight = header.offsetHeight;
+
+            const targetPosition =
+                target.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth"
+            });
+
+        });
+
+    });
 
 
-/* ==================================================
-   FOOTER YEAR
-================================================== */
+    /* ================= CLOSE MOBILE MENU ================= */
 
-const year =
-  document.getElementById(
-    "year"
-  );
+    document.addEventListener("click", event => {
 
-if (year) {
+        const clickedInsideNav =
+            nav.contains(event.target);
 
-  year.textContent =
-    new Date().getFullYear();
+        const clickedMenu =
+            menuBtn.contains(event.target);
 
-}
+        if (!clickedInsideNav && !clickedMenu) {
+            nav.classList.remove("active");
+        }
 
-
-/* ==================================================
-   REVIEW SYSTEM
-================================================== */
-
-const reviewModal =
-  document.getElementById(
-    "reviewModal"
-  );
-
-const openReview =
-  document.getElementById(
-    "openReview"
-  );
-
-const closeReview =
-  document.getElementById(
-    "closeReview"
-  );
-
-const reviewForm =
-  document.getElementById(
-    "reviewForm"
-  );
-
-const reviewGrid =
-  document.getElementById(
-    "reviewGrid"
-  );
-
-const ratingValue =
-  document.getElementById(
-    "ratingValue"
-  );
-
-const ratingButtons =
-  [
-    ...document.querySelectorAll(
-      "#rating button"
-    )
-  ];
-
-const REVIEW_STORAGE_KEY =
-  "brandspire_reviews_final";
+    });
 
 
-let reviews = [];
+    /* ================= REVEAL ANIMATION ================= */
+
+    const revealElements =
+        document.querySelectorAll(".reveal");
 
 
-/* ==================================================
-   LOAD REVIEWS
-================================================== */
+    if ("IntersectionObserver" in window) {
 
-try {
+        const observer =
+            new IntersectionObserver(
+                entries => {
 
-  const savedReviews =
-    localStorage.getItem(
-      REVIEW_STORAGE_KEY
-    );
+                    entries.forEach(entry => {
 
-  if (savedReviews) {
+                        if (entry.isIntersecting) {
 
-    reviews =
-      JSON.parse(
-        savedReviews
-      );
+                            entry.target.classList.add("visible");
 
-  }
+                            observer.unobserve(entry.target);
 
-  if (
-    !Array.isArray(reviews)
-  ) {
+                        }
 
-    reviews = [];
+                    });
 
-  }
-
-} catch {
-
-  reviews = [];
-
-}
+                },
+                {
+                    threshold: 0.12
+                }
+            );
 
 
-/* ==================================================
-   ESCAPE USER CONTENT
-================================================== */
+        revealElements.forEach(element => {
 
-function escapeHTML(value) {
+            observer.observe(element);
 
-  return String(value)
-    .replace(
-      /[&<>"']/g,
-      character => {
+        });
 
-        const characters = {
+    } else {
 
-          "&": "&amp;",
+        revealElements.forEach(element => {
 
-          "<": "&lt;",
+            element.classList.add("visible");
 
-          ">": "&gt;",
+        });
 
-          '"': "&quot;",
-
-          "'": "&#039;"
-
-        };
-
-        return characters[
-          character
-        ];
-
-      }
-    );
-
-}
+    }
 
 
-/* ==================================================
-   RATING
-================================================== */
+    /* ================= BACK TO TOP ================= */
 
-function setRating(value) {
+    backTop.addEventListener("click", () => {
 
-  let rating =
-    Number(value);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
 
-  if (
-    !Number.isFinite(
-      rating
-    )
-  ) {
-
-    rating = 5;
-
-  }
-
-  rating =
-    Math.max(
-      1,
-      Math.min(
-        5,
-        rating
-      )
-    );
+    });
 
 
-  if (ratingValue) {
+    /* ================= YEAR ================= */
 
-    ratingValue.value =
-      rating;
+    const year = document.getElementById("year");
 
-  }
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
 
 
-  ratingButtons.forEach(
-    button => {
+    /* =====================================================
+       REVIEWS
+    ===================================================== */
 
-      const buttonRating =
-        Number(
-          button.dataset.rating
+    const openReview =
+        document.getElementById("openReview");
+
+    const closeReview =
+        document.getElementById("closeReview");
+
+    const reviewModal =
+        document.getElementById("reviewModal");
+
+    const reviewForm =
+        document.getElementById("reviewForm");
+
+    const reviewsGrid =
+        document.getElementById("reviewsGrid");
+
+    const ratingButtons =
+        document.querySelectorAll(
+            ".rating-input button"
         );
 
-      button.classList.toggle(
-        "active",
-        buttonRating <= rating
-      );
+
+    let selectedRating = 5;
+
+
+    /* ================= OPEN REVIEW ================= */
+
+    if (openReview) {
+
+        openReview.addEventListener("click", () => {
+
+            reviewModal.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+
+        });
 
     }
-  );
-
-}
 
 
-ratingButtons.forEach(
-  button => {
+    /* ================= CLOSE REVIEW ================= */
 
-    button.addEventListener(
-      "click",
-      () => {
+    function closeReviewModal() {
 
-        setRating(
-          button.dataset.rating
+        reviewModal.classList.remove("active");
+
+        document.body.style.overflow = "";
+
+    }
+
+
+    if (closeReview) {
+
+        closeReview.addEventListener(
+            "click",
+            closeReviewModal
         );
 
-      }
-    );
-
-  }
-);
-
-
-setRating(5);
-
-
-/* ==================================================
-   CREATE REVIEW CARD
-================================================== */
-
-function createReviewCard(
-  review
-) {
-
-  const card =
-    document.createElement(
-      "article"
-    );
-
-  card.className =
-    "review-card reveal visible";
-
-
-  let rating =
-    Number(
-      review.rating
-    );
-
-  rating =
-    Math.max(
-      1,
-      Math.min(
-        5,
-        rating || 5
-      )
-    );
-
-
-  const fullStars =
-    "★".repeat(
-      rating
-    );
-
-  const emptyStars =
-    "☆".repeat(
-      5 - rating
-    );
-
-
-  card.innerHTML = `
-
-    <div class="stars">
-      ${fullStars}${emptyStars}
-    </div>
-
-    <p>
-      “${escapeHTML(
-        review.text
-      )}”
-    </p>
-
-    <strong>
-      ${escapeHTML(
-        review.name
-      )}
-    </strong>
-
-  `;
-
-
-  return card;
-
-}
-
-
-/* ==================================================
-   DISPLAY SAVED REVIEWS
-================================================== */
-
-reviews.forEach(
-  review => {
-
-    reviewGrid?.appendChild(
-      createReviewCard(
-        review
-      )
-    );
-
-  }
-);
-
-
-/* ==================================================
-   OPEN REVIEW MODAL
-================================================== */
-
-openReview?.addEventListener(
-  "click",
-  () => {
-
-    reviewModal?.classList.add(
-      "open"
-    );
-
-    reviewModal?.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-    document.body.style.overflow =
-      "hidden";
-
-    setTimeout(
-      () => {
-
-        document
-          .getElementById(
-            "reviewName"
-          )
-          ?.focus();
-
-      },
-      100
-    );
-
-  }
-);
-
-
-/* ==================================================
-   CLOSE REVIEW MODAL
-================================================== */
-
-function closeReviewModal() {
-
-  reviewModal?.classList.remove(
-    "open"
-  );
-
-  reviewModal?.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-  document.body.style.overflow =
-    "";
-
-}
-
-
-closeReview?.addEventListener(
-  "click",
-  closeReviewModal
-);
-
-
-/* Click outside */
-
-reviewModal?.addEventListener(
-  "click",
-  event => {
-
-    if (
-      event.target ===
-      reviewModal
-    ) {
-
-      closeReviewModal();
-
     }
 
-  }
-);
 
+    /* ================= RATING ================= */
 
-/* Escape */
+    function updateStars() {
 
-document.addEventListener(
-  "keydown",
-  event => {
+        ratingButtons.forEach(button => {
 
-    if (
-      event.key === "Escape" &&
-      reviewModal?.classList.contains(
-        "open"
-      )
-    ) {
+            const rating =
+                Number(button.dataset.rating);
 
-      closeReviewModal();
+            if (rating <= selectedRating) {
 
-    }
+                button.classList.add("active");
 
-  }
-);
+            } else {
 
+                button.classList.remove("active");
 
-/* ==================================================
-   SUBMIT REVIEW
-================================================== */
+            }
 
-reviewForm?.addEventListener(
-  "submit",
-  event => {
-
-    event.preventDefault();
-
-
-    const nameInput =
-      document.getElementById(
-        "reviewName"
-      );
-
-    const textInput =
-      document.getElementById(
-        "reviewText"
-      );
-
-
-    const name =
-      nameInput.value.trim();
-
-    const text =
-      textInput.value.trim();
-
-    const rating =
-      Number(
-        ratingValue.value
-      ) || 5;
-
-
-    if (!name) {
-
-      nameInput.focus();
-
-      return;
+        });
 
     }
 
 
-    if (!text) {
+    ratingButtons.forEach(button => {
 
-      textInput.focus();
+        button.addEventListener("click", () => {
 
-      return;
+            selectedRating =
+                Number(button.dataset.rating);
 
-    }
+            updateStars();
 
+        });
 
-    const newReview = {
-
-      name: name,
-
-      text: text,
-
-      rating: rating
-
-    };
+    });
 
 
-    reviews.unshift(
-      newReview
-    );
+    updateStars();
 
 
-    /* Save */
+    /* ================= ESC KEY ================= */
 
-    try {
+    document.addEventListener("keydown", event => {
 
-      localStorage.setItem(
-        REVIEW_STORAGE_KEY,
-        JSON.stringify(
-          reviews
-        )
-      );
+        if (event.key === "Escape") {
 
-    } catch {
+            closeReviewModal();
 
-      /* The review still appears
-         even if browser storage
-         is unavailable. */
+        }
 
-    }
+    });
 
 
-    /* Immediately display */
+    /* ================= CLICK OUTSIDE MODAL ================= */
 
-    if (reviewGrid) {
+    if (reviewModal) {
 
-      reviewGrid.prepend(
-        createReviewCard(
-          newReview
-        )
-      );
+        reviewModal.addEventListener("click", event => {
+
+            if (event.target === reviewModal) {
+
+                closeReviewModal();
+
+            }
+
+        });
 
     }
 
 
-    /* Reset form */
+    /* =====================================================
+       LOCAL REVIEW STORAGE
+    ===================================================== */
 
-    reviewForm.reset();
-
-    setRating(5);
-
-    closeReviewModal();
-
-
-    /* Return to testimonials */
-
-    setTimeout(
-      () => {
-
-        document
-          .getElementById(
-            "testimonials"
-          )
-          ?.scrollIntoView({
-
-            behavior: "smooth",
-
-            block: "start"
-
-          });
-
-      },
-      150
-    );
-
-  }
-);
+    const storageKey =
+        "brandspire_reviews_v1";
 
 
-/* ==================================================
-   CLOSE MENU WHEN CLICKING OUTSIDE
-================================================== */
+    function escapeHTML(value) {
 
-document.addEventListener(
-  "click",
-  event => {
-
-    if (
-      !navigation ||
-      !menuBtn
-    ) {
-      return;
-    }
-
-
-    const clickedNavigation =
-      navigation.contains(
-        event.target
-      );
-
-    const clickedMenu =
-      menuBtn.contains(
-        event.target
-      );
-
-
-    if (
-      !clickedNavigation &&
-      !clickedMenu &&
-      navigation.classList.contains(
-        "open"
-      )
-    ) {
-
-      navigation.classList.remove(
-        "open"
-      );
-
-      menuBtn.setAttribute(
-        "aria-expanded",
-        "false"
-      );
+        return String(value)
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
 
     }
 
-  }
-);
+
+    function getReviews() {
+
+        try {
+
+            const saved =
+                localStorage.getItem(storageKey);
+
+            if (!saved) {
+                return [];
+            }
+
+            return JSON.parse(saved);
+
+        } catch {
+
+            return [];
+
+        }
+
+    }
+
+
+    function saveReviews(reviews) {
+
+        localStorage.setItem(
+            storageKey,
+            JSON.stringify(reviews)
+        );
+
+    }
+
+
+    function renderReviews() {
+
+        const reviews =
+            getReviews();
+
+        reviewsGrid.innerHTML = "";
+
+
+        /* Default card */
+
+        if (reviews.length === 0) {
+
+            const defaultCard =
+                document.createElement("article");
+
+            defaultCard.className =
+                "review-card reveal visible";
+
+            defaultCard.innerHTML = `
+
+                <div class="stars">★★★★★</div>
+
+                <p>
+                    "BrandSpire brings creativity and professionalism
+                    together. Looking forward to building great things."
+                </p>
+
+                <div class="review-author">
+
+                    <strong>Client Reviews</strong>
+
+                    <span>
+                        More coming soon
+                    </span>
+
+                </div>
+
+            `;
+
+            reviewsGrid.appendChild(defaultCard);
+
+            return;
+
+        }
+
+
+        /* User reviews */
+
+        reviews.forEach(review => {
+
+            const card =
+                document.createElement("article");
+
+            card.className =
+                "review-card reveal visible";
+
+
+            const stars =
+                "★".repeat(review.rating) +
+                "☆".repeat(5 - review.rating);
+
+
+            card.innerHTML = `
+
+                <div class="stars">
+                    ${stars}
+                </div>
+
+                <p>
+                    "${escapeHTML(review.text)}"
+                </p>
+
+                <div class="review-author">
+
+                    <strong>
+                        ${escapeHTML(review.name)}
+                    </strong>
+
+                    <span>
+                        Verified visitor review
+                    </span>
+
+                </div>
+
+            `;
+
+
+            reviewsGrid.appendChild(card);
+
+        });
+
+    }
+
+
+    /* ================= SUBMIT REVIEW ================= */
+
+    if (reviewForm) {
+
+        reviewForm.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+
+                const name =
+                    document
+                        .getElementById("reviewName")
+                        .value
+                        .trim();
+
+
+                const text =
+                    document
+                        .getElementById("reviewText")
+                        .value
+                        .trim();
+
+
+                if (!name || !text) {
+
+                    return;
+
+                }
+
+
+                const reviews =
+                    getReviews();
+
+
+                reviews.unshift({
+
+                    name: name,
+
+                    rating: selectedRating,
+
+                    text: text,
+
+                    date: new Date().toISOString()
+
+                });
+
+
+                saveReviews(reviews);
+
+
+                renderReviews();
+
+
+                reviewForm.reset();
+
+
+                selectedRating = 5;
+
+                updateStars();
+
+
+                closeReviewModal();
+
+
+                /* Scroll to reviews */
+
+                document
+                    .getElementById("testimonials")
+                    .scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+            }
+        );
+
+    }
+
+
+    renderReviews();
+
+});
